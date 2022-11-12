@@ -1,0 +1,179 @@
+footer: Carsten Wulff 2023
+slidenumbers:true
+autoscale:true
+theme: Plain Jane, 1
+text:  Helvetica
+header:  Helvetica
+
+
+<!--pan_title: ESD  -->
+
+<!--pan_skip: -->
+
+## TFE4188 - Lecture 2
+# ICs and ESD
+
+---
+
+<!--pan_skip: -->
+
+# Goal 
+
+Understand the **real-world** constraints on our IC
+
+Understand why you must **always handle ESD** on an IC
+
+---
+
+<!--pan_skip: -->
+
+#[fit] RPLY
+
+The project for 2023 is to design a integrated temperature sensor. The goal is that some will  tapeout on the Google/Efabless Open MPW shuttle
+
+---
+
+<!--pan_skip: -->
+
+# The **real world** constrains our IC
+
+---
+<!--pan_skip: -->
+
+## **Q:** What blocks must our IC include?
+
+---
+
+---
+<!--pan_skip: -->
+
+#[fit] ESD
+
+---
+
+# Electrostatic Discharge 
+
+If you make an IC, you must consider Electrostatic Discharge (ESD) Protection circuits
+
+<!--pan_doc: 
+
+ESD events are tricky. They are short (ns), high current (Amps) and poorly modeled in the SPICE model. 
+Most SPICE models will not model correctly what happens to an transistor during an ESD event.
+
+But ESD design is a must, you have to think about ESD, otherwise your design will never work. 
+
+Consider a certain ESD specification, for example 1 kV human body model, a requirement for an integrated circuit. 
+By requirement I mean if the 1 kV is not met, then the project will be delayed until it is fixed. If it's not fixed, then the
+project will be infinietly delayed, or in other words, cancelled.
+
+Now imagine it's your responsibility to ensure it meets the 1 kV specification, what would you do? I would recommend you read one
+of the few ESD books in existence, shown below, and rely on you understanding of PN-junctions.
+
+-->
+
+![right 110%](https://media.wiley.com/product_data/coverImage300/18/04714987/0471498718.jpg)
+
+<!--pan_doc: 
+
+The industry has agreed on some common test criteria for electrostatic discharge.
+
+-->
+
+Standards for testing at [JEDEC](https://www.jedec.org/category/technology-focus-area/esd-electrostatic-discharge-0)
+
+---
+
+## When do ESD events occur?
+
+[.column]
+
+__Before or during mounting on PCB__ 
+
+Human body model (HBM)
+
+Charged device model (CDM)
+
+[.column]
+
+__After mounting on PCB__
+
+Human body model (HBM) 
+
+System level ESD 
+
+---
+## Human body model (HBM)
+
+- Models a person touching a device with a finger
+- **Long** duration (around 100 ns)
+- Acts like a current source into a pin
+- Can usually be handled in the I/O ring
+- 4 kV HBM ESD is 2.67 A peak current
+
+![right fit](../media/esd_hbm_finger.pdf)
+
+---
+## An ESD zap example 
+
+Imagine a ESD zap between VSS and VDD. How can we protect the device? 
+
+![inline fit](../media/esd_hbm_model.pdf)
+
+---
+
+
+### **Q:** What could we do for VSS to VDD?
+
+![inline fit](../media/esd_hbm.pdf)
+
+---
+### **Q:** What could we do for VDD to VSS?
+
+![inline fit](../media/esd_hbm.pdf)
+
+---
+### **Q:** What could we do for PIN to VSS?
+
+![inline fit](../media/esd_hbm.pdf)
+
+---
+### **Q:** What could we do for VSS to PIN?
+
+![inline fit](../media/esd_hbm.pdf)
+
+
+
+---
+
+If you don't do the layout right[^3]
+
+[.column]
+
+![fit](../ip/esd_layout.pdf) 
+
+[.column]
+
+![fit ](../ip/esd_damage.pdf)
+
+
+[^3]: [New Ballasting Layout Schemes to Improve ESD Robustness of I/O Buffers in Fully Silicided CMOS Process](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5299049)
+
+---
+
+You must **always handle ESD** on an IC
+
+- Do everything yourself
+- Use libraries from foundry
+- Get help [www.sofics.com](http://www.sofics.com)
+
+---
+
+# **Q:** How does the grounded gate NMOS work?
+
+---
+
+
+#[fit] Thanks!
+
+
+
