@@ -51,7 +51,6 @@ header:  Helvetica
 
 ---
 
-
 ## I would like some of you to tapeout an IC
 
 ![inline](../media/efabless.png)
@@ -152,9 +151,9 @@ The "lectures" will be Q & A's on the topic. If no questions, then I'll ramble o
 | 8    |                      | Winter holiday            |                                                             |
 | 9    | Slides               | Low-power radio recievers | GFSK, QPSK, PSK, QAM, radio blocks                          |
 | 10   | CJM 7.4, CFAS,+DC/DC | Voltage regulation        | LDO, ULP, BUCK, BOOST, PWM, PFM                             |
-| 11   | CJM 19, CFAS         | PLLs                      | Calculation, VCO, PFD, Loop-filter, dividers                |
-| 12   | Paper                | Oscillators               | RC-Oscillators, Crystal oscillators                         |
-| 13   |                      | Q & A                     |                                                             |
+| 11   | Paper                | Oscillators               | RC-Oscillators, Crystal oscillators                         |
+| 12   | CJM 19, CFAS         | PLLs                      | Calculation, VCO, PFD, Loop-filter, dividers                |
+| 13   |                      | Analog SystemVerilog      | analog system verilog behavioral models                     |
 | 14   |                      | Easter                    |                                                             |
 | 15   |                      | Easter                    |                                                             |
 | 16   |                      | Q & A                     |                                                             |

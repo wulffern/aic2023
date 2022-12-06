@@ -10,7 +10,7 @@ header:  Helvetica
 
 <!--pan_skip: -->
 
-## TFE4188 - Lecture 2
+## TFE4188 - Introduction to Lecture 2
 # ICs and ESD
 
 ---
@@ -29,7 +29,7 @@ Understand why you must **always handle ESD** on an IC
 
 #[fit] RPLY
 
-The project for 2023 is to design a integrated temperature sensor. The goal is that some will  tapeout on the Google/Efabless Open MPW shuttle
+The project for 2023 is to design an integrated temperature sensor. The hope is that some will tapeout on the Google/Efabless Open MPW shuttle
 
 ---
 
@@ -42,7 +42,6 @@ The project for 2023 is to design a integrated temperature sensor. The goal is t
 
 ## **Q:** What blocks must our IC include?
 
----
 
 ---
 <!--pan_skip: -->
@@ -87,7 +86,7 @@ Standards for testing at [JEDEC](https://www.jedec.org/category/technology-focus
 
 [.column]
 
-__Before or during mounting on PCB__ 
+__Before/during PCB__ 
 
 Human body model (HBM)
 
@@ -95,7 +94,7 @@ Charged device model (CDM)
 
 [.column]
 
-__After mounting on PCB__
+__After PCB__
 
 Human body model (HBM) 
 
@@ -113,35 +112,36 @@ System level ESD
 ![right fit](../media/esd_hbm_finger.pdf)
 
 ---
-## An ESD zap example 
+# An ESD zap example 
 
-Imagine a ESD zap between VSS and VDD. How can we protect the device? 
+ Imagine a ESD zap between VSS and VDD. How can we protect the device? 
 
-![inline fit](../media/esd_hbm_model.pdf)
+![left fit](../media/esd_hbm_model.pdf)
+
+---
+
+#[fit]  Permutations
+
+![right fit](../media/l02_hbm_overview.pdf)
 
 ---
 
 
-### **Q:** What could we do for VSS to VDD?
-
-![inline fit](../media/esd_hbm.pdf)
+![inline fit](../media/l02_01.pdf)
 
 ---
-### **Q:** What could we do for VDD to VSS?
 
-![inline fit](../media/esd_hbm.pdf)
-
----
-### **Q:** What could we do for PIN to VSS?
-
-![inline fit](../media/esd_hbm.pdf)
+![inline fit](../media/l02_02.pdf)
 
 ---
-### **Q:** What could we do for VSS to PIN?
 
-![inline fit](../media/esd_hbm.pdf)
+![inline fit](../media/l02_all.pdf)
 
+---
 
+![left fit](../media/l02_ggnmos.pdf)
+
+# **Q:** Why does this work?
 
 ---
 
@@ -160,15 +160,19 @@ If you don't do the layout right[^3]
 
 ---
 
+## **Q:** How can current in one place lead to a current somewhere else?
+
+![left fit](../media/l02_latchup.pdf)
+
+
+---
+
 You must **always handle ESD** on an IC
 
 - Do everything yourself
 - Use libraries from foundry
 - Get help [www.sofics.com](http://www.sofics.com)
 
----
-
-# **Q:** How does the grounded gate NMOS work?
 
 ---
 
