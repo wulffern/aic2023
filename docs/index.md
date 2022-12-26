@@ -15,3 +15,6 @@ I use a python script to convert the markdown slides into jekyll posts.
 
 For some of the lectures, I'll upload an introduction video to the [AIC youtube channel](https://www.youtube.com/playlist?list=PLybHXZ9FyEhZ3HT2KPzjY2bmMJupRX2M6)
 
+A tutorial on the tools can be found at [https://wulffern.github.io/rply_ex0_sky130nm/](https://wulffern.github.io/rply_ex0_sky130nm/)
+
+IPs, like digital cells for analog design, transistors, and a 9-bit ADC can be found at [https://wulffern.github.io/aicex/](https://wulffern.github.io/aicex/)
