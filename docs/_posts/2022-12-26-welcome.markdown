@@ -1,0 +1,10 @@
+---
+layout: post
+title: Welcome
+permalink: /welcome/
+---
+
+Welcome to Advanced integrated circuits. Here you'll find my lecture notes, at
+least, as long as I remember to put them up, and that I keep the momentum up
+through the semester.
+

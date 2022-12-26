@@ -4,12 +4,6 @@ title: About
 permalink: /about/
 ---
 
-aicex is a superset of the IPs I'm playing with on skywater 130nm. The intention
-is also to have a framework that can combine multiple IPs in the advanced
-integrated circuits course
-
-
-## About me
 My name is Carsten Wulff and I'm an analog integrated circuit designer, programmer, educator and group
 manager.
 
