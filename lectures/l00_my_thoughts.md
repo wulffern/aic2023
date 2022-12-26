@@ -5,15 +5,27 @@ theme: Plain Jane, 1
 text:  Helvetica
 header:  Helvetica
 
+<!--pan_skip: -->
+
 # My thoughts on analog design 
 
 ---
+
+<!--pan_skip: -->
 [.background-color:#000000]
 [.text: #FFFFFF]
 ![fit](../media/timeline.pdf)
 
 
 ---
+
+<!--pan_title: My thoughts on analog design -->
+
+<!--pan_doc:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5hyL03UheTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+-->
 
 # How I see our roles 
 
@@ -53,9 +65,12 @@ $$ \oint_{\partial \Sigma} \mathbf{B} \cdot d\mathbf{\ell} = \mu_0\left(
 \mathbf{E} \cdot d\mathbf{S} \right)$$
 <sub>Relates induced magnetic field to changing electric flux and to current density</sub>
 
+[^1]: [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations)
+
+<!--pan_skip: -->
 ![right](../media/earth.png)
 
-[^1]: [Maxwell's equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations)
+
 
 ---
 
@@ -75,6 +90,8 @@ $$ n = \int_{E_1}^{E_2}{N(E)f(E)dE}$$
 $$f(E) = \frac{1}{e^{(E_i - E_F)/kT} + 1}$$
 <sub>Relates the average number of fermions in thermal equlilibrium to the
 energy of a single-particle state ([Fermi-Dirac statistics](https://en.wikipedia.org/wiki/Fermi–Dirac_statistics))</sub>
+
+<!--pan_skip: -->
 
 ![left](../media/quantum.png)
 
@@ -97,10 +114,12 @@ $$ 1 = \text{True} $$, $$ 0 = \text{False} $$
 
 All digital processing can be made with the NOT(A AND B) function!
 
+[^4]: [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra)
+
+<!--pan_skip: -->
+
 ![right](../media/zero.png)
 
-
-[^4]: [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra)
 
 ---
 
@@ -117,6 +136,8 @@ All digital processing can be made with the NOT(A AND B) function!
 ---
 
 ### Should we do as much as possible in the abstract digital world? 
+
+<!--pan_skip: -->
 
 ![inline](../media/analog_designer.png) ![right](../media/digital_shoulder.png)
 
@@ -240,6 +261,7 @@ Spend 50% of time for 6 months to **make** the SAR ADCs
 ![inline](../media/harald.pdf)![inline](../media/harald_layout.pdf)
 
 ---
+
 # Since then 
 
 Measured: 28 nm FDSOI, 55 nm 
@@ -421,9 +443,13 @@ Finally, there is an open source port to skywater 130nm!
 
 ---
 
+<!--pan_skip: -->
+
 #[fit] Thanks!
 
 Most pictures by DALL-E
+
+---
 
 
 

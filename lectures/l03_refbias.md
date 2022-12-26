@@ -25,9 +25,11 @@ Introduction to **circuit architectures**
 
 ---
 
-<!--pan_title: References and bias -->
+<!--pan_title: Lecture 3 - References and bias -->
 
 <!--pan_doc:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YV_b-oHR-dQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In our testbenches, and trial schematics, it's common to include voltage sources and current sources. However, the 
 ideal voltage source, or ideal current source does not exist in the real world. There is no such thing.

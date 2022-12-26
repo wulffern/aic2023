@@ -6,7 +6,13 @@ text:  Helvetica
 header:  Helvetica
 
 
-<!--pan_title: ESD  -->
+<!--pan_title: Lecture 2 - IC and ESD  -->
+
+<!--pan_doc:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PqGt_QmVJeo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+-->
 
 <!--pan_skip: -->
 
