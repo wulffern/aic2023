@@ -147,7 +147,7 @@ System level ESD
 
 ![left fit](../media/l02_ggnmos.pdf)
 
-# **Q:** Why does this work?
+## **Q:** Why does this work?
 
 ---
 

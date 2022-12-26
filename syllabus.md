@@ -1,5 +1,10 @@
+---
+layout: page 
+title: Syllabus
+permalink: /syllabus/ 
+---
 
-# TFE4188 - Advanced integrated Circuits Syllabus 2022
+
 
 ## Book: Analog Integrated Circuit Design
 Authors: Carusone, Tony Chan Johns, David Martin, Kenneth [at akademia.no](https://www.akademika.no/analog-integrated-circuit-design/carusone-tony-chan/johns-david/martin-kenneth/9781118092330)

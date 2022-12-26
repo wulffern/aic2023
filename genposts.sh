@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 rm images.txt
+cp syllabus.md docs/syllabus.md
+cp plan.md docs/plan.md
 python3 py/lecture.py post --date 2022-12-03 lectures/l00_my_thoughts.md
 #python3 py/lecture.py post --date 2022-12-13 lectures/l00_analog_paradigm.md
 python3 py/lecture.py post --date 2023-01-01 lectures/l01_need_to_know.md

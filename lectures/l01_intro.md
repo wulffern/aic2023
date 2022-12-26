@@ -12,7 +12,11 @@ header:  Helvetica
 ## TFE4188 - Lecture 1 
 # Advanced Integrated Circuits Introduction
 
-## [Source](https://github.com/wulffern/aic2023/blob/main/lectures/l1_intro.md)
+---
+
+<!--pan_skip: -->
+
+# [https://wulffern.github.io/aic2023](https://wulffern.github.io/aic2023)
 
 ---
 
