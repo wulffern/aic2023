@@ -84,6 +84,7 @@ class Lecture():
             for image in self.images:
                 if(not image.skip):
                     fo.write(image.orgsrc + "\n")
+                    fo.write(image.src +"\n")
                 image.copy()
 
 
