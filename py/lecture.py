@@ -179,9 +179,15 @@ class Lecture():
             ss += f"""---
 layout: post
 title: {self.title}
+math: true
 ---
 
-            """
+""" + """
+
+* TOC
+{:toc }
+
+"""
         for l in self.buffer:
             ss += l
         return ss
