@@ -15,7 +15,13 @@ class Image():
         self.directory = options["dir"]
 
 
-        if(".pdf" in self.src):
+        self.skip = False
+
+        if("/ip/" in self.src):
+            self.skip = True
+
+
+        if(not self.skip and ".pdf" in self.src):
             png = self.src.replace(".pdf",".png")
 
             if(os.path.exists(os.path.join(self.directory,png))):
@@ -31,10 +37,7 @@ class Image():
         self.filesrc = os.path.basename(self.src)
         self.dirsrc  = os.path.dirname(self.src)
 
-        self.skip = False
 
-        if("/ip" in self.dirsrc):
-            self.skip = True
 
 
     def copy(self):
