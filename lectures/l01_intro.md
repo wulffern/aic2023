@@ -343,6 +343,7 @@ The tentative lecture plan is listed below
 
 - Exercises on blackboard now
 - Solutions on blackboard after the deadline
+- *One compulsary exercise: Tutorial*
 - Two options:
   - Don't do the exercises, don't get feedback
   - Do the exercises, hand them in within deadline, get feedback
@@ -352,12 +353,13 @@ The tentative lecture plan is listed below
 
 | Date       | Week | Topic         |
 |------------|------|---------------|
-| 2023-01-20 | 3    | Transistors   |
-| 2023-02-03 | 5    | Bandgap       |
-| 2023-02-17 | 7    | Noise         |
-| 2023-03-03 | 9    | Discrete time |
-| 2023-03-17 | 11   | PLL           |
-| 2023-03-31 | 13   | LDO           |
+| 2023-01-20 | 3    | [Tutorial](https://wulffern.github.io/rply_ex0_sky130nm/tutorial)  |
+| 2023-02-03 | 5    | Transistors   |
+| 2023-02-17 | 7    | Bandgap       |
+| 2023-03-03 | 9    | Noise         |
+| 2023-03-17 | 11   | Discrete time |
+| 2023-03-31 | 13   | PLL           |
+| 2023-04-14 | 15   | LDO           |
 
 ---
 
