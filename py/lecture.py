@@ -219,6 +219,10 @@ def post(filename,root,date):
     with open(fname,"w") as fo:
         fo.write(str(l))
 
+#@click.argument("filename")
+#def marp(filename):
+#    m = Marp()
+
 
 
 if __name__ == "__main__":

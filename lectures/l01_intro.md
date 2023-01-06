@@ -16,7 +16,7 @@ header:  Helvetica
 
 <!--pan_skip: -->
 
-# [https://wulffern.github.io/aic2023](https://wulffern.github.io/aic2023)
+# [https://wulffern.github.io/aic2023](https://wulffern.github.io/aic2023/2023/01/12/Lecture-1-Introduction.html)
 
 ---
 
@@ -343,8 +343,8 @@ The tentative lecture plan is listed below
 
 - Exercises on blackboard now
 - Solutions on blackboard after the deadline
-- *One compulsary exercise: Tutorial*
-- Two options:
+- **One compulsary exercise: Tutorial**
+- For the rest, two options:
   - Don't do the exercises, don't get feedback
   - Do the exercises, hand them in within deadline, get feedback
 - The TA's will only support the exercises in the marked weeks
@@ -369,9 +369,9 @@ The tentative lecture plan is listed below
 
 **Compulsory submission, no exam without submission.**
 
-Minimum: Schematic, and simulation of a temperature sensor in sky130B and a project report
+**Minimum:** Schematic, and simulation of a temperature sensor in sky130B and a project report
 
-Maximum: Tapeout submission to [Google/Efabless Open MPW Shuttle](https://efabless.com/open_shuttle_program). **No report necessary.**
+**Maximum:** Tapeout submission to [Google/Efabless Open MPW Shuttle](https://efabless.com/open_shuttle_program). **No report necessary.**
 
 Do it in groups, or personal, you decide. 
 
@@ -413,7 +413,8 @@ I don't care what you actually write in, I do some of my work in [Markdown](http
 
 Must use `\documentclass[journal,11pt,letterpaper]{IEEEtran}`
 
-Strict page limit for report, max 8 pages (excluding bio and references). More than 8 pages $$\Rightarrow$$ Fail 
+Strict page limit for report, max 8 pages (excluding bio and references). More
+than 8 pages $$\Rightarrow$$ Not approved submission, and no exam. 
 
 ---
 
