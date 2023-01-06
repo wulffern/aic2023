@@ -44,9 +44,86 @@ The project for 2023 is to design an integrated temperature sensor. The hope is 
 # The **real world** constrains our IC
 
 ---
-<!--pan_skip: -->
 
 ## **Q:** What blocks must our IC include?
+
+<!--pan_doc:
+
+## What blocks must our IC include?
+
+First, we need to have an idea of what comes in and out of the temperature
+sensor. Before we have made the temperature sensor, we need to think what the signal interface could be, and we need to learn.
+
+Maybe we read [Kofi Makinwa's overview of temperature sensors](http://ei.ewi.tudelft.nl/docs/TSensor_survey.xls)
+and find one of the latest papers, [A BJT-based CMOS Temperature Sensor with Duty-cycle-modulated Output and ±0.54 °C (3σ) Inaccuracy from -40 °C to 125 °C](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9383810).
+
+At this point, you may struggle to understand the details of the paper, but at least it should be possible to see what comes in and out of the module. 
+What I could find is in the table below, maybe you can find more?
+
+| Pin      | Function       | in/out | Value    | Unit |
+|:---------|:---------------|:-------|:---------|:-----|
+| VDD_3V3  | analog supply  | in     | 3.0      | V    |
+| VDD_1V2  | digital supply | in     | 1.2      | V    |
+| VSS      | ground         | in     | 0        | V    |
+| CLK_1V2  | clock          | in     | 20       | MHz  |
+| RST_1V2  | digital        | out    | 0 or 1.2 | V    |
+| I_C      | bias           | in     | ?        | uA?  |
+| PHI1_1V2 | digital        | out    | 0 or 1.2 | V    |
+| PHI2_1V2 | digital        | out    | 0 or 1.2 | V    |
+| DCM_1V2  | digital        | out    | 0 or 1.2 | V    |
+
+This list contains supplies, clocks, digital outputs, bias currents and a ground. Let me explain what they are.
+
+
+### Supply 
+The temperature sensor has two supplies, one analog (3.3 V) and one digital (1.2 V), which must come from somewhere. 
+
+We're using Skywater, and to use the free tapeouts we must use the [Caravel](https://caravel-harness.readthedocs.io/en/latest/) 
+test chip harness.
+
+That luckily has two supplies. It can be powered externally by up to 5.0 V, and has an external low dropout regulator (LDO) that provides the digital supply (1.8 V).
+See more at [Absolute maximum ratings](https://caravel-harness.readthedocs.io/en/latest/maximum-ratings.html)
+
+### Ground 
+Most ICs have a ground, a pin which is considered 0 V. It may have multiple grounds. Remember that a voltage is only defined between two points, so it's actually 
+not true to talk about a voltage in a node (or on a wire). A voltage is always a differential to something. We've (as in global electronics engineers) have just 
+agreed that it's useful to have a "node" or "wire" we consider 0 V. 
+
+### Clocks 
+Most digital need a clock, and the Caravel provide a 40 MHz clock which should suffice for most things. We could probably just use that clock for 
+our temperature sensor.
+
+### Digital 
+We need to read the digital outputs.  We could either feed those off chip, or use a on chip micro-controller. The Caravel includes options to do both. We could connect digital
+outputs to the logic analyzer, and program the RISC-V to store the readings. Or we could connect the digital output to the I/O and use an instrument in the lab.
+
+### Bias 
+The Caravel does not provide bias currents (that I found), so that is something you will need to make. 
+
+
+### Conclusion
+Even a temperature sensor needs something else on the IC. We need digital input/output, clock generation (PLL, oscillators), bias current generators, and voltage regulators
+(which require a constant reference voltage).
+
+I would claim that any System-On-Chip will always need these blocks!
+
+I want you to pause, take a look at the [course plan](https://wulffern.github.io/aic2023/plan/), and now you might understand why I've selected the topics.
+
+### One more thing
+There is one more function we need when we have digital logic and a power supply. We need a "RESET" system. 
+
+Digital logic has a fundamental assumption 
+that we can separate between a "1" and a "0", which is usually translated to for example 1.8 V (logic 1) and 0 V (logic 0). 
+But if the power supply is at 0 V, before we connect the battery, then that fundamental assumption breaks. 
+
+When we connect the battery, how do we know the fundamental assumption is OK? It's certainly not ok at 30 mV supply. How about 500 mV? or 1.0 V? 
+How would we know?
+
+Most ICs will have a special analog block that can keep the digital logic, bias generators, clock generators, input/output and voltage regulators in a **safe**
+state until the power supply is high enough (for example 1.62 V). 
+
+
+-->
 
 
 ---
