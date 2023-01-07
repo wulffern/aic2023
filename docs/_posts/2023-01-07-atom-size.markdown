@@ -86,7 +86,7 @@ I inserted into the equation for $a_0$, and most of the constants canceled
 
 $$ a_0 = \left[4\pi h^2  \frac{1}{hc}\frac{q^2}{2 \alpha} \right]/m q^2 = \frac{2 \pi }{\alpha  }\frac{h}{mc}$$ 
 
-When computed id $a_0 = 2.089\times 10^{-9}\text{ meter }$
+When computed $a_0 = 2.089\times 10^{-9}\text{ meter }$
 
 **Crap, not the same as Feynman!**
 
