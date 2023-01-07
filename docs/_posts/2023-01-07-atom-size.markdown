@@ -1,0 +1,201 @@
+---
+title: Learning the size of the Hydrogen atom
+layout: post
+---
+
+I enjoy learning, and right now, I'm trying to understand a bit more
+on quantum mechanics. 
+The source I'm using is the [Feynman Lectures of
+Physics](https://www.feynmanlectures.caltech.edu), however, I like reading 
+physical books, and not online.
+
+I was reading a section on "The size of the atom", which, in my physical book, is 
+chapter 2-6 in volume III, and I ran into trouble.
+Let me explain the story.
+
+## "The size of the atom" retold
+
+Feynman's explanation in the book goes roughly like this.
+
+We know that it's impossible to determine both position and momentum 
+of an electron exactly, also known as the [Heisenberg uncertainty
+principle](https://en.wikipedia.org/wiki/Uncertainty_principle)
+
+$$ \Delta x \Delta p \approx h $$
+
+, where $\Delta x$ is the position uncertainty, $\Delta p$ is the momentum
+uncertainty, and $h$ is [Planck
+constant](https://en.wikipedia.org/wiki/Planck_constant#Reduced_Planck_constant).
+
+Take Hydrogen with one proton and one electron. If we assume the distance from nucleus to electron is
+roughly $a \approx \Delta x$  then the momentum is approximately 
+
+$$ p \approx \frac{h}{a}$$
+
+Feynman has a beautiful derivation. The kinetic energy is approximately 
+
+$$ E_k = \frac{1}{2} m v^2 = \frac{p^2}{2 m} = \frac{h^2}{2 m a^2}$$
+
+, where $m$ is the rest mass of the electron.
+
+The potential energy is comes from the electric field between proton and
+electron, and is 
+
+$$ E_p = -\frac{q^2}{4 \pi \epsilon_0 a}$$
+
+, where $\epsilon_0$ is the permittivity in vacuum, and $q$ is the charge of the electron.
+
+As such, the total energy is 
+
+$$ E = E_k + E_p = \frac{h^2}{2 m a^2} -\frac{q^2}{4 \pi \epsilon_0 a}$$
+
+We know that the atom will settle at some $$a$$ and find some sort of energy
+minimum. We can estimate the energy minimum distance $a_0$ by taking the derivative of the
+energy as a function of distance and set the derivative to zero $dE/da = 0$
+
+As a result
+
+$$ \frac{dE}{da} = -\frac{h^2}{m a^3} + \frac{q^2}{4 \pi \epsilon_0 a^2 } = 0$$
+
+Solved for $a$ we get 
+
+$$ a_0 = \frac{h^2 4 \pi \epsilon_0}{ m q^2}$$
+
+In the book, $a_0$ is boldy stated as 
+
+$$ a_0 = 0.528 \times 10^{-10}\text{ meter }$$ 
+
+## The trouble
+
+I wanted to see if I could get the same number for $a$, so I set about inserting
+for the constants[^1].
+
+$$\epsilon_0 = \frac{1}{\mu_0 c^2}$$
+
+, where $c$ is the speed of light, and $\mu_0$ is the permiability in vacuum, which is
+
+$$\mu_0 = \frac{2 \alpha h}{q^2 c}$$
+
+, where $\alpha$ is the fine structure constant.
+
+As a result 
+
+$$\epsilon_0 = \frac{q^2 c}{2 \alpha h c^2} = \frac{q^2 }{2 \alpha h c}$$
+
+
+I inserted into the equation for $a_0$, and most of the constants canceled 
+
+$$ a_0 = \left[h^2 4\pi \frac{q^2}{2 \alpha h c} \right]/m q^2 = \frac{2 \pi h}{\alpha m c}$$ 
+
+When computed I got $a_0 = 2.089\times 10^{-9}\text{ meter }$
+
+Crap, not the same as Feynman!
+
+## Debugging
+
+Of course, initially, I thought I must have done something wrong with the maths,
+so I did the algebra multiple times, but I could not find anything
+wrong.
+
+Not trusting myself, I did a dimensional analysis. 
+
+$h$ is Js, $m$ is  kg, $c$ is m/s, $\alpha$ is dimensionless and 
+J = kg m$^2$/s$^2$
+
+$$ \text{m} = \frac{\text{ kg m}^2/\text{s}^2 \times \text{s}}{\text{kg
+}\text{m/s}} = \text{m}$$
+
+Hmmpf, so the unit was correct. What could I have done wrong!
+
+Next step was guessing, maybe I go the $2\pi$ wrong somehow.
+
+Time for python coding
+```python
+from scipy import constants
+pi = constants.pi
+h = constants.physical_constants["Planck constant"][0]
+alpha = constants.physical_constants["fine-structure constant"][0]
+c = constants.physical_constants["speed of light in vacuum"][0]
+me = constants.physical_constants["electron mass"][0]
+
+a0f = 0.528e-10
+a0 = (2*pi*1/alpha * h/c/me)
+a1 = (1/alpha * h/c/me)
+print("a0f = %g"%a0f)
+print("a0 = %g"%a0)
+print("a1 = %g"%a1)
+print("a1/a0f = %g"%(a1/a0f))
+```
+
+Which gave me 
+```bash
+a0f = 5.28e-11
+a0 = 2.08911e-09
+a1 = 3.32492e-10
+a1/a0f = 6.29719
+````
+
+Eureka! There is a $(1/2\pi)^2$ factor wrong!
+
+Assuming the number from Feynman was 
+correct, the equation should have been
+
+$$ a_0 = \frac{h}{ 2 \pi \alpha m c}$$ 
+
+I was certain I did not do the maths wrong, there was no way 
+I could get right equation from where I started.
+
+## The realization
+
+The starting point from the book was 
+
+![](/aic2023/assets/atomic_size.png)
+
+
+, where $e^2 = q^2/4\pi\epsilon_0$, as such
+
+$$ a = \frac{h^2 4 \pi \epsilon_0}{  m q^2}$$
+
+Maybe there was a mistake in the book? If there was a typo, and it should have been
+
+$$ a = \frac{\hbar^2 4 \pi \epsilon_0}{  m q^2}$$
+
+, where $\hbar = h/2\pi$, then I'd get
+
+$$ a_0 = \left[\frac{h^2}{4\pi^2} 4\pi \frac{q^2}{2 \alpha h c} \right]/m q^2 = \frac{ h}{2 \pi\alpha m c}$$ 
+
+and the world would make sense again. But how could I be certain?
+
+## The confirmation
+
+In "[The size of the
+atom](https://www.feynmanlectures.caltech.edu/III_02.html#Ch2-S4)", which is the
+online version of the lectures the $h$ is corrected to $\hbar$. I did not do
+the maths wrong, the physcial book was wrong (or inaccurate).
+
+
+I'm not going to blame Feynman, and actually, I'm not going to blame anyone. The
+book is written by humans, and humans will always make brain farts which lead to
+errors, that's just the nature of who we are.
+
+As you can't trust any information source 100 %, you need to have some trust in
+your own ability. If you check, and check, and check, and can't find what you
+did wrong, maybe the error is in the source? 
+
+## Warning
+
+You are also human, so even though you've check $\infty$ number of times,
+there is still a finite, non-zero, probability that the error is something you
+did. Don't be arrogant and always assume the error lies with others.
+
+You can have an hypothesis that the error is with others, but you need to find supporting evidence. 
+
+And, since we can only prove an hypothesis false, and not prove it true, we can never be 100 % certain
+of anything, but we can get as close to 100 % as we want.
+
+
+> Errare humanum est, sed perseverare diabolicum
+
+---
+
+[^1]: I expected that the calculation would be quick, maybe a minute. In reality it took me 3 hours to be satisfied (including this write-up)
