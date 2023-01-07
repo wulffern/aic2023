@@ -146,7 +146,7 @@ a1 = 3.32492e-10
 a1/a0f = 6.29719
 ````
 
-Eureka! There is a $(1/2\pi)^2$ factor wrong!
+Eureka! There is a $(1/2\pi)^2$ factor wrong in my $a_0$!
 
 Assuming the number from Feynman was 
 correct, the equation should have been
