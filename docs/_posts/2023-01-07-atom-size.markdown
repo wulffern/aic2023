@@ -4,6 +4,9 @@ layout: post
 permalink: atom
 ---
 
+* TOC
+{:toc }
+
 > Errare humanum est, sed perseverare diabolicum
 
 I enjoy learning, and right now, I'm trying to understand a bit more
