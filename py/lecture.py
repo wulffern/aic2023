@@ -72,7 +72,7 @@ class Lecture():
             "\[\.text.*\]" : "",
             "\[\.table  *\]" : "",
             "\#\s*\[\s*fit\s*\]" : "## ",
-            "^## \*\*Q:\*\*.*$" : "",
+            #"^## \*\*Q:\*\*.*$" : "",
             "^[.table.*]$": "",
             "#(.*) Thanks!" : ""
         }
@@ -179,7 +179,7 @@ class Lecture():
 
             slides = ""
             if("lectures" in self.filename ):
-                slides = "[Slides](" +  self.options["jekyll"] + self.filename.replace("lectures","slides").replace(".md",".html") +")"
+                slides = "[Slides](" +  self.options["jekyll"] + self.filename.replace("lectures","assets/slides").replace(".md",".html") +")"
 
             ss += f"""---
 layout: post
@@ -331,7 +331,7 @@ def slide(filename,root):
         fo.write(str(p))
 
     fhtml = fname.replace(".md",".html")
-    cmd = f"pandoc -t slidy --slide-level 0 -s {fname} -o docs/_site/{fhtml} "
+    cmd = f"pandoc -t slidy --slide-level 0 -s {fname} -o docs/assets/{fhtml} "
     print(cmd)
     os.system(cmd)
 
