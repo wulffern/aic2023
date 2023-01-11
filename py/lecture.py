@@ -59,6 +59,79 @@ class Image():
 
         return self.src
 
+class Presentation():
+
+    def __init__(self,filename,options):
+        self.filename = filename
+        self.title = ""
+        self.options = options
+
+        self.images = list()
+
+        self.filters = {
+            "\[\.background.*\]" : "",
+            "\[\.text.*\]" : "",
+            "\[\.table  *\]" : "",
+            "\#\s*\[\s*fit\s*\]" : "## ",
+            "^[.table.*]$": "",
+            "\!\[[^\]]+\]" : "![]",
+            #"^#":"##",
+            "\[.column\]" : "",
+            #"^---":"#",
+
+        }
+
+        self._read()
+
+    def _read(self):
+
+        self.buffer = list()
+        first = True
+        self.output = False
+        self.skipslide = False
+        self.removeComment = False
+
+        with open(self.filename) as fi:
+            for line in fi:
+
+                if(first and re.search(r"^\s*$",line)):
+                    first = False
+                    self.output = True
+
+
+                if(re.search("^<!--",line)):
+                    self.output = False
+
+                line = self._filterLine(line)
+
+                if(line is not None and self.output):
+                    self.buffer.append(line)
+
+                if(re.search("-->",line)):
+                    self.output = True
+
+
+    def _filterLine(self,line):
+        for r,s in self.filters.items():
+            line = re.sub(r,s,line)
+        return line
+
+    def __str__(self):
+
+        ss = ""
+
+        ss += f"""---
+
+---
+
+""" + """
+
+
+"""
+        for l in self.buffer:
+            ss += l
+        return ss
+
 class Lecture():
 
     def __init__(self,filename,options):
@@ -191,6 +264,7 @@ math: true
 {:toc }
 
 """
+
         for l in self.buffer:
             ss += l
         return ss
@@ -219,9 +293,16 @@ def post(filename,root,date):
     with open(fname,"w") as fo:
         fo.write(str(l))
 
-#@click.argument("filename")
-#def marp(filename):
-#    m = Marp()
+@cli.command()
+@click.argument("filename")
+def slide(filename):
+    options = dict()
+    p = Presentation(filename,options)
+    fname = "slides/" + os.path.basename(filename)
+
+    with open(fname,"w") as fo:
+        fo.write(str(p))
+
 
 
 

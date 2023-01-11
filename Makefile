@@ -2,6 +2,8 @@
 JEKYLL_VERSION=3.8
 SITE=${shell pwd}/docs
 
+.PHONY:  slides
+
 pan:
 	./d2pan
 
@@ -22,3 +24,6 @@ jstart:
 posts:
 	./genposts.sh
 	cd lectures; cat ../images.txt |xargs git add -f
+
+slides:
+	python3 py/lecture.py slide lectures/l01_intro.md
