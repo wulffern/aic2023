@@ -33,20 +33,22 @@ Carsten Wulff [carstenw@ntnu.no](carstenw@ntnu.no)
 
 <!--pan_doc: and I've worked in the integrated circuit industry for the past 20 years. 
 
-I finished my Masters in 2002, and did a Ph.D on analog-to-digital converters and finished in 2008. 
+I finished my Masters in 2002, and did a Ph.D on analog-to-digital converters finished in 2008. 
 
-Since that time I've had a three axis in my work/hobby life
+Since that time, I've had a three axis in my work/hobby life
 - I work at  [Nordic Semiconductor](https://www.nordicsemi.com) where I've been since 2008. The first 7 years I did analog design
-  (ADCs, DC/DCs, GPIO). From 2015 I've been the Wireless group manager that make most
+  (ADCs, DC/DCs, GPIO). From 2015 I've been the Wireless group manager. The Wireless group make most
   of the analog and RF designs for Nordic's short-range products. 
-- I work at [NTNU](https://ntnu.no) where I did a part time postdoc from 2014 - 2017. From 2020 I've working on and teaching [Advanced Integrated
+- I work at [NTNU](https://ntnu.no) where I did a part time postdoc from 2014 - 2017. From 2020 I've been working on and teaching [Advanced Integrated
   Circuits](https://www.ntnu.edu/studies/courses/TFE4188#tab=omEmnet)
 - I have a hobby trying to figure out how to make a new analog circuit design
   paradigm. The one we have today with
   schematic/simulation/layout/verification/simulation is too slow
 
 
-This semester I can be found on B311 on Fridays. I work 100% at Nordic, and 20% at NTNU, so don't expect that I'm available at all times to answer questions. 
+This semester I can be found on B311 on Fridays. 
+I work 100% at Nordic, and 20% at NTNU, so don't expect that I'm available at all times to answer questions. 
+
 
 -->
 
@@ -78,7 +80,8 @@ The market is expected to grow to 1136 billion in 2028.
 
 Integrated circuits enable pretty much all technologies.
 
-I will be dead in approximately 50 years, and will retire in approximately 30 years. Everything I know will be gone (except for the small pices I've left behind in videos or written word)
+I will be dead in approximately 50 years, and will retire in approximately 30 years. 
+Everything I know will be gone (except for the small pices I've left behind in videos or written word)
 
 Someone must take over, and to do that, they need to know most of what I know. 
 
@@ -88,7 +91,7 @@ the stamina, patience, and brain necessary to learn some of the hardest topics i
 > Making integrated circuits (that work reliably) is not rocket science, it's much harder.
 
 In this course we'll mostly focus on analog ICs, because the real world is analog, and all ICs must have some 
-analog components, otherwize they won't work.
+analog components, otherwise they won't work.
 
 -->
 
@@ -103,11 +106,11 @@ analog components, otherwize they won't work.
 
 <!--pan_doc:
 
-The steps to make integrated circuits is sort of split in two. We have a analog flow, and a digital flow. 
+The steps to make integrated circuits is split in two. We have a analog flow, and a digital flow. 
 
 It's rare to find a single human that do both flows well. Ususally people choose, and I think it's based on what they like and their personality.
 
-If you like the world to be ordered, with definite answers, the it's likely that you'll find the digital flow interesting.
+If you like the world to be ordered, with definite answers, then it's likely that you'll find the digital flow interesting.
 
 If you're comfortable with not knowing, and an insatiable desire to understand how the world *really* works at a fundamental level, then 
 it's likely that you'll find analog flow interesting. 
@@ -276,6 +279,7 @@ The TA will be in the "exercise hours", and I also will hopefully join most days
 
 [Description](https://www.ntnu.no/studier/emner/TFE4188#tab=omEmnet) [Time schedule](https://tp.uio.no/ntnu/timeplan/?id=TFE4188&sem=23v&sort=form&type=course)
 
+
 [.column]
 
 ---
@@ -295,13 +299,15 @@ Buy a hardcopy of the book if you don't have that. Don't expect to understand th
 
 ---
 
-<!--pan_doc:
 
-The tentative lecture plan is listed below 
-
--->
 
 # [Plan](https://wulffern.github.io/aic2023/plan/)
+
+<!--pan_doc: 
+
+The updated timeplan is at all times found at [https://wulffern.github.io/aic2023/plan/](https://wulffern.github.io/aic2023/plan/)
+
+ -->
 
 ---
 
@@ -388,7 +394,7 @@ As such, I my current expectation is that most of you will write the report. It 
 
 The report end up in a PDF that is generated with latex and the journal template. 
 
-I don't care what you actually write in, I do some of my work in [Markdown](https://github.com/wulffern/memos/blob/main/2021-07-08_diodes/memo.md) and produce a [PDf](https://github.com/wulffern/memos/blob/main/delivery/2021-07-08_diodes.pdf)
+I don't care what you actually write in, I do some of my work in [Markdown](https://github.com/wulffern/memos/blob/main/2021-07-08_diodes/memo.md) and produce a [PDF](https://github.com/wulffern/memos/blob/main/delivery/2021-07-08_diodes.pdf)
 
 -->
 
