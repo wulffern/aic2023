@@ -7,9 +7,9 @@ permalink: /plan/
 
 | Week | Exercise      | Book                 | Thursday                  | Topics                                                      |
 |------|---------------|----------------------|---------------------------|-------------------------------------------------------------|
-| 2    |               | CJM 1-6              | Introduction              | Info, diodes, transistors                                   |
-| 3    | tutorial      |                      | ICs and their components  | transistors, components, ESD, GGNMOS, Latchup               |
-| 4    | transistors   | CJM 7,8              | Reference and bias        | Diode voltage, Bandgaps, low voltage bandgaps, bias sources |
+| 2    |               | CJM 1-6              | Introduction              | Info, Refresh                                               |
+| 3    | tutorial      |                      | ICs and their components  | Refresh, IC components, ESD, GGNMOS, Latchup                |
+| 4    | transistors   | CJM 7,8              | Reference and bias        | Diode voltage, bandgaps, low voltage bandgaps, bias sources |
 | 5    | bandgap       | CJM 12               | Filters                   | Filter synthesis, Gm-C, Active-RC                           |
 | 6    | noise         | CJM 11-14            | Switched capacitor        | Discrete-Time, Z-domain, Switched capacitor                 |
 | 7    |               | CJM 18               | Oversampling converters   | FOM, Quantization, Oversampling, Noise shaping, Sigma-Delta |
@@ -18,7 +18,7 @@ permalink: /plan/
 | 10   | ldo           |                      | Guest lecture             |                                                             |
 | 11   |               | CJM 19, CFAS         | PLLs                      | Calculation, VCO, PFD, Loop-filter, dividers                |
 | 12   |               | Paper                | Oscillators               | RC-Oscillators, Crystal oscillators                         |
-| 13   | pll           | Slides               | Low-power radio recievers | GFSK, QPSK, PSK, QAM, radio blocks                          |
+| 13   | pll           | Slides               | Low-power radio receivers | GFSK, QPSK, PSK, QAM, radio blocks                          |
 | 14   |               |                      | Analog SystemVerilog      | analog system verilog behavioral models                     |
 | 15   |               |                      | Easter                    |                                                             |
 | 16   |               |                      | Easter                    |                                                             |

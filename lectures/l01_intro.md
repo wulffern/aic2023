@@ -9,14 +9,14 @@ header:  Helvetica
 <!--pan_title: Lecture 1 -  Introduction -->
 
 <!--pan_skip: -->
-## TFE4188 - Lecture 1 
+## [TFE4188 - Lecture 1](https://wulffern.github.io/aic2023/2023/01/12/Lecture-1-Introduction.html) 
 # Advanced Integrated Circuits Introduction
 
 ---
 
 <!--pan_skip: -->
 
-# [https://wulffern.github.io/aic2023](https://wulffern.github.io/aic2023/2023/01/12/Lecture-1-Introduction.html)
+# [https://wulffern.github.io/aic2023](https://wulffern.github.io/aic2023/)
 
 ---
 
@@ -117,7 +117,7 @@ it's likely that you'll find analog flow interesting.
 
 -->
 
-[.column]
+---
 
 ![inline](../media/dig_des.png)
 
@@ -270,18 +270,29 @@ my understanding is wrong, then I'll happily discuss.
 [.column]
 # Plan
 
-## Lectures: Thursday at 08:15 - 10:00 
+**Lectures:**
+Thursday at 08:15 - 10:00
 
 The "lectures" will be Q & A's on the topic. If no questions, then I'll ramble on
 
-## Excerise Hours: Friday at 14:15 - 16:00 
+**Exercise Hours:**
+Friday at 14:15 - 16:00 
 
 The TA will be in the "exercise hours", and I also will hopefully join most days.
 
-[Description](https://www.ntnu.no/studier/emner/TFE4188#tab=omEmnet) [Time schedule](https://tp.uio.no/ntnu/timeplan/?id=TFE4188&sem=23v&sort=form&type=course)
 
+---
 
-[.column]
+## 
+
+- [Description](https://www.ntnu.no/studier/emner/TFE4188#tab=omEmnet)
+
+- [Time schedule](https://tp.uio.no/ntnu/timeplan/?id=TFE4188&sem=23v&sort=form&type=course)
+
+- [Lecture plan](https://wulffern.github.io/aic2023/plan/)
+
+- [Syllabus](https://wulffern.github.io/aic2023/syllabus/)
+
 
 ---
 
@@ -298,23 +309,9 @@ Buy a hardcopy of the book if you don't have that. Don't expect to understand th
 ![inline](../media/cjm.png) ![inline](../media/cfas.png)
 
 
----
-
-
-
-##[fit] [Timeplan](https://wulffern.github.io/aic2023/plan/)
-
-<!--pan_doc: 
-
-The updated timeplan is at all times found at [https://wulffern.github.io/aic2023/plan/](https://wulffern.github.io/aic2023/plan/)
-
- -->
 
 ---
-
-#[fit] Exam
-
----
+## Exam
 
 - May/June 2022?
 - 4 hours
@@ -323,17 +320,15 @@ The updated timeplan is at all times found at [https://wulffern.github.io/aic202
 ---
 <!--pan_skip: -->
 
-#[fit] Time to take responsiblity for your own future 
+#[fit] Time to take responsibility for your own future 
 
 ---
 
-#[fit] Exercises
-
----
+## Exercises
 
 - Exercises on blackboard now
 - Solutions on blackboard after the deadline
-- **One compulsary exercise: Tutorial**
+- **One compulsory exercise: Exercise 0 - Skywater 130nm tutorial**
 - For the rest, two options:
   - Don't do the exercises, don't get feedback
   - Do the exercises, hand them in within deadline, get feedback
@@ -341,20 +336,7 @@ The updated timeplan is at all times found at [https://wulffern.github.io/aic202
 
 ---
 
-| Date       | Week | Topic         |
-|------------|------|---------------|
-| 2023-01-27 | 4    | [Tutorial](https://wulffern.github.io/rply_ex0_sky130nm/tutorial)  |
-| 2023-02-10 | 6    | Transistors   |
-| 2023-02-23 | 8    | Bandgap       |
-| 2023-03-10 | 10    | Noise         |
-| 2023-03-17 | 11   | Discrete time |
-| 2023-03-31 | 13   | PLL           |
-| 2023-04-14 | 15   | LDO           |
-
----
-
 #[fit] Project
-
 ---
 
 **Compulsory submission, no exam without submission.**
