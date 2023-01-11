@@ -234,6 +234,7 @@ Here is some guiding principles that you'll likely forget.
 #[fit] Course
 
 ---
+
 # Goal of lectures
 
 <!--pan_doc: 
