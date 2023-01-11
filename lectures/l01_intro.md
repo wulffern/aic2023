@@ -301,7 +301,7 @@ Buy a hardcopy of the book if you don't have that. Don't expect to understand th
 
 
 
-# [Plan](https://wulffern.github.io/aic2023/plan/)
+##[fit] [Timeplan](https://wulffern.github.io/aic2023/plan/)
 
 <!--pan_doc: 
 
