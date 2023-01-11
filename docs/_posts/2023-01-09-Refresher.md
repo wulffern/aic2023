@@ -165,7 +165,7 @@ Based on these two pieces you could estimate the bandgap of glass.
 
 # 13. Semiconductors
 
-In a silicon the bandgap is lower than an insulator, approximately $E_G = 1.12 eV$$ for silicon.
+In a silicon the bandgap is lower than an insulator, approximately $E_G = 1.12 eV$ for silicon.
 
 At room temperature, that allows a small number of electrons to be excited into the conduction band, leaving behind a "hole" in the valence band.
 
