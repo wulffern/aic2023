@@ -18,7 +18,7 @@ python3 py/lecture.py post --date 2023-02-04 lectures/l04_afe.md
 
 #- Slides
 test -d slides || mkdir slides; 
-test -d docs/slides || mkdir docs/slides; 
+test -d docs/_site/slides || mkdir docs/_site/slides;
 python3 py/lecture.py slide lectures/l01_intro.md
 python3 py/lecture.py slide lectures/l02_esd.md
 python3 py/lecture.py slide lectures/l03_refbias.md
