@@ -177,7 +177,9 @@ class Lecture():
 
         if("jekyll" in self.options):
 
-            slides = self.options["jekyll"] + self.filename.replace("lectures","slides").replace(".md",".html")
+            slides = ""
+            if("lectures" in self.filename ):
+                slides = "[Slides][" +  self.options["jekyll"] + self.filename.replace("lectures","slides").replace(".md",".html") +"]"
 
             ss += f"""---
 layout: post
@@ -185,7 +187,7 @@ title: {self.title}
 math: true
 ---
 
-[Slides]({slides})
+{slides}
 
 """ + """
 

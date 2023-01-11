@@ -185,15 +185,228 @@ $$
 f(E) = \frac{1}{e^{(E - E_F)/kT} + 1}
 $$
 
+If the energy of the state is more than a few kT away from the fermi-level, then
+
+$$
+f(E) \approx e^{(E_F - E)/kT}
+$$
+
 
 # 15. Band diagrams
 
-A [band diagram](https://en.wikipedia.org/wiki/Band_diagram) or energy level diagrams shows the conduction band energy and valence band energy as a function of distance in the material. 
+A [band diagram](https://en.wikipedia.org/wiki/Band_diagram) or energy level
+diagrams shows the conduction band energy and valence band energy as a function
+of distance in the material.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/4/43/Pn-junction_zero_bias.png)
 
+The horizontal axis is the distance, the vertical axis is the energy.
+
+The figure shows a PN-junction 
+
+# 16. Density of electrons/holes 
+
+There are two components needed to determine how many electrons are in the
+conduction band. The density of available states, and the probability of an
+electron to be in that quantum state. 
+
+The probability is the Fermi-Dirac distribution. The density of available states
+is a complicated calculation from the band-structure of silicon. See [Diodes](https://wulffern.github.io/aic2023/2021/07/08/Diodes.html)
+for details.
+
+$$ n_e = \int_{E_C}^{\infty} N(E)f(E) dE$$
+
+The Fermi level is assumed to be independent of energy level, so we can write 
+
+$$ n_e = e^{E_F/kT}  \int_{E_C}^{\infty} N(E) e^{-E/kT}dE$$
+
+for the density of electrons in the conduction band.
 
 
+# 17. Fields 
+
+There are equations that relate electric field, magnetic field, charge density
+and current density to eachother. 
+
+The equations
+
+$$ \oint_{\partial \Omega} \mathbf{E} \cdot d\mathbf{S} = \frac{1}{\epsilon_0} \iiint_{V} \rho
+\cdot dV$$  
+
+,relates net electric flux to net enclosed electric charge
+
+$$ \oint_{\partial \Omega} \mathbf{B} \cdot d\mathbf{S} = 0$$
+
+,relates net magnetic flux to net enclosed magnetic charge
+
+$$ \oint_{\partial \Sigma} \mathbf{E} \cdot d\mathbf{\ell} = - \frac{d}{dt}\iint_\Sigma \mathbf{B}
+\cdot d\mathbf{S}$$
+
+,relates induced electric field to changing magnetic flux
+
+$$ \oint_{\partial \Sigma} \mathbf{B} \cdot d\mathbf{\ell} = \mu_0\left(
+\iint_\Sigma \mathbf{J} \cdot d\mathbf{S} + \epsilon_0 \frac{d}{dt}\iint_\Sigma
+\mathbf{E} \cdot d\mathbf{S} \right)$$
+
+,relates induced magnetic field to changing electric flux and to current
+
+These are the [Maxwell
+Equations](https://en.wikipedia.org/wiki/Maxwell%27s_equations), and are
+non-linear time dependent differential equations. 
+
+Under the best of circumstances they are fantastically hard to solve! But it's
+how the real world works.
+
+The permittivity of free space is defined as 
+
+$$\epsilon_0 = \frac{1}{\mu_0 c^2}$$
+
+, where $c$ is the [speed of light](https://en.wikipedia.org/wiki/Speed_of_light), and $\mu_0$ is the [vacuum permeability](https://en.wikipedia.org/wiki/Vacuum_permeability), which, in [SI units](https://en.wikipedia.org/wiki/International_System_of_Units), is now
+
+$$\mu_0 = \frac{2 \alpha}{q^2}\frac{h}{c}$$ 
+
+, where $\alpha$ is the [fine structure constant](https://en.wikipedia.org/wiki/Fine-structure_constant).
+
+
+# 18. Voltage 
+
+The electric field has units voltage per meter, so the electric field is the
+derivative of the voltage as a function of space.
+
+$$ E = \frac{dV}{dx}$$
+
+
+# 19. Current 
+
+Current has unit $A$ and charge $C$ has unit $As$, so the current is the number
+of charges passing through a volume per second. 
+
+The current density $J$ has units $A/m^2$ and is often used, since we can multiply
+by the surface area of a conductor, if the current density is uniform. 
+
+$$ I  = A \times J $$
+
+# 20. Drift current
+
+Charges in an electric field will give rise to a drift current. 
+
+We know from Newtons laws that force equals mass times acceleration 
+
+$$ \vec{F} = m \vec{a}$$
+
+If we assume a zero, or constant magnetic field, the force on a particle is
+$\vec{F} = q\vec{E}$
+
+The current density is then 
+
+$$ \vec{J} = q\vec{E} \times n \times \mu $$
+
+where $n$ is the charge density, and $\mu$ is the mobility (how easily the
+charges move) and has units [m^2/Vs]
+
+Assuming $E = V/m$, we could write 
+
+$$ J = \frac{C}{m^3}\frac{V/m}\frac{m^2}{Vs} = \frac{C}{s}m^{-2}$$
+
+So multiplying by an area A = B m^2
+
+$$ I = q n \mu B V$$
+
+and we can see that the conductance $G = q n \mu B$, and since $G = 1/R$, where
+R is the resistance, we have
+
+$$ I = G V \Rightarrow V = RI$$
+
+Or [Ohms law](https://en.wikipedia.org/wiki/Ohm%27s_law)
+
+
+# 21. Diffusion current
+
+A difference in charge density will give rise to a diffusion current, and the
+current density is
+
+$$ J = -q D_n \frac{d \rho}{dx}$$
+
+,where $D_n$ is a diffusion constant, and $\rho$ is the charge density.
+
+# 22. Currents in a semiconductor
+
+Both electrons, and holes will contribute to current.
+
+Electrons move in the conduction band, and holes move in the valence band. 
+
+Both holes and electrons can only move if there are available quantum states. 
+
+For example, if the valence band is completely filled (all states filled), then
+there can be no current. 
+
+To compute the total current in a semiconductor one must compute 
+
+$$ I  = I_{n_{drift}} +I_{n_{diffusion}} + I_{p_{drift}}  + I_{p_{diffusion}}$$
+
+where $n$ denotes electrons, and $p$ denote holes.
+
+# 23. Resistors 
+
+We can make resistors with metal and silicon (a semiconductor)
+
+In metal the dominate carrier depends on the metal, but it's usually electrons.
+As such, one can often ignore the hole current.
+
+In a semiconductor the dominant carrier depends on the Fermi level in relation
+to the conduction band and valence band. If the Fermi level is close to the
+valence band the dominant carrier will be holes.
+If the Fermi level is close to the conduction band, the dominant carrier will be
+electrons.
+
+That's why we often talk about "majority carriers" and "minority carriers", both
+are important in semiconductors.
+
+# 24. Capacitors 
+
+A capacitor resists a change in voltage. 
+
+$$ I = C \frac{dV}{dt}$$
+
+and store energy in an electric field between two conductors with an insulator
+between.
+
+# 25. Inductors
+
+An inductor resist a change in current.
+
+$$ V = L \frac{dV}{dt}$$
+
+and store energy in the magnetic fields in a loop of a conductor. 
+
+# 26. Diodes 
+
+See [Diodes](https://wulffern.github.io/aic2023/2021/07/08/Diodes.html) for a
+long explanation. 
+
+Assume we in the silicon lattice introduce a dopant, for example phosphorus with one
+more electron than silicon. Four of the electrons will be in co-valent bonds
+with the silicon lattice, while the last electron is loosely bound to the
+phosphorus atom. We call that a donor.
+
+A donor will shift the Fermi level towards the conduction band, and as such,
+there will be more free electrons, as long as there is sufficient energy to
+break the loose electron bond.
+
+A atom with one less electron, for example Boron, can be introduced in the same
+way, and is called an acceptor.
+
+Most of the charges in a p-type (acceptors) silicon will be holes, while in
+n-type it will be electrons.
+
+The interesting thing happens when p-type and n-type are in contact. Since we've
+shifted the Fermi level of the two silicon types in opposite direction there
+will be an energy difference. That energy difference must be equialized, as
+such, over time, the Fermi level of the two types will align, and a junction
+will form, with few free charges, a depletion region. 
+
+The conduction band and valence band will bend, and we now have a barrier for
+charge transport, a built-in electric field. 
 
 
 
