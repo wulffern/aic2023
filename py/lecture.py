@@ -331,7 +331,7 @@ def slide(filename,root):
         fo.write(str(p))
 
     fhtml = fname.replace(".md",".html")
-    cmd = f"pandoc -t slidy --slide-level 0 -s {fname} -o docs/assets/{fhtml} "
+    cmd = f"pandoc -t slidy --slide-level 1 -s {fname} -o docs/assets/{fhtml} "
     print(cmd)
     os.system(cmd)
 
