@@ -13,8 +13,6 @@ class Image():
         self.orgsrc = imgsrc
         self.options = options
         self.directory = options["dir"]
-
-
         self.skip = False
 
         if("/ip/" in self.src):
@@ -55,90 +53,16 @@ class Image():
         if("jekyll" in self.options):
             path = self.options["jekyll"] + "assets/" + self.filesrc
 
-            return f"![]({path})"
+            return f"![]({path})\n"
 
         return self.src
 
-class Presentation():
-
-    def __init__(self,filename,options):
-        self.filename = filename
-        self.title = ""
-        self.options = options
-
-        self.images = list()
-
-        self.filters = {
-            "\[\.background.*\]" : "",
-            "\[\.text.*\]" : "",
-            "\[\.table  *\]" : "",
-            "\#\s*\[\s*fit\s*\]" : "## ",
-            "^[.table.*]$": "",
-            "\!\[[^\]]+\]" : "![]",
-            "^# ":"## ",
-            "\[.column\]" : "",
-            #"^---":"#",
-
-        }
-
-        self._read()
-
-    def _read(self):
-
-        self.buffer = list()
-        first = True
-        self.output = False
-        self.skipslide = False
-        self.removeComment = False
-
-        with open(self.filename) as fi:
-            for line in fi:
-
-                if(first and re.search(r"^\s*$",line)):
-                    first = False
-                    self.output = True
-
-
-                if(re.search("^<!--",line)):
-                    self.output = False
-
-                line = self._filterLine(line)
-
-                if(line is not None and self.output):
-                    self.buffer.append(line)
-
-                if(re.search("-->",line)):
-                    self.output = True
-
-
-    def _filterLine(self,line):
-        for r,s in self.filters.items():
-            line = re.sub(r,s,line)
-        return line
-
-    def __str__(self):
-
-        ss = ""
-
-        ss += f"""---
-
----
-
-""" + """
-
-
-"""
-        for l in self.buffer:
-            ss += l
-        return ss
-
 class Lecture():
-
+    
     def __init__(self,filename,options):
         self.filename = filename
         self.title = ""
         self.options = options
-
         self.images = list()
 
         self.filters = {
@@ -252,13 +176,20 @@ class Lecture():
         ss = ""
 
         if("jekyll" in self.options):
+
+            slides = self.options["jekyll"] + self.filename.replace("lectures","slides").replace(".md",".html")
+
             ss += f"""---
 layout: post
 title: {self.title}
 math: true
 ---
 
+[Slides]({slides})
+
 """ + """
+
+
 
 * TOC
 {:toc }
@@ -268,6 +199,92 @@ math: true
         for l in self.buffer:
             ss += l
         return ss
+
+class Presentation(Lecture):
+
+    def __init__(self,filename,options):
+        self.filename = filename
+        self.title = filename.replace(".md","")
+        self.options = options
+
+        self.images = list()
+
+        self.filters = {
+            "\[\.background.*\]" : "",
+            "\[\.text.*\]" : "",
+            "\[\.table  *\]" : "",
+            "\#\s*\[\s*fit\s*\]" : "## ",
+            "^[.table.*]$": "",
+            "\!\[[^\]]+\]" : "![]",
+            "^# ":"## ",
+            "\[.column\]" : "",
+            #"^---":"#",
+
+        }
+
+        self._read()
+
+    def _read(self):
+
+        self.buffer = list()
+        first = True
+        self.output = False
+        self.skipslide = False
+        self.removeComment = False
+
+        with open(self.filename) as fi:
+            for line in fi:
+
+                if(first and re.search(r"^\s*$",line)):
+                    first = False
+                    self.output = True
+
+                key = ""
+                val = ""
+                m = re.search(r"<!--pan_([^:]+):(.*)$",line)
+                if(m):
+                    key = m.groups()[0]
+                    val = m.groups()[1]
+
+
+                if(key == "title"):
+                    self.title = val.replace("-->","")
+
+                if(re.search("^<!--",line)):
+                    self.output = False
+
+                line = self._filterLine(line)
+                line = self._convertImage(line)
+
+                if(line is not None and self.output):
+                    self.buffer.append(line)
+
+                if(re.search("-->",line)):
+                    self.output = True
+
+    def __str__(self):
+
+        ss = ""
+
+        ss += f"""---
+title: {self.title}
+output:
+  slidy_presentation:
+    footer: "Copyright (c) 2023, Carsten Wulff"
+    fig_width: 800
+---
+
+""" + """
+
+
+
+
+"""
+        for l in self.buffer:
+            ss += l
+        return ss
+
+
 
     
 
@@ -286,22 +303,35 @@ def post(filename,root,date):
     options = dict()
     options["jekyll"] = root
     options["dir"] = os.path.dirname(filename)
+
+    #- Post
     l = Lecture(filename,options=options)
     l.copyAssets()
     fname = "docs/_posts/" + date +"-"+ l.title.strip().replace(" ","-") + ".markdown"
 
     with open(fname,"w") as fo:
         fo.write(str(l))
+    
+
 
 @cli.command()
 @click.argument("filename")
-def slide(filename):
+@click.option("--root",default="/aic2023/",help="Root of jekyll site")
+def slide(filename,root):
     options = dict()
+    options["jekyll"] = root
+    options["dir"] = os.path.dirname(filename)
     p = Presentation(filename,options)
+    p.copyAssets()
     fname = "slides/" + os.path.basename(filename)
 
     with open(fname,"w") as fo:
         fo.write(str(p))
+
+    fhtml = fname.replace(".md",".html")
+    cmd = f"pandoc -t slidy --slide-level 0 -s {fname} -o docs/{fhtml} "
+    print(cmd)
+    os.system(cmd)
 
 
 

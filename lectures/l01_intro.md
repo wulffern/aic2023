@@ -54,6 +54,7 @@ I work 100% at Nordic, and 20% at NTNU, so don't expect that I'm available at al
 
 ![inline](../media/timeline_black.png)
 
+
 ---
 
 <!--pan_skip: -->
@@ -267,6 +268,7 @@ my understanding is wrong, then I'll happily discuss.
 -->
 
 ---
+
 [.column]
 # Plan
 
@@ -309,8 +311,8 @@ Buy a hardcopy of the book if you don't have that. Don't expect to understand th
 ![inline](../media/cjm.png) ![inline](../media/cfas.png)
 
 
-
 ---
+
 ## Exam
 
 - May/June 2022?
@@ -336,8 +338,7 @@ Buy a hardcopy of the book if you don't have that. Don't expect to understand th
 
 ---
 
-#[fit] Project
----
+## Project
 
 **Compulsory submission, no exam without submission.**
 

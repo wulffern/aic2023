@@ -4,6 +4,8 @@ SITE=${shell pwd}/docs
 
 .PHONY:  slides
 
+FILES = l01_intro
+
 pan:
 	./d2pan
 
@@ -26,4 +28,9 @@ posts:
 	cd lectures; cat ../images.txt |xargs git add -f
 
 slides:
-	python3 py/lecture.py slide lectures/l01_intro.md
+	${foreach f, ${FILES}, ${MAKE} slide FILE=$f; }
+	
+slide:
+	python3 py/lecture.py slide lectures/${FILE}.md
+	pandoc -t slidy --slide-level 0 -s slides/${FILE}.md -o docs/slides/${FILE}.html 
+#	pandoc -t beamer --slide-level 0 -s slides/${FILE}.md -o docs/slides/${FILE}.pdf
