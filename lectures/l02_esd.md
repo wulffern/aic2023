@@ -173,15 +173,17 @@ Standards for testing at [JEDEC](https://www.jedec.org/category/technology-focus
 
 [.column]
 
-__Before/during PCB__ 
+## Before/during PCB 
 
 **Human body model (HBM)**
+
 <!--pan_doc: 
 
 Models a person touching a device with a finger.
 -->
 
 **Charged device model (CDM)**
+
 <!--pan_doc:
 
 > An IC left alone for long enough will equalize the Fermi potential across the whole IC. 
@@ -237,7 +239,7 @@ CDM is tricky, because there are so many details, and it's easy to miss one that
 
 [.column]
 
-__After PCB__
+## After PCB
 
 **Human body model (HBM)** 
 
@@ -266,11 +268,12 @@ We won't go into details on System level ESD, as that is more a PCB type of conc
 ![right fit](../media/esd_hbm_finger.pdf)
 
 ---
+
 # An ESD zap example 
 
  Imagine a ESD zap between VSS and VDD. How can we protect the device? 
  
- <!--pan_doc:
+<!--pan_doc:
 
 The positive current enters the VSS, and leaves via the VDD, so our supplies are flipped up-side down. 
 It's a fair assumption that none of the circuits inside will work as intended.
