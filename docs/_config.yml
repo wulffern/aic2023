@@ -19,7 +19,7 @@ author:
   email: carstenw@ntnu.no
 
 description: >- # this means to ignore newlines until "baseurl:"
-    I want to simplify analog integrated circuit design.
+    I'd love to simplify analog integrated circuit design.
 domain: "wulffern.github.io"
 baseurl: "/aic2023" # the subpath of your site, e.g. /blog
 url: "https://wulffern.github.io" # the base hostname & protocol for your site, e.g. http://example.com
