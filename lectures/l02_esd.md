@@ -145,7 +145,7 @@ model what happens during an ESD event, they are made to model how the transisto
 
 But ESD design is a must, you have to think about ESD, otherwise your IC will never work. 
 
-Consider a certain ESD specification, for example 1 GF human body model, a requirement for an integrated circuit. 
+Consider a certain ESD specification, for example 1 kV human body model, a requirement for an integrated circuit. 
 By requirement I mean if the 1 kV is not met, then the project will be delayed until it is fixed. If it's not fixed, then the
 project will be infinitely delayed, or in other words, canceled.
 
@@ -314,7 +314,7 @@ not affect the normal operation of our IC.
 ---
 
 <!--pan_doc:
-The same is true for in on VSS and out on PIN. Here we can also use a diode. 
+The same is true for current in on VSS and out on PIN. Here we can also use a diode. 
 
 -->
 
@@ -334,7 +334,7 @@ a huge current comes in on VDD, and the VDD voltage shoots up fast, the circuit 
 If the circuit triggers under normal operating condition, when your watching a video on your phone, your battery will 
 drain very fast, and it might even catch fire.
 
-As such, for ESD design engineers, they have a "ESD design window", never the ESD circuit trigger when VDD < normal, but always trigger 
+As such, ESD design engineers have a "ESD design window". Never let the ESD circuit trigger when VDD < normal, but always trigger the ESD circuit 
 before VDD $>$ breakdown of circuit.
 
 A circuit that can sometimes be used, if the ESD design window is not too small, is the Grounded-Gate-NMOS in the figure 
@@ -369,7 +369,7 @@ For silicon the [energy band structure](https://www.iue.tuwien.ac.at/phd/wessner
 to band diagrams that only show the lowest energy conduction band and highest energy valence band. 
 
 Electrons can move freely in the conduction
-band (until they hit something, or scatter), and electrons moving in the valence band act like positive particles, holes. 
+band (until they hit something, or scatter), and electrons moving in the valence band act like positive particles, nicknamed holes. 
 
 How many free charges there are in a band is given by Fermi-Dirac distribution and the density of states (allowed energy levels).
 
@@ -385,9 +385,8 @@ Assume a transistor like the one below. The gate, source and bulk is connected t
 
 ### Avalanche 
 
+The first thing that can happen is that the field in the depletion zone between drain and bulk (1) is large, due to the high voltage on drain, and the thin depletion region. 
 
-
-The first thing that can happen is that the field at (1) is large, due to the high voltage on drain, and the short depletion region. 
 In the substrate (P-) there are mostly holes, but there are also electrons. If an electron diffuses close to the drain region 
 it will be swept across to drain by the high field.
 
@@ -405,8 +404,7 @@ The number of holes in the bulk will be the same as the number of electrons free
 
 ### Forward bias of PN-junction 
 The extra holes underneath the transistor will increase the local potential. If the substrate contact (5) is far away, then the 
-local potential close to the drain source PN-junction (3) might increase enough to forward bias the diode, and we get electrons injected from 
-source.
+local potential close to the source/bulk PN-junction (3) might increase enough to significantly increase the number of electrons injected from source.
 
 Some of the electrons will find a hole, and settle down, while others will diffuse around. If some of the electrons gets 
 close to the drain region, and the field in the depletion zone, they will be accelerated by the drain/bulk field, and can 
@@ -478,9 +476,9 @@ We can draw a cross section of the inverter.
 ### Electron injection
 
 Assume that we have an electron source, for example a pad that is below ground for a bit. This will inject 
-electrons into the substrate/bulk (1) and they will diffuse around. 
+electrons into the substrate/bulk (1) and electrons will diffuse around. 
 
-If some of them comes close to the N-well depletion region (2) they will be swept across by the built-in field.
+If some of the electrons comes close to the N-well depletion region (2) they will be swept across by the built-in field.
 As a result, the potential of the N-well will decrease, and we can forward bias the source or drain junction
 of a PMOS. 
 
@@ -521,9 +519,6 @@ Similar to the GGNMOS, this circuit, a [thyristor](https://en.wikipedia.org/wiki
 If we can trigger the thyristor when the VDD shoots to high, then we can create a good ESD protection circuit. 
 
 See [low-leakage](https://www.sofics.com/features/low-leakage/) ESD for a few examples.
-
-
-![](../media/physics/scr_eh.pdf)
 
 
 
