@@ -1,3 +1,4 @@
 [submodule "memos"]
 	path = memos
 	url = git@github.com:wulffern/memos.git
+	branch = main

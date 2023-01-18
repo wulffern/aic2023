@@ -4,7 +4,6 @@
 rm images.txt
 cp syllabus.md docs/syllabus.md
 cp plan.md docs/plan.md
-#cp memos/2021-07-08_diodes/memo.md docs/_posts/2021-07-08-diodes.md
 python3 py/lecture.py post --date 2021-07-08 memos/2021-07-08_diodes/memo.md
 python3 py/lecture.py post --date 2022-12-03 lectures/l00_my_thoughts.md
 #python3 py/lecture.py post --date 2022-12-13 lectures/l00_analog_paradigm.md
