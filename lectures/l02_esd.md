@@ -16,7 +16,7 @@ header:  Helvetica
 
 <!--pan_skip: -->
 
-## TFE4188 - Introduction to Lecture 2
+## [TFE4188 - Introduction to Lecture 2](https://wulffern.github.io/aic2023/2023/01/19/Lecture-2-IC-and-ESD.html)
 # ICs and ESD
 
 ---
