@@ -13,12 +13,14 @@ python3 py/lecture.py post --date 2023-01-12 lectures/l01_intro.md
 python3 py/lecture.py post --date 2023-01-19 lectures/l02_esd.md
 python3 py/lecture.py post --date 2023-01-26 lectures/l03_refbias.md
 python3 py/lecture.py post --date 2023-02-04 lectures/l04_afe.md
+python3 py/lecture.py post --date 2023-02-04 lectures/l05_sc.md
 
 
 #- Slides
-test -d slides || mkdir slides; 
+test -d slides || mkdir slides;
 test -d docs/assets/slides || mkdir docs/assets/slides;
 python3 py/lecture.py slide lectures/l01_intro.md
 python3 py/lecture.py slide lectures/l02_esd.md
 python3 py/lecture.py slide lectures/l03_refbias.md
 python3 py/lecture.py slide lectures/l04_afe.md
+python3 py/lecture.py slide lectures/l05_sc.md
