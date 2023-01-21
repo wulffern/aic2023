@@ -7,7 +7,7 @@ header:  Helvetica
 
 <!--pan_skip: -->
 
-## TFE4188 - Lecture 5 introduction
+## TFE4188 - Introduction to Lecture 5
 # Switched-Capacitor Circuits
 
 ---
@@ -15,9 +15,9 @@ header:  Helvetica
 
 # Goal
 
-Understand **why** would use switched capacitor circuits
+Understand **why** we would use switched capacitor circuits
 
-Introduction to **discrete-time**, and **switched capacitor** and the **circuits** we need
+Introduction to **discrete-time**, and **switched capacitor principles** and the **circuits** we need
 
 ---
 
@@ -61,7 +61,7 @@ The pole or zero frequency of an Active-RC filter is proportional to the inverse
 product between R and C
 -->
 
-$$\omega_{p|z} \propto \frac{1}{RC}$$
+$$\omega_{p|z} \propto \frac{G}{C} = \frac{1}{RC}$$
 
 <!--pan_doc:
 
@@ -115,8 +115,8 @@ Although active-RC filters are great for linearity and easy to drive, but if we 
 
 ![fit right](../media/l4_gmcbi.pdf)
 
-$$ H(s) = \frac{ s^2\frac{C_X}{C_X + C_B} + s\frac{G_{m5}}{C_X + C_B} + \frac{G_{m2}G_{m4}}{C_A(C_X + C_B)}}
-{s^2 + s\frac{G_{m2}}{C_X + C_B} + \frac{G_{m1}G_{m2}}{C_A(C_X + C_B)} }$$
+$$ H(s) = \frac{\left[ s^2\frac{C_X}{C_X + C_B} + s\frac{G_{m5}}{C_X + C_B} + \frac{G_{m2}G_{m4}}{C_A(C_X + C_B)}\right]}
+{\left[s^2 + s\frac{G_{m2}}{C_X + C_B} + \frac{G_{m1}G_{m2}}{C_A(C_X + C_B)} \right]}$$
 
 <!--pan_doc:
 
@@ -142,7 +142,68 @@ Same as Active-RC, Gm-C need calibration to get accurate pole or zero frequency.
 
 <!--pan_doc:
 
-We can make switches and capacitors behave as a resistor.
+We can make switches and capacitors behave as a resistor. An example of such a
+circuit can be found in 
+
+-->
+
+[A pipelined 5-Msample/s 9-bit analog-to-digital converter](https://ieeexplore.ieee.org/document/1052843)
+
+<!--pan_doc:
+
+Shown in the figure below. You should think of the switched capacitor circuit as 
+similar to a an amplifier with constant gain. We can use two resistors and an opamp 
+to create a similar gain. Imagine we create a circuit without the switches, and 
+with a resistor of $R$ from input to virtual ground, and $4R$ in the feedback. Our Active-R would 
+have a gain of $A = 4$. 
+
+You might not believe it, but the circuit below is almost the same, but we've
+used switched capacitor. The complete amplifier still has a $A = 4$, but not all the time.
+
+The switches disconect the OTA and capacitors for half the time, but for the other half,
+at least for the latter parts of $\phi_2$ the gain is four.
+
+-->
+
+![right fit](../media/lewis.png)
+
+<!--pan_doc: 
+
+The output is only correct for a finite, but periodic, 
+time interval. The circuit is discrete time. As long as all circuits afterwards 
+also have a discrete-time input, then it's fine. An ADC can sample the output from the amplifier
+at the right time, and never notice that the output is shorted to a DC voltage in $\phi_1$
+
+Switched capacitor circuits rely on charge transfer. We charge the capacitor $4C$ to the 
+differential input voltage in $\phi_1$
+
+$$Q_1 = 4 C V_{in}$$
+
+Then we turn off $\phi_1$, which opens all switches. The charge on $4C$ will still be $Q_1$ (except for higher order effects like 
+charge injection from switches).
+
+After a short time (overlap), we turn on $\phi_2$, closing some of the switches.
+The OTA will start to force it's two inputs to be the same, and we short the left side of 
+$4C$. After some time we would have the same voltage on the left side of $4C$ for the
+two capacitors, and another voltage on the left side of the $4C$ capacitors. The two 
+capacitors must now have the same charge, so the difference in charge, or differential charge
+must be zero. 
+
+Physics tell us that charge is conserved, so our differential charge $Q_1$ cannot vanish into thin air.
+The difference in electrons that made $Q_1$ must be somewhere in our circuit.
+
+Assume the designer of the circuit has done a proper job, then the $Q_1$ charge 
+will be found on the feedback capacitors.
+
+We now have a $Q_1$ charge on smaller capacitors, so the differential output voltage must be 
+
+$$Q_1 = 4 C V_{in] = Q_2 = C V_{out}$$
+
+The gain is 
+
+$$A = \frac{V_{out}}{V_{in}} = 4$$
+
+Why would we go to all this trouble to get a gain of 4?
 
 -->
 
@@ -150,30 +211,17 @@ We can make switches and capacitors behave as a resistor.
 
 <!--pan_doc:
 
-These switched capacitor "resistors" can be used in circuits similar to Active-RC filters, 
-and it's possible to get a pole or zero frequency proportional to a the relative size of capacitors. 
-
-This is a fantastic feature, if we make two identical capacitors in our layout, we won't know the absolute size, whether the $C_1$ is 100 fF or 80 fF, but 
+We can use these "switched capacitor resistors"  to get pole or zero frequency or gain proportional to a the relative size of capacitors, which is a 
+fantastic feature. Assume we make two identical capacitors in our layout. We won't know the absolute size of the capacitors on the 
+integrated circuit, whether the $C_1$ is 100 fF or 80 fF, but 
 we can be certain that if $C_1 = 80$ fF, then $C_2 = 80$ fF to a precision of possibly 0.1 %. 
 
-With switched capacitor filters we can accurately set the pole and zero frequency accurately (as long as we have an accurate clock).
-
-SC circuits can achieve high linearity, accurate DC gain, accurate poles, accurate zeros. 
-
-They do have a drawback that they are discrete time circuits, as such, we must treat them with caution, and they will always need 
+With switched capacitor amplfiers we can set an accurate gain, and we can set an accurate pole and zero frequency (as long as we have an accurate clock).
+The switched capacitor circuits do have a drawback, however, they are discrete time circuits.  As such, we must treat them with caution, and they will always need 
 some analog filter before to avoid a phenomena we call aliasing. 
 
 -->
 
-
-## Accurate gain 
-
-## Common mode rejection
-
-[A pipelined 5-Msample/s 9-bit analog-to-digital converter](https://ieeexplore.ieee.org/document/1052843)
-
-
-![right fit](../media/lewis.png)
 
 ---
 
@@ -182,7 +230,7 @@ some analog filter before to avoid a phenomena we call aliasing.
 
 [.column]
 
-Define $$ x_c$$ as a continuous time signal, continuous value signal
+Define $$ x_c$$ as a continuous time, continuous value signal
 
 Define $$ 
 \ell(t) = \begin{cases}
@@ -197,7 +245,7 @@ Define $$ x_s(t) = \sum_{n=-\infty}^{\infty}{x_{sn}(t)}$$
 
 [.column]
 
-A sampled signal of an analog signal you can think of it as an infinite sum of pulse trains where the area under the pulse train is equal to the analog signal. 
+Think of a sampled version of an analog signal as an infinite sum of pulse trains where the area under the pulse train is equal to the analog signal. 
 
 __Why do this?__
 
@@ -223,9 +271,47 @@ or equivalenty
 
 **When you sample a signal, then there will be copies of the input spectrum at every $$ nf_s$$**
 
-However, if you do an FFT of a sampled signal, then all those infinite spectra will fold down between $$ 0 \to f_s/2$$ or $$- f_s/2 \to f_s/2$$ for a complex FFT
+However, if you do an FFT of a sampled signal, then all those infinite spectra will fold down between $$ 0 \to f_{s1}/2$$ or $$- f_{s1}/2 \to f_{s1}/2$$ for a complex FFT
 
 ---
+
+```python 
+#!/usr/bin/env python3
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+#- Create a time vector
+N = 2**13
+t = np.linspace(0,N,N)
+
+#- Create the "continuous time" signal with multiple sinusoidal signals and some noise
+fbin = 10
+fm1 = 1/N*213
+f1 = 1/8 - 1/N
+fd = fm1
+x_s = np.sin(2*np.pi*f1*t) + 0.5*np.sin(2*np.pi*(f1-fd)*t) + 0.5*np.sin(2*np.pi*(f1+fd)*t) + 1/1024*np.random.randn(N)
+
+#- Create the sampling vector, and the sampled signal
+t_s_unit = [1,1, 0,0]
+t_s = np.tile(t_s_unit,int(N/len(t_s_unit)))
+x_sn = x_s*t_s
+
+#- Convert to frequency domain with a hanning window to avoid FFT bin
+#- energy spread
+w = np.hanning(N+1)
+X_s = np.fft.fftshift(np.fft.fft(np.multiply(w[0:N],x_s)))
+X_sn = np.fft.fftshift(np.fft.fft(np.multiply(w[0:N],x_sn)))
+
+
+```
+
+---
+
+![fit](""../media/l5_dtfig.pdf")
+
+---
+
 
 ![fit](../media/l5_sh.pdf)
 
