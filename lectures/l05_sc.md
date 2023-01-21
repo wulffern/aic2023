@@ -1,4 +1,4 @@
-footer: Carsten Wulff 2022
+footer: Carsten Wulff 2023
 slidenumbers:true
 autoscale:true
 theme: Plain Jane, 1
@@ -6,6 +6,9 @@ text:  Helvetica
 header:  Helvetica
 
 <!--pan_skip: -->
+
+
+<!--pan_title: Lecture 5 - Switched-Capacitor Circuits -->
 
 ## TFE4188 - Introduction to Lecture 5
 # Switched-Capacitor Circuits
@@ -68,9 +71,9 @@ $$\omega_{p|z} \propto \frac{G}{C} = \frac{1}{RC}$$
 As a result, the total variation of the pole or zero frequency is can have a 
 3-sigma value of 
 
-$$ \sigma_{RC} = \sqrt{( \sigma_R_^2 + \sigma_C_^2)} = \sqrt{0.02^2 + 0.02^2} = 0.028 = 28 \%$$
+$$ \sigma_{RC} = \sqrt{ \sigma_R^2 + \sigma_C^2 } = \sqrt{0.02^2 + 0.02^2} = 0.028 = 28 \text{ %}$$
 
-On an industrial IC we sometimes need to calibrate the R or C in production 
+On an IC we sometimes need to calibrate the R or C in production 
 to get an accurate RC time constant.
 
 We cannot physically change an IC, every single one of the 100 million copies
@@ -275,12 +278,9 @@ However, if you do an FFT of a sampled signal, then all those infinite spectra w
 
 ---
 
+[dt.py](https://github.com/wulffern/aic2023/blob/main/ex/dt.py)
+
 ```python 
-#!/usr/bin/env python3
-
-import numpy as np
-import matplotlib.pyplot as plt
-
 #- Create a time vector
 N = 2**13
 t = np.linspace(0,N,N)
@@ -293,7 +293,7 @@ fd = fm1
 x_s = np.sin(2*np.pi*f1*t) + 0.5*np.sin(2*np.pi*(f1-fd)*t) + 0.5*np.sin(2*np.pi*(f1+fd)*t) + 1/1024*np.random.randn(N)
 
 #- Create the sampling vector, and the sampled signal
-t_s_unit = [1,1, 0,0]
+t_s_unit = [1,1,0,0]
 t_s = np.tile(t_s_unit,int(N/len(t_s_unit)))
 x_sn = x_s*t_s
 
@@ -302,13 +302,11 @@ x_sn = x_s*t_s
 w = np.hanning(N+1)
 X_s = np.fft.fftshift(np.fft.fft(np.multiply(w[0:N],x_s)))
 X_sn = np.fft.fftshift(np.fft.fft(np.multiply(w[0:N],x_sn)))
-
-
 ```
 
 ---
 
-![fit](""../media/l5_dtfig.pdf")
+![fit](../media/l5_dtfig.pdf)
 
 ---
 
@@ -339,13 +337,15 @@ If you're unfamiliar with the Z-transform, read the book or search [https://en.w
 
 ---
 
-![left fit](../media/l5_sdomain.pdf)
-
 #[fit] Pole-Zero plots
+
+
 
 If you're not comfortable with pole/zero plots, have a look at 
 
 [What does the Laplace Transform really tell us](https://www.youtube.com/watch?v=n2y7n6jw5d0)
+
+![left fit](../media/l5_sdomain.pdf)
 
 ---
 #[fit] Z-domain
@@ -383,13 +383,11 @@ $$ h[n] = \begin{cases} k & \text{if } n < 1 \\ a^{n-1}b + a^n k & \text{if } n 
 
 ---
 
-![left fit](../media/l5_fir.pdf)
-
 # Finite-impulse response(FIR)
 
 $$ H(z) = \frac{1}{3}\sum_{i=0}^2 z^{-1}$$
 
-
+![left fit](../media/l5_fir.pdf)
 
 ---
 
@@ -448,21 +446,6 @@ $$V_o - z^{-1}V_o = \frac{C_1}{C_2}z^{-1}V_i $$
 
 $$ H(z) = \frac{C_1}{C_2}\frac{z^{-1}}{z^{-1} + 1} =
 \frac{C_1}{C_2}\frac{1}{z-1} $$
-
----
-
-![left fit](../media/l5_pzz.pdf)
-
-
-#[fit] $$ H(z) =\frac{C_1}{C_2}\frac{1}{z-1} $$
-
----
-
-#[fit] Noise
-
----
-
-![original fit](../media/l5_noise.pdf)
 
 ---
 
@@ -549,6 +532,10 @@ $$ \sigma^2_{tot} = \sigma_1^2 + \sigma_2^2  $$**
 
 
 #[fit] Example
+
+---
+
+## **Q:** What is the gain?
 
 ---
 
