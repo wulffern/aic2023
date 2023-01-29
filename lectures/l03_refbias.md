@@ -145,7 +145,7 @@ Re-arranging for $V_{BE}$ and inserting for
 From this equation, it looks like the voltage $V_{BE}$ is proportional to temperature
 
 However, it turns out that the $V_{BE}$ decreses with temperature due to the temperature dependence of $I_S$ . 
-If you want to understand why, take a look at [Diodes](https://github.com/wulffern/memos/blob/main/delivery/2021-07-08_diodes.pdf)
+If you want to understand why, take a look at [Diodes](https://analogicus.com/aic2023/2021/07/08/Diodes.html)
 
 The $V_{BE}$ is linear with temperature with a property that if you extraplotate the $V_{BE}$ line to zero Kelvin, then all diode voltages seem to meet at the bandgap voltage of silicon (approx 1.12 V). 
 
