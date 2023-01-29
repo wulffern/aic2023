@@ -14,6 +14,7 @@ python3 py/lecture.py post --date 2023-01-19 lectures/l02_esd.md
 python3 py/lecture.py post --date 2023-01-26 lectures/l03_refbias.md
 python3 py/lecture.py post --date 2023-02-02 lectures/l04_afe.md
 python3 py/lecture.py post --date 2023-02-09 lectures/l05_sc.md
+python3 py/lecture.py post --date 2023-02-16 lectures/l06_adc.md
 
 
 #- Slides
@@ -24,3 +25,4 @@ python3 py/lecture.py slide lectures/l02_esd.md
 python3 py/lecture.py slide lectures/l03_refbias.md
 python3 py/lecture.py slide lectures/l04_afe.md
 python3 py/lecture.py slide lectures/l05_sc.md
+python3 py/lecture.py slide lectures/l06_adc.md
