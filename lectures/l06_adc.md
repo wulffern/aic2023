@@ -14,7 +14,7 @@ header:  Helvetica
 
 ---
 
-# Goal for today
+## Goal for today
 
 Understand **why** there are different ADCs
 
@@ -36,9 +36,9 @@ Introduction to **oversampling** and  **delta-sigma** modulators
 
 $$ FOM_W = \frac{P}{2^B f_s}$$ 
 
-Below $$ 10 fJ/conv.step$$ is good
+Below 10 fJ/conv.step is good
 
-Below $$ 1 fJ/conv.step$$ is extreme
+Below 1 fJ/conv.step is extreme
 
 ---
 
@@ -62,7 +62,7 @@ Calibration](https://ieeexplore.ieee.org/document/9056925)
 
 $$FOM_S = SNDR + 10\log\left(\frac{f_s/2}{P}\right)$$ 
 
-Above $$ 180 dB$$ is extreme
+Above 180 dB is extreme
 
 ---
 
@@ -70,17 +70,16 @@ Above $$ 180 dB$$ is extreme
 
 ---
 
-![left fit](../media/l6_adc.pdf)
+![inline fit](../media/l6_adc.pdf)
 
 ---
 
-![left fit](../media/l6_adc.pdf)
-![right fit](../media/l6_ct.pdf)
+![inline fit](../media/l6_ct.pdf)
 
 ---
 
-![left fit](../media/l6_adc.pdf)
-![right fit](../media/l6_cten.pdf)
+
+![inline fit](../media/l6_cten.pdf)
 
 ---
 
@@ -197,70 +196,51 @@ def oversample(x,OSR):
 
 ---
 
-![left fit](../media/l4_sdloop.pdf)
-
-![right fit](../media/l4_sd.pdf)
+![inline fit](../media/l4_sdloop.pdf)
 
 ---
 
-![left fit](../media/l4_sd.pdf)
-
-![right fit](../media/l6_sdadc.pdf)
+![inline fit](../media/l4_sd.pdf)
 
 ---
 
 ![left fit](../media/l6_sdadc.pdf)
 
 
---
+## Sample domain 
 
---
+$$ y[n] = e[n] + h*(u[n] - y[n])$$
 
+## Z-Domain
 
- $$ y[n] = e[n] + h*(u[n] - y[n])$$
+$$ Y(z) = E(z) + H(z)\left[U(z) - Y(z)\right]$$
 
- $$ Y(z) = E(z) + H(z)\left[U(z) - Y(z)\right]$$
+---
 
- Assume U and E are uncorrelated
+[.column]
+
+## Signal transfer function
+
+Assume U and E are uncorrelated, and E is zero
+
+$$Y = HU - HY $$ 
+
+$$ STF = \frac{Y}{U} = \frac{H}{1 + H} = \frac{1}{1 + \frac{1}{H}}$$
+
+[.column]
+
+## Noise transfer function
+
+Assume U is zero 
  
----
-
-![left fit](../media/l6_sdadc.pdf)
-
-
---
-
---
-
- $$ Y(z) = E(z) + H(z)\left[U(z) - Y(z)\right]$$
-
- Assume $$E = 0$$
-
- $$Y = HU - HY $$ 
-
- $$ STF = \frac{Y}{U} = \frac{H}{1 + H} = \frac{1}{1 + \frac{1}{H}}$$
-
+$$ Y = E + HY \rightarrow NTF = \frac{1}{1 + H}$$
 
 ---
 
-![left fit](../media/l6_sdadc.pdf)
-
---
-
---
-
- $$ Y(z) = E(z) + H(z)\left[U(z) - Y(z)\right]$$
-
- Assume $$U  = 0 $$
- 
- $$ U = 0 \Rightarrow Y = E + HY \rightarrow NTF = \frac{1}{1 + H}$$
-
----
-
-![left fit](../media/l6_sdadc.pdf)
+## Combined transfer function
 
 
-$$Y(Z) = STF(z) U(z) + NTF(z) E(z)$$
+$$Y(z) = STF(z) U(z) + NTF(z) E(z)$$
 
 ---
 
@@ -268,7 +248,6 @@ $$Y(Z) = STF(z) U(z) + NTF(z) E(z)$$
 
 ---
 
-![left fit](../media/l6_sdadc.pdf)
 
 $$H(z) = \frac{1}{z-1}$$
 
@@ -278,20 +257,18 @@ $$NFT = \frac{1}{1 + 1/(z-1)} = \frac{z-1}{z} = 1 - z^{-1}$$
 
 ---
 
-![left fit](../media/l6_sdadc.pdf)
+$$NFT =  1 - z^{-1}$$
 
- $$NFT =  1 - z^{-1}$$
+$$z = e^{sT} \overset{s=j\omega}{\rightarrow}  e^{j\omega T} = e^{j2 \pi f/f_s}$$
 
- $$z = e^{sT} \overset{s=j\omega}{\rightarrow}  e^{j\omega T} = e^{j2 \pi f/f_s}$$
-
- $$NTF(f) = 1- e^{-j2 \pi f/f_s} $$
+$$NTF(f) = 1- e^{-j2 \pi f/f_s} $$
  
- $$ = \frac{e^{j \pi f/f_s} -e^{-j \pi f/f_s}}{2j}\times 2j \times e^{-j\pi f/f_s}$$
+$$ = \frac{e^{j \pi f/f_s} -e^{-j \pi f/f_s}}{2j}\times 2j \times e^{-j\pi f/f_s}$$
  
- $$ = \sin{\frac{\pi f}{f_s}} \times 2j \times e^{-j \pi f/f_s}$$
+$$ = \sin{\frac{\pi f}{f_s}} \times 2j \times e^{-j \pi f/f_s}$$
 
 
- $$|NFT(f)| = \left|2 \sin\left(\frac{\pi f}{f_s}\right)\right|$$
+$$|NFT(f)| = \left|2 \sin\left(\frac{\pi f}{f_s}\right)\right|$$
 
 ---
 
@@ -337,6 +314,6 @@ for n in range(1,M):
 
 
 ---
+
 #[fit] Thanks!
 
----

@@ -4,7 +4,13 @@ SITE=${shell pwd}/docs
 
 .PHONY:  slides
 
-FILES = l01_intro
+FILES = l01_intro \
+	l01_need_to_know \
+	l02_esd \
+	l03_refbias \
+	l04_afe \
+	l05_sc \
+	l06_adc
 
 pan:
 	./d2pan
@@ -29,8 +35,6 @@ posts:
 
 slides:
 	${foreach f, ${FILES}, ${MAKE} slide FILE=$f; }
-	
+
 slide:
-	python3 py/lecture.py slide lectures/${FILE}.md
-	pandoc -t slidy --slide-level 0 -s slides/${FILE}.md -o docs/slides/${FILE}.html 
-#	pandoc -t beamer --slide-level 0 -s slides/${FILE}.md -o docs/slides/${FILE}.pdf
+	python3 py/deckpdf.py lectures/${FILE}.md docs/slides/
