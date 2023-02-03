@@ -20,27 +20,11 @@ class Image():
 
 
         if(not self.skip and ".pdf" in self.src):
-
             #- I've changed to svg, hopefully better images
-
-            #png = self.src.replace(".pdf",".png")
             svg = self.src.replace(".pdf",".svg")
-
             if(not os.path.exists(os.path.join(self.directory,svg))):
-                #print(f"Make SVG {self.src}")
-            #if(True):
-                #- Assume that pdftocairo is installed
                 cmd = f"cd {self.directory}; pdftocairo -svg {self.src} {svg}"
                 os.system(cmd)
-                #if platform == "linux" or platform == "linux2":
-                #    os.system(f"cd {self.directory};gs -dSAFER -r600 -sDEVICE=pngalpha -o {png} {self.src}")
-                #elif platform == "darwin":
-                    #os.system(f"cd {self.directory};sips -s format png {self.src} --resampleHeightWidthMax 800 --out {png}")
-                 #   os.system(f"cd {self.directory}; convert -trim {self.src} {png}")
-                    #print(self.src)
-                    #print(png)
-
-
             self.src = svg
 
         self.filesrc = os.path.basename(self.src)
