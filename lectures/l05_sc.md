@@ -229,6 +229,7 @@ With switched capacitor amplfiers we can set an accurate gain, and we can set an
 The switched capacitor circuits do have a drawback, however, they are discrete time circuits.  As such, we must treat them with caution, and they will always need 
 some analog filter before to avoid a phenomena we call aliasing. 
 
+*Some test text error*
 -->
 
 
