@@ -5,6 +5,7 @@ theme: Plain Jane, 1
 text:  Helvetica
 header:  Helvetica
 
+
 <!--pan_skip: -->
 
 ## TFE4188 - Introduction to Lecture 6
@@ -13,6 +14,12 @@ header:  Helvetica
 <!--pan_title: Lecture 6 - Oversampling and Sigma-Delta ADCs-->
 
 ---
+
+<!--pan_doc:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qt8-HJdfJ0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+-->
 
 ## Goal for today
 
@@ -318,6 +325,17 @@ for n in range(1,M):
 
 ![fit](../media/l6_sd_d1_b1.pdf)
 
+---
+
+[A 56 mW Continuous-Time Quadrature Cascaded Sigma-Delta Modulator With 77 dB DR in a Near Zero-IF
+20 MHz Band](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4381437)
+
+
+![inline](../ip/qt_sd.png)![inline](../ip/qt_sd_response.png)
+
+---
+
+[Analogue-to-digital converter](https://patents.google.com/patent/US8947280B2/en?inventor=carsten+wulff&oq=carsten+wulff)
 
 ---
 
