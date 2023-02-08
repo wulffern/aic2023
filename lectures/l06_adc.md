@@ -129,6 +129,12 @@ $$ A_p = \delta_{p1}2^{n-1} + \sum_{m=1}^\infty{\frac{2}{m\pi}J_p(2m\pi
 
 ---
 
+$$\overline{e_n(t)} = 0 $$
+
+$$\overline{e_n(t)^2} = \frac{\Delta^2}{12}$$
+
+---
+
 $$ SQNR = 10 \log\left(\frac{A^2/2}{\Delta^2/12}\right) = 10 \log\left(\frac{6 A^2}{\Delta^2}\right) $$
 
 $$ \Delta = \frac{2A}{2^B}$$
@@ -153,7 +159,7 @@ $$ SQNR  \approx 6.02 B + 1.76$$
 
 In-band quantization noise at an oversampling ratio (OSR)
 
-$$ \frac{\Delta^2}{12 OSR}$$
+$$ \overline{e_n(t)^2} =\frac{\Delta^2}{12 OSR}$$
 
 $$ SQNR = 10 \log\left(\frac{6 A^2}{\Delta^2/OSR}\right) = 10 \log\left(\frac{6 A^2}{\Delta^2}\right) + 10 \log(OSR)$$
 
@@ -164,7 +170,7 @@ $$ 10 \log(2) \approx 3 dB$$
 $$ 10 \log(4) \approx 6 dB$$
 
 
-**0.5-bit per doubling of OSR**
+0.5-bit per doubling of OSR
 
 ---
 
