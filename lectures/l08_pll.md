@@ -61,7 +61,7 @@ Introduction to **PLLs**
 
 ---
 
-# $$ \phi(t) = 2 \pi \int_0^t f(t) dt$$
+$$ \phi(t) = 2 \pi \int_0^t f(t) dt$$
 
 ---
 
@@ -80,7 +80,7 @@ $$ L(s) = \frac{ K_{osc} K_{pd} K_{lp} H_{lp}(s) }{N s} $$
 
 ---
 
-# $$K_{osc} = 2 \pi\frac{ df}{dV_{cntl}}$$
+$$K_{osc} = 2 \pi\frac{ df}{dV_{cntl}}$$
 
 ![right fit](../media/l10_pll_kvco.pdf)
 
@@ -92,7 +92,7 @@ $$ L(s) = \frac{ K_{osc} K_{pd} K_{lp} H_{lp}(s) }{N s} $$
 --
 --
 
-# $$ K_{pd} = \frac{I_{cp}}{2 \pi} $$
+$$ K_{pd} = \frac{I_{cp}}{2 \pi} $$
 
 [.column]
 
@@ -104,9 +104,10 @@ $$ K_{pd} = \frac{100\text{ nA}}{2 \pi}$$
 
 ---
 
- $$ K_{lp}H_{lp}(s)= K_{lp}\left(\frac{1}{s} + \frac{1}{\omega_z}\right) $$
+ 
+$$ K_{lp}H_{lp}(s)= K_{lp}\left(\frac{1}{s} + \frac{1}{\omega_z}\right) $$
 
- $$ K_{lp}H_{lp}(s) = \frac{1}{s(C_1 + C_2)}\frac{1 + s R C_1}{1 +
+$$ K_{lp}H_{lp}(s) = \frac{1}{s(C_1 + C_2)}\frac{1 + s R C_1}{1 +
 sR\frac{C_1C_2}{C_1 + C_2}}$$
 
 
@@ -116,10 +117,6 @@ sR\frac{C_1C_2}{C_1 + C_2}}$$
 ---
 [.column]
 
---
---
---
---
 
 $$ L(s) = \frac{ K_{osc} K_{pd} K_{lp} H_{lp}(s) }{N s} $$
 
