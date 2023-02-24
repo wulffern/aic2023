@@ -1,4 +1,4 @@
-footer: Carsten Wulff 2022
+footer: Carsten Wulff 2023
 slidenumbers:true
 autoscale:true
 theme:Plain Jane,1
@@ -9,6 +9,12 @@ theme:Plain Jane,1
 # Voltage regulation
 
 <!--pan_title: Lecture 7 - Voltage regulation -->
+
+<!--pan_doc:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GRzz3wxKJGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+-->
 
 ---
 
@@ -39,6 +45,7 @@ Introduction to **switched regulators**
 ---
 
 [.column]
+
 ## Core 
 
 | Node [nm] | Voltage [V] |
@@ -49,7 +56,9 @@ Introduction to **switched regulators**
 | 22        | 0.8         |
 
 [.column]
+
 ## IO 
+
 | Voltage [V]|
 | ----:|
 |5.0|
@@ -98,7 +107,9 @@ Introduction to **switched regulators**
 
 ---
 
-![original fit](../ip/l9_jssc_ldo2.pdf)
+[A Scalable High-Current High-Accuracy Dual-Loop Four-Phase Switching LDO for Microprocessors](https://ieeexplore.ieee.org/document/9639005)
+
+![inline fit](../ip/l9_jssc_ldo2.pdf)
 
 ---
 
@@ -138,7 +149,7 @@ $$V_o(t) = \frac{1}{C} \int{(I_x(t) - I_o(t))}dt$$
 # Pulse width modulation (PWM)
 
 
-[Jupyter PWM BUCK model](https://github.com/wulffern/aic2023/jupyter/buck.ipynb)
+[Jupyter PWM BUCK model](https://github.com/wulffern/aic2023/blob/main/jupyter/buck.ipynb)
 
 ![right fit](../media/l07_buck_pwm_fig.svg)
 
@@ -159,7 +170,7 @@ $$V_o(t) = \frac{1}{C} \int{(I_x(t) - I_o(t))}dt$$
 
 ---
 
-[Jupyter PFM BUCK model](https://github.com/wulffern/aic2023/jupyter/buck_pfm.ipynb)
+[Jupyter PFM BUCK model](https://github.com/wulffern/aic2023/blob/main/jupyter/buck_pfm.ipynb)
 
 ![right fit](../media/l07_buck_pfm_fig.svg)
 
@@ -169,7 +180,9 @@ $$V_o(t) = \frac{1}{C} \int{(I_x(t) - I_o(t))}dt$$
 
 ---
 
-![original fit](../ip/l9_jssc_sw3.pdf)
+[A 10-MHz 2–800-mA 0.5–1.5-V 90% Peak Efficiency Time-Based Buck Converter With Seamless Transition Between PWM/PFM Modes](https://ieeexplore.ieee.org/document/8187654)
+
+![inline fit](../ip/l9_jssc_sw3.pdf)
 
 ---
 
