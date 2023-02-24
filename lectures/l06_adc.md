@@ -337,6 +337,8 @@ for n in range(1,M):
 
 [Analogue-to-digital converter](https://patents.google.com/patent/US8947280B2/en?inventor=carsten+wulff&oq=carsten+wulff)
 
+![inline](../media/l6_patent.pdf)
+
 ---
 
 #[fit] Thanks!
