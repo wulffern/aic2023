@@ -1,0 +1,206 @@
+<?xml version="1.0" standalone="no"?>
+<mlt LC_NUMERIC="C" version="7.13.0" title="Shotcut version 22.11.25" producer="main_bin">
+  <profile description="automatic" width="1920" height="1200" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="8" display_aspect_den="5" frame_rate_num="60" frame_rate_den="1" colorspace="709"/>
+  <chain id="chain0" out="00:34:54.817">
+    <property name="length">00:34:54.833</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/wulff/Dropbox/Mac/Movies/2022-12-03 12-45-54.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2022-12-03T12:20:49</property>
+    <property name="shotcut:hash">8ca2e1550e897417746ac061f3d1c83e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">2022-12-03 12-45-54.mkv</property>
+    <property name="xml">was here</property>
+  </chain>
+  <playlist id="main_bin" title="Shotcut version 22.11.25">
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">0</property>
+    <property name="xml_retain">1</property>
+    <entry producer="chain0" in="00:00:00.000" out="00:34:54.817"/>
+  </playlist>
+  <producer id="black" in="00:00:00.000" out="00:34:41.100">
+    <property name="length">00:34:41.117</property>
+    <property name="eof">pause</property>
+    <property name="resource">0</property>
+    <property name="aspect_ratio">1</property>
+    <property name="mlt_service">color</property>
+    <property name="mlt_image_format">rgba</property>
+    <property name="set.test_audio">0</property>
+  </producer>
+  <playlist id="background">
+    <entry producer="black" in="00:00:00.000" out="00:34:41.100"/>
+  </playlist>
+  <chain id="chain1" out="00:34:54.817">
+    <property name="length">00:34:54.833</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/wulff/Dropbox/Mac/Movies/2022-12-03 12-45-54.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">-1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2022-12-03T12:20:49</property>
+    <property name="shotcut:hash">8ca2e1550e897417746ac061f3d1c83e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">2022-12-03 12-45-54.mkv</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:defaultAudioIndex">1</property>
+    <filter id="filter0" out="00:14:33.750">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:02.150=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:02.167</property>
+    </filter>
+  </chain>
+  <chain id="chain2" out="00:34:54.817">
+    <property name="length">00:34:54.833</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/wulff/Dropbox/Mac/Movies/2022-12-03 12-45-54.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">-1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2022-12-03T12:20:49</property>
+    <property name="shotcut:hash">8ca2e1550e897417746ac061f3d1c83e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">2022-12-03 12-45-54.mkv</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:defaultAudioIndex">1</property>
+  </chain>
+  <playlist id="playlist0">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V1</property>
+    <entry producer="chain1" in="00:00:00.000" out="00:14:33.750"/>
+    <entry producer="chain2" in="00:14:47.483" out="00:34:54.817"/>
+  </playlist>
+  <playlist id="playlist1">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V2</property>
+    <blank length="00:00:00.017"/>
+  </playlist>
+  <chain id="chain3" out="00:34:54.817">
+    <property name="length">00:34:54.833</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/wulff/Dropbox/Mac/Movies/2022-12-03 12-45-54.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2022-12-03T12:20:49</property>
+    <property name="shotcut:hash">8ca2e1550e897417746ac061f3d1c83e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">2022-12-03 12-45-54.mkv</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:defaultAudioIndex">1</property>
+    <filter id="filter1" out="00:14:33.750">
+      <property name="window">75</property>
+      <property name="max_gain">20dB</property>
+      <property name="level">6</property>
+      <property name="mlt_service">volume</property>
+    </filter>
+  </chain>
+  <chain id="chain4" out="00:34:54.817">
+    <property name="length">00:34:54.833</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/wulff/Dropbox/Mac/Movies/2022-12-03 12-45-54.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2022-12-03T12:20:49</property>
+    <property name="shotcut:hash">8ca2e1550e897417746ac061f3d1c83e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">2022-12-03 12-45-54.mkv</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:defaultAudioIndex">1</property>
+    <filter id="filter2" in="00:14:47.483" out="00:34:54.817">
+      <property name="window">75</property>
+      <property name="max_gain">20dB</property>
+      <property name="level">6</property>
+      <property name="mlt_service">volume</property>
+    </filter>
+  </chain>
+  <playlist id="playlist2">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A1</property>
+    <entry producer="chain3" in="00:00:00.000" out="00:14:33.750"/>
+    <entry producer="chain4" in="00:14:47.483" out="00:34:54.817"/>
+  </playlist>
+  <tractor id="tractor0" title="Shotcut version 22.11.25" in="00:00:00.000" out="00:34:41.100">
+    <property name="shotcut">1</property>
+    <property name="shotcut:trackHeight">25</property>
+    <property name="shotcut:scaleFactor">0.980299</property>
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">0</property>
+    <properties name="shotcut:markers">
+      <properties name="0">
+        <property name="text">Marker 1</property>
+        <property name="start">00:14:28.433</property>
+        <property name="end">00:14:28.433</property>
+        <property name="color">#008000</property>
+      </properties>
+      <properties name="1">
+        <property name="text">Marker 2</property>
+        <property name="start">00:14:33.767</property>
+        <property name="end">00:14:33.767</property>
+        <property name="color">#008000</property>
+      </properties>
+      <properties name="2">
+        <property name="text">Marker 3</property>
+        <property name="start">00:14:43.250</property>
+        <property name="end">00:14:43.250</property>
+        <property name="color">#008000</property>
+      </properties>
+    </properties>
+    <track producer="background"/>
+    <track producer="playlist0"/>
+    <track producer="playlist1"/>
+    <track producer="playlist2" hide="video"/>
+    <transition id="transition0">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition1">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="version">0.1</property>
+      <property name="mlt_service">frei0r.cairoblend</property>
+      <property name="threads">0</property>
+      <property name="disable">1</property>
+    </transition>
+    <transition id="transition2">
+      <property name="a_track">0</property>
+      <property name="b_track">2</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition3">
+      <property name="a_track">1</property>
+      <property name="b_track">2</property>
+      <property name="version">0.1</property>
+      <property name="mlt_service">frei0r.cairoblend</property>
+      <property name="threads">0</property>
+      <property name="disable">0</property>
+    </transition>
+    <transition id="transition4">
+      <property name="a_track">0</property>
+      <property name="b_track">3</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+  </tractor>
+</mlt>

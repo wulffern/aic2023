@@ -51,14 +51,13 @@ kramdown:
   mathjax: true
 
 
-remote_theme: jekyll/minima
+remote_theme: wulffern/minima
 plugins:
   - jekyll-feed
   - jemoji
   - jekyll-seo-tag
   - jekyll-remote-theme
   - jekyll-paginate
-
 
 
 # Exclude from processing.

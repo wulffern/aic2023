@@ -1,0 +1,21 @@
+#+TITLE: TFE4188 - AIC2022
+
+
+* DONE Fix ieeexplore video
+* DONE Add link to OCW and Berkeley analog integrated circuit lectures
+* DONE Add bult paper
+* [X] Understand the figure 35, the bult current divider
+* DONE Reference to blackboard https://www.trademarkelite.com/patent/patent-detail/15572952/20180143659/0
+
+* DONE To next week - Add Project video
+ Choose what circuit you want to do
+
+* 2022-01-24
+** DONE Record video on Lecture 3
+** KILL Check size of SUN_BIAS
+** DONE Explain verilogA
+
+* 2022-03-28
+** DONE Blackboard message
+** DONE techfile is wrong
+**
