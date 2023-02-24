@@ -10,13 +10,12 @@ theme:Plain Jane,1
 
 <!--pan_title: Lecture 7 - Voltage regulation -->
 
+---
 <!--pan_doc:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GRzz3wxKJGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 -->
-
----
 
 # Goal
 
