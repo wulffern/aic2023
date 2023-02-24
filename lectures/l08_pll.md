@@ -6,6 +6,9 @@ theme:Plain Jane,1
 # TFE4188 - Introduction to Lecture 8
 # Clocks and PLLs
 
+<!--pan_title: Lecture 8 - Clocks and PLLs -->
+
+
 ---
 
 # Goal
