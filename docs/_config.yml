@@ -47,6 +47,9 @@ minima:
 # Build settings
 markdown: kramdown
 
+kramdown:
+  mathjax: true
+
 
 remote_theme: jekyll/minima
 plugins:
