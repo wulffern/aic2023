@@ -11,7 +11,7 @@ header:  Helvetica
 ## TFE4188 - Introduction to Lecture 6
 # Oversampling and Sigma-Delta ADCs
 
-<!--pan_title: Lecture 6 - Oversampling and Sigma-Delta ADCs-->
+<!--pan_title: Lecture 6 - Oversampling and Sigma-Delta ADCs -->
 
 ---
 
