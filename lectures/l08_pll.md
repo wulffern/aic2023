@@ -3,13 +3,22 @@ slidenumbers:true
 autoscale:true
 theme:Plain Jane,1
 
-# TFE4188 - Introduction to Lecture 8
+<!--pan_skip: -->
+
+## TFE4188 - Introduction to Lecture 8
 # Clocks and PLLs
 
 <!--pan_title: Lecture 8 - Clocks and PLLs -->
 
 
 ---
+
+<!--pan_doc:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vahp2tsGWIQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+-->
+
 
 # Goal
 
@@ -23,7 +32,17 @@ Introduction to **PLLs**
 
 ---
 
-![fit](../media/l10_dk.pdf)
+1. 32 MHz crystal
+
+2. 32 KiHz crystal
+
+3. In PCB antenna
+
+4. DC/DC inductor 
+
+
+![left](../media/l10_dk.pdf)
+
 
 ---
 
@@ -47,10 +66,6 @@ Introduction to **PLLs**
 
 ---
 
-## [SUN\_PLL\_SKY130NM](https://github.com/wulffern/sun_pll_sky130nm)
-
----
-
 ![fit](../media/l08_sun_pll.pdf)
 
 ---
@@ -66,9 +81,10 @@ $$ \phi(t) = 2 \pi \int_0^t f(t) dt$$
 ---
 
 
-![fit](../media/l10_pll_sm.pdf)
+![left fit](../media/l10_pll_sm.pdf)
 
----
+# PLLs are assumed to be linear in phase
+
 
 $$ \frac{\phi_d}{\phi_{in}} = \frac{1}{1 + L(s)}$$ 
 
@@ -76,33 +92,35 @@ $$ \frac{\phi_d}{\phi_{in}} = \frac{1}{1 + L(s)}$$
 $$ L(s) = \frac{ K_{osc} K_{pd} K_{lp} H_{lp}(s) }{N s} $$
 
 
-![left fit](../media/l10_pll_sm.pdf)
 
 ---
+
+# Voltage controlled oscillator
 
 $$K_{osc} = 2 \pi\frac{ df}{dV_{cntl}}$$
 
-![right fit](../media/l10_pll_kvco.pdf)
+![right fit](../media/SUN_PLL_ROSC.pdf)
 
 ---
 
-[.column]
+## [SUN\_PLL\_SKY130NM/sim/ROSC/](https://github.com/wulffern/sun_pll_sky130nm/tree/main/sim/ROSC)
 
---
---
---
+![right fit](../media/SUN_PLL_ROSC_KVCO.pdf)
+
+---
+
+# Phase detector and charge pump
+
+
 
 $$ K_{pd} = \frac{I_{cp}}{2 \pi} $$
 
-[.column]
 
---
---
---
-
-$$ K_{pd} = \frac{100\text{ nA}}{2 \pi}$$
+![right fit](../media/SUN_PLL_CP.pdf)
 
 ---
+
+# Loop filter
 
  
 $$ K_{lp}H_{lp}(s)= K_{lp}\left(\frac{1}{s} + \frac{1}{\omega_z}\right) $$
@@ -112,49 +130,33 @@ sR\frac{C_1C_2}{C_1 + C_2}}$$
 
 
 
-![right fit](../media/l10_lpf.pdf)
+![right fit](../media/SUN_PLL_LP.pdf)
+
+---
+
+# Divider 
+
+$$ K_{div} = \frac{1}{N}$$
+
+
+![right fit](../media/SUN_PLL_DIV.pdf)
+
 
 ---
 [.column]
 
+
+## Loop function
 
 $$ L(s) = \frac{ K_{osc} K_{pd} K_{lp} H_{lp}(s) }{N s} $$
 
 [.column]
 
 
+## Python model
+
 [sun\_pll\_sky130nm/py/pll.py](https://github.com/wulffern/sun_pll_sky130nm/blob/main/py/pll.py)
 
-```python
-#- Loop Model
-f = np.logspace(-4,10)
-
-s = 1j*2*np.pi*f
-
-#- See sim/RCOSC
-Kvco = 2*np.pi*1.6e9
-
-#- Current divided by 2 pi
-Kpd = 1e-6/(2*np.pi)
-
-R = 32e3*5
-C1 = 6.024e-12
-C2 = 0.33e-12
-
-Klp = 1/C1
-
-N = 32
-
-wpll = np.sqrt(Kpd*Klp*Kvco/N)
-wz = 1/(R*C1)
-w3db = wpll**2/wz
-
-Q = wz/wpll
-
-KlpHlp = 1/np.multiply((C1 + C2),s)* \
-    (1 + np.multiply(s,(R*C1)))/(1 + np.multiply(s,R*(C1*C2)/(C1 + C2)))
-
-```
 ---
 
 ![fit](../media/pll.pdf)
@@ -162,6 +164,10 @@ KlpHlp = 1/np.multiply((C1 + C2),s)* \
 ---
 
 ![fit](../media/tran_SchGtKttTtVt.pdf)
+
+---
+
+## [SUN\_PLL\_SKY130NM](https://github.com/wulffern/sun_pll_sky130nm)
 
 ---
 
