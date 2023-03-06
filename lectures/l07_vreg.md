@@ -200,9 +200,17 @@ regulators there are on an IC. The picture below is from nRF5340
 
 ---
 
+<!--pan_skip: -->
+
 #[fit] Linear Regulators
 
 ---
+
+<!--pan_doc:
+
+# Linear Regulators
+
+-->
 
 ## PMOS pass-fet
 
@@ -274,11 +282,15 @@ will be amplified input voltage, and may cause issues for others using the input
 
 ---
 
+<!--pan_skip:-->
+
 #[fit] Switched Regulators
 
 ---
 
 <!--pan_doc:
+
+# Switched Regulators
 
 For linear regulators have the same current in the load, as in the input voltage. The power efficiency is thus naturally bad for a linear regulator.
 A linear regulator with a 5 V input voltage, and 1 V output voltage will have a maximum power efficiency of 20 \% (1/5). 80 \% of the power is wasted in the pass-fet as heat.
@@ -296,7 +308,7 @@ For increased power efficiency, we must use switched regulators.
 
 ---
 
-# Inductive DC/DC converters
+## Inductive DC/DC converters
 
 ---
 
@@ -310,7 +322,7 @@ $$V_o(t) = \frac{1}{C} \int{(I_x(t) - I_o(t))}dt$$
 
 ---
 
-# Pulse width modulation (PWM)
+## Pulse width modulation (PWM)
 
 
 [Jupyter PWM BUCK model](https://github.com/wulffern/aic2023/blob/main/jupyter/buck.ipynb)
