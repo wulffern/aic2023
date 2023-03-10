@@ -40,9 +40,9 @@ Introduction to **PLLs**
 
 # Why clocks?
 
-Virtually all integrated circuts have some form of clock system.
+Virtually all integrated circuits have some form of clock system.
 
-For digital we need clocks to tell us when the data is correct. For Radio's we need clocks to generated the carrier wave. For analog we need 
+For digital we need clocks to tell us when the data is correct. For Radio's we need clocks to generate the carrier wave. For analog we need 
 clocks for switched regulators, ADCs, accurate delay's or indeed, long delays. 
 
 The principle of a clock is simple. Make a 1-bit digital signal that toggles with a period $T$ and a frequency $f = 1/T$.
@@ -63,10 +63,10 @@ Take an example.
 
 ### Imagine a world 
 
-> "I have a customer that needs an accurate clock to count seconds". Some manager that talked to a customer, but don't understand details.
+> "I have a customer that needs an accurate clock to count seconds". -- Some manager that talked to a customer, but don't understand details.
 
 As a designer, I might latch on to the word "accurate clock", and translate into "most accurate clock in the world", then I'd google up on atomic clocks, like 
-[Rubidium standard](https://en.wikipedia.org/wiki/Rubidium_standard) that I know is based on the hyperfine transition of electrons in rubidium-87. 
+[Rubidium standard](https://en.wikipedia.org/wiki/Rubidium_standard) that I know is based on the hyperfine transition of electrons between two energy levels in rubidium-87. 
 
 I know from quantum mechanics that the hyperfine transition between two energy levels will produce an precise frequency, as the frequency of the 
 photons transmitted is defined by $E = \hbar \omega = h f$. 
@@ -74,7 +74,7 @@ photons transmitted is defined by $E = \hbar \omega = h f$.
 I also know that quantum electro dynamics is the most precise theory in 
 physics, so we know what's going on. 
 
-I also know that as long as the Rubidium crystal is clean (few energy states in the vicinity of the hyperfine transition), the distance between atoms stay constant, the temperature 
+I know that as long as the Rubidium crystal is clean (few energy states in the vicinity of the hyperfine transition), the distance between atoms stay constant, the temperature 
 does not drift too much, then the frequency will be precise. So I buy a [rubidium oscillator](https://www2.mouser.com/ProductDetail/IQD/LFRBXO059244Bulk?qs=iw0hurA%2FaD0K8weKx%2Fu2ow%3D%3D) at 
 a cost of \$ 3k.
 
@@ -89,6 +89,8 @@ Where I would respond.
 
 > "What you're asking is physically impossible. We can't make the device that cheap, or that small. Nobody can do that."
 
+And both my manager and I would be correct.
+
 ### Imagine a better world
 
 Most people in this world have no idea how things work. Very few people are able to understand the full stack. Everyone of us must
@@ -98,19 +100,15 @@ When someone says
 
 > " I have a customer that needs an accurate clock to count seconds"
 
-Your response should be.
-
-Why does the customer need an accurate clock? How accurate? What is the customer going to use the clock for? 
-
-Unless you understand the details of the problem, then your design will be sub-optimal. It might be a great clock source, but it will be useless for 
+Your response should be. Why does the customer need an accurate clock? How accurate? What is the customer going to use the clock for? Unless you understand the details of the problem, then your design will be sub-optimal. It might be a great clock source, but it will be useless for 
 solving the problem.
 
 ## Frequency
 
-The frequency of the clock is the frequency of the fundamental. If it's a digital clock (1-bit) with 50 \% duty-cycle, then we know that a digital 
+The frequency of the clock is the frequency of the fundamental. If it's a digital clock (1-bit) with 50 % duty-cycle, then we know that a digital 
 pulse train is an infinite sum of odd-harmnoics, where the fundamental is given by the period of the train. 
 
-You must know whether you need 1 kHz, or 10 GHz.
+You must know whether you need 1 kHz, or 10 GHz frequency.
 
 ## Noise 
 
@@ -119,11 +117,11 @@ will change in the future, so a time-domain change in the amount of cycle-to-cyc
 function of time scales. For example, a clock might have fast period changes over short time spans, but if we average over a year, the period is stable.
 
 What type of noise you care about depends on the problem. Digital will care about the cycle-to-cycle jitter affect on setup and hold times. 
-Radio's will care about the frequency content of the noise with an offset to carrier. 
+Radio's will care about the frequency content of the noise with an offset to the carrier wave. 
 
 ## Stability
 
-The variation over all corners and enviromental conditions is usually given in a percenta, parts per million, or parts per billion. 
+The variation over all corners and enviromental conditions is usually given in a percentage, parts per million, or parts per billion. 
 
 For a digital clock to run a Micro-Controller, maybe it's sufficient with 10% accuracy of the clock frequency. For a Bluetooth radio we must
 have +-50 ppm, set by the standard. For GPS we might need parts-per-billion. 
@@ -134,7 +132,7 @@ have +-50 ppm, set by the standard. For GPS we might need parts-per-billion.
 Each "clock problem" will have different frequency, noise and stability requirements. You must know the order of magnitude of those before you can design a clock source. There is no "one-solution fits all" clock generation IP.
 
 
-# A typical System-On-Chip 
+# A typical System-On-Chip clock system
 
 On the [nRF52832 development kit](https://www.nordicsemi.com/Products/Development-hardware/nrf52-dk) you can see some components that indicate what type of clock system must be inside the IC. 
 
@@ -147,6 +145,8 @@ In the figure below you can see the following items.
 4. DC/DC inductor 
 
 
+![left](../media/l10_dk.pdf)
+
 <!--pan_doc:
 
 ## 32 MHz crystal 
@@ -158,7 +158,7 @@ I'm not sure it's possible yet to make an IC that does not have some form of fre
 so far that have "crystal less radio" usually have a resonator (crystal or bulk-accustic-wave or MEMS resonator) on die. 
 
 The power consumption of a high frequency crystal will be proportional to frequency. Assuming we have a digital output, then the power of that
-digital output will be $P = C V^2 f$, for examle $ P = 100\text{ fF} \times 1\text{ V}^2 \times 32\text{ MHz} = 3.2\text{ } \mu\text{W} $ is probably close to a minimum power consumption of a 32 MHz clock.
+digital output will be $P = C V^2 f$, for example $ P = 100\text{ fF} \times 1\text{ V}^2 \times 32\text{ MHz} = 3.2\text{ } \mu\text{W} $ is probably close to a minimum power consumption of a 32 MHz clock.
 
 ## 32 KiHz crystal 
 
@@ -168,17 +168,14 @@ For a system that sleeps most of the time, and only wakes up at regular ticks to
 
 ## PCB antenna
 
-Since we can see the PCB antenna, we know that the IC includes a radio. From that fact we can deduce what must be inside the MCU. If we read 
+Since we can see the PCB antenna, we know that the IC includes a radio. From that fact we can deduce what must be inside the SoC. If we read 
 the [Product Specification](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fstruct_nrf52%2Fstruct%2Fnrf52832_ps.html) we can understand more.
 
 ## DC/DC inductor
 
-Since we can see a large inductor, we can also make the assumption that the IC contains a switched regulator. That switched regulator, especially if it has a pulse-width-modulated control loop will need a clock. 
+Since we can see a large inductor, we can also make the assumption that the IC contains a switched regulator. That switched regulator, especially if it has a pulse-width-modulated control loop, will need a clock. 
 
 -->
-
-![left](../media/l10_dk.pdf)
-
 
 ---
 
@@ -202,22 +199,22 @@ PLLs take a reference input, and can generate a higher frequency, (or indeed low
 
 <!--pan_doc:
 
-Most of the digital blocks on an IC will be synchronous logic. A fundamental principle of sychnronous logic is that the data at the flip-flops (DFF, rectanges with triangle clock input, D, Q and $\overbar{\text{Q}}$) only need to be correct at certain times. 
+Most of the digital blocks on an IC will be synchronous logic, see figure below. A fundamental principle of sychnronous logic is that the data at the flip-flops (DFF, rectangles with triangle clock input, D, Q and $\overline{\text{Q}}$) only need to be correct at certain times. 
 
-The sequence of transitions between the rising clock edges in the combinatorial logic in the middle is of no consequence, as long as the B 
+The sequence of transitions in the combinatorial logic is of no consequence, as long as the B 
 inputs are correct when the clock goes high next time.
 
 The registers, or flip-flops, are your SystemVerilog "always_ff" code. While the blue cloud is your "always_comb" code. 
 
 In a SoC we have to check, for all paths between a Y[N] and B[M] that the path is fast enough for all transients to settle until the clock
-strikes next time, the setup time.
+strikes next time. How early the B data must arrive in relation to the clock edge is the setup time of the DFFs.
 
 We also must check for all paths that the B[M] are held for long enough after the clock strikes such that our flip-flop does not change 
-state, or the hold time. 
+state. The hold time is the distance from the clock edge where the data is allowed to change. Negative hold times are common in DFFs, so the data can start to change before the clock edge.
 
 In a IC with millions of flip-flops there can be billions of paths. Every single one of them must be checked. One could imagine a simulation 
 of all the paths on a netlist with parasitics (capacitors and resistors from layout) to check the delays, but there are so many combinations
-that the simulation time becomes unpractible. 
+that the simulation time becomes unpractical. 
 
 Static Timing Analysis (STA) is a light-weight way to check all the paths. For the STA we make a model of the delay in each cell (captured in a liberty file), the setup/hold times of all flip-flops, wire propagation delays, clock frequency (or period), and the variation in the clock frequency. The process, voltage, temperature variation must also be checked for all components, so the number of liberty files can quickly grow large. 
 
@@ -249,12 +246,14 @@ as we make $H(s)$ infinite we can force the output to be an exact copy of the in
 For a frequency loop the figure looks a bit different. If we want a higher output frequency we can divide the frequency by a number (N) 
 and compare with our reference (for example the 32 MHz reference from the crystal oscillator). 
 
-We then take the error, apply a transfer function $H(s)$with high gain, and control our oscillator frequency. 
+We then take the error, apply a transfer function $H(s)$ with high gain, and control our oscillator frequency. 
 
 If the down-divided output frequency is too high, we force the oscillator to a lower frequency. If the down-divided output frequency
 is too low we force the oscillator to a higher frequency. 
 
 If we design the $H(s)$ correctly, then we have $f_o = N \times f_{in}$
+
+Sometimes you want a lower output frequency than your $f_{in}$, in that case you'd add a divider on the reference. 
 
 -->
 
@@ -283,7 +282,7 @@ A PLL can consist of a oscillator (SUN\_PLL\_ROSC) that generates our output fre
 
 Read any book on PLLs, talk to any PLL designer and they will all tell you the same thing. **PLLs require calculation**. You must 
 setup a linear model of the feedback loop, and calculate the loop transfer function to check the stability, and the loop gain. 
-**This is the way** (to quote Mandalorian).
+**This is the way!** (to quote Mandalorian).
 
 But how can we make a linear model of a non-linear system? The voltages inside a PLL must be non-linear, they are clocks. A PLL is not linear 
 in time-domain!
@@ -314,7 +313,7 @@ The $K_{osc}/s$ is our oscillator transfer function. And the $1/N$ is our feedba
 
 ![left fit](../media/l10_pll_sm.pdf)
 
-## PLLs are assumed to be linear in phase
+## Loop gain
 
 <!--pan_doc:
 
@@ -351,7 +350,7 @@ For the linear model, we need to figure out the factors, like $K_{vco}$, which m
 The gain of the oscillator is the change in output frequency as a function of the change of the control node. For a voltage-controlled oscillator (VCO) we could sweep the control voltage, and check the frequency. The derivative of the f(V) would be proportional to the  $K_{vco}$.
 
 The control node does not need to be a voltage. Anything that changes the frequency of the oscillator can be used as a control node. There 
-exist PLLs with voltage control, I'm sure current control, capacitance control, and digital control. 
+exist PLLs with voltage control, current control, capacitance control, and digital control. 
 
 For the SUN\_PLL\_ROSC it is the VDD of the ring-oscillator (VDD\_ROSC) that is our control node.
 
@@ -390,7 +389,7 @@ end
 
 I use `tran.py` to extract the time-domain signal from ngspice into a CSV file.
 
-Then I use a python script to extract the $K_{osc**$
+Then I use a python script to extract the $K_{osc**}$
 
 **kvco.py**
 ```python
@@ -399,7 +398,7 @@ Then I use a python script to extract the $K_{osc**$
     kvco = np.mean(freq.diff()/df["vrosc"].diff())
 ```
 
-Below I've made a plot of the $K_{vco}$ over corners (yes, I know I use $K_{osc}$ and $K_{vco}$ interchangeably, but they are the same thing).
+Below I've made a plot of the oscillation frequency over corners.
 
 -->
 
@@ -411,7 +410,7 @@ Below I've made a plot of the $K_{vco}$ over corners (yes, I know I use $K_{osc}
 
 <!--pan_doc:
 
-The gain of the phase-detector and charge pump is the current we feed into the loop filter over a period. I'm not sure why, check in the book.
+The gain of the phase-detector and charge pump is the current we feed into the loop filter over a period. I don't remember why, check in the book for a detailed description.
 
 The two blocks compare our reference clock to our feedback clock, and produce an error signal.
 
@@ -429,12 +428,14 @@ $$ K_{pd} = \frac{I_{cp}}{2 \pi} $$
 
 <!--pan_doc:
 
-In the book you'll find a first order loop filter, and a second order loop filter. I would start with the "known to work" loop filters 
+In the book you'll find a first order loop filter, and a second order loop filter. Engineers are creative, so you'll likely find other loop filters in the literature.
+
+I would start with the "known to work" loop filters 
 before you explore on your own. 
 
 If you're really interested in PLLs, you should buy [Design of CMOS Phase-Locked Loops](https://www.amazon.com/Design-CMOS-Phase-Locked-Loops-Architecture/dp/1108494544) by Behzad Razavi. 
 
-The loop filter has a unity gain buffer, since our oscillator draws current, while the VPLF node is high impedant, so we can't draw current without changing the filter transfer function. 
+The loop filter has a unity gain buffer. My oscillator draws current, while the VPLF node is high impedant, so I can't draw current from the loop filter without changing the filter transfer function. 
 
 -->
 
@@ -494,9 +495,11 @@ I've made a python model of the loop, you can find it at
 
 <!--pan_doc:
 
-If we plot the open loop gain, open loop phase, closed loop gain and closed loop phase as shown below.
+Below is a plot  of the loop gain, and the transfer function from input phase to divider phase. 
 
-The phase margin of a PLL can be calculated from 180 degrees plus the phase of the open loop transfer function at the loop bandwidth frequency offset. 
+We can see that the loop gain at low frequency is large, and proportional to $1/s$. As such, the phase of the divided down feedback clock is the same as our reference. 
+
+The closed loop transfer function $\phi_{div}/\phi_{in}$ shows us that the divided phase at low frequency is the same as the input phase. Since the phase is the same, and the frequency must be the same, then we know that the output clock will be N times reference frequency.
 
 -->
 
@@ -504,37 +507,74 @@ The phase margin of a PLL can be calculated from 180 degrees plus the phase of t
 
 ---
 
+<!--pan_doc:
+
+The top testbench for the PLL is [tran.spi](https://github.com/wulffern/sun_pll_sky130nm/blob/main/sim/SUN_PLL/tran.spi).
+
+I power up the PLL and wait for the output clock to settle. I use [freq.py](https://github.com/wulffern/sun_pll_sky130nm/blob/main/sim/SUN_PLL/freq.py) to plot the frequency as a function of time. The orange curve is the average frequency. We can see that the output frequency settles to 512 MHz.
+
+
+-->
+
 ![fit](../media/tran_SchGtKttTtVt.pdf)
 
+<!--pan_doc:
+
+You can find the schematics, testbenches, python script etc at [SUN\_PLL\_SKY130NM](https://github.com/wulffern/sun_pll_sky130nm)
+
+Back in 2020 there was a Master student on PLL. I would recommend looking at that 
+thesis to learn more, and to get inspired [Ultra Low Power Frequency Synthesizer](https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2778127).
+-->
+
 ---
+
+<!--pan_doc:
+
+At the time of writing the layout of the PLL is not complete, but the sublocks have layout. The 
+Layout Parasitic Extracted simulation below takes a few hours on my 2019 Macbook Pro.
+
+-->
+
+![fit](../media/tran_LayGtKttTtVt.pdf)
+
+---
+
+<!--pan_skip: -->
 
 ## [SUN\_PLL\_SKY130NM](https://github.com/wulffern/sun_pll_sky130nm)
 
 ---
+<!--pan_skip: -->
 
 #[fit] JSSC PLLs
 
 ---
+<!--pan_skip: -->
 
 ![fit](../ip/l10_jssc_pll1.pdf)
 
 ---
+<!--pan_skip: -->
 
 ![fit](../ip/l10_jssc_pll1_1.pdf)
 
 ---
+<!--pan_skip: -->
 
 ![fit](../ip/l10_jssc_pll2_0.pdf)
 
 ---
+<!--pan_skip: -->
 
 ![fit](../ip/l10_jssc_pll2_1.pdf)
 
 ---
+<!--pan_skip: -->
 
 ![fit](../ip/l10_jssc_pll3_0.pdf)
 
 ---
+<!--pan_skip: -->
 
 ![fit](../ip/l10_jssc_pll3_1.pdf)
 

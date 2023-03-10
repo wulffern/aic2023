@@ -19,8 +19,8 @@ permalink: /plan/
 | 11   | CJM 19, CFAS         | PLLs                      | ldo/project       | Calculation, VCO, PFD, Loop-filter, dividers                |
 | 12   | Paper                | Oscillators               | project           | RC-Oscillators, Crystal oscillators                         |
 | 13   | Slides               | Low-power radio receivers | pll/project       | GFSK, QPSK, PSK, QAM, radio blocks                          |
-| 14   |                      | Analog SystemVerilog      | project           | analog system verilog behavioral models                     |
+| 14   |                      | Easter                    | project           |                                                             |
 | 15   |                      | Easter                    | project           |                                                             |
-| 16   |                      | Easter                    | project           |                                                             |
+| 16   |                      | Analog SystemVerilog      | project           | analog system verilog behavioral models                     |
 | 17   |                      | Q & A                     | project           |                                                             |
 
