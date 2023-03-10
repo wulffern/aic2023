@@ -246,7 +246,7 @@ WiFi, LTE ++ all use Ortogonal frequency division multiplexing (OFDM)
 
 ---
 ![left](../media/wifi6_arch.gif) 
-![right](../media/wifi6_IC.gif)
+![right](../media/wifi6_ic.gif)
 
 ---
 
