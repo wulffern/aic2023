@@ -17,4 +17,5 @@ python3 py/lecture.py post --date 2023-02-09 lectures/l05_sc.md
 python3 py/lecture.py post --date 2023-02-16 lectures/l06_adc.md
 python3 py/lecture.py post --date 2023-03-09 lectures/l07_vreg.md
 python3 py/lecture.py post --date 2023-03-16 lectures/l08_pll.md
+python3 py/lecture.py post --date 2023-03-23 lectures/l09_osc.md
 python3 py/lecture.py post --date 2023-03-30 lectures/l10_lpradio.md
