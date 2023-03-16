@@ -131,7 +131,7 @@ $$ K_{vco} = 2 \pi  \frac{\mu_p C_{ox} W/L }{C\frac{VDD}{2}N}$$
 
 ---
 
-# Differential
+## Differential
 
 Potentially less sensitive to supply noise 
 
@@ -139,7 +139,7 @@ Potentially less sensitive to supply noise
 
 ---
 
-# LC oscillator
+## LC oscillator
 
 ![left](../media/lcosc.svg)
 
