@@ -7,18 +7,10 @@ theme:Plain Jane,1
 
 <!--pan_skip: -->
 
-## TFE4188 - Introduction to Lecture 10
+## TFE4188 - Lecture 10
 # Low Power Radio
 
 <!--pan_title: Lecture 10 - Low Power Radio -->
-
----
-
-<!--pan_skip: -->
-
-# Carsten Wulff 
-
-![inline](../media/timeline_black.png)
 
 ---
 
@@ -28,14 +20,14 @@ theme:Plain Jane,1
 
 Let's make a radio (or at least, let's **pretend**)
 
-Introduce Bluetooth
 
-Introduce  Low Power Recievers
 
 ---
 [.background-color: #00A9CE]
 
 <!--pan_skip: -->
+
+## Problem statement:
 
 #[fit] Make the best radio ICs for gaming mice
 
@@ -210,6 +202,32 @@ Mouse is maybe AA,  3000 mAh
 
 ---
 
+![left fit](../media/l7_bpsk_real.pdf)
+
+![right fit](../media/l7_bpsk_circuit.pdf)
+
+---
+
+
+![left fit](../media/l7_qpsk.pdf)
+
+![inline fit](../media/l7_const_env.pdf)
+![inline fit](../media/l7_polar.pdf)
+![inline fit](../media/l8_cartesian.pdf)
+
+---
+
+![left fit](../media/l8_8psk.pdf)
+
+![right fit](../media/EDR.png)
+
+
+---
+
+![original fit](../media/l8_16qam.pdf)
+
+---
+
 ## Single carrier, or multi carrier?
 
 Bluetooth, 802.15.4, ANT all use one carrier
@@ -218,7 +236,9 @@ Bluetooth, 802.15.4, ANT all use one carrier
 WiFi, LTE ++ all use Ortogonal frequency division multiplexing (OFDM)
 - Complex TX, non-constant envelope
 
+
 ---
+
 #[fit] Let's make the best, highest data rate radio!
 
 #[fit]\#racetoidle
@@ -245,8 +265,8 @@ WiFi, LTE ++ all use Ortogonal frequency division multiplexing (OFDM)
 [An 802.11ax 4 × 4 High-Efficiency WLAN AP Transceiver SoC Supporting 1024-QAM With Frequency-Dependent IQ Calibration and Integrated Interference Analyzer](https://ieeexplore.ieee.org/document/8528383)
 
 ---
-![left](../media/wifi6_arch.gif) 
-![right](../media/wifi6_ic.gif)
+![left fit](../media/wifi6_arch.gif) 
+![right fit](../media/wifi6_ic.gif)
 
 ---
 
@@ -313,18 +333,6 @@ WiFi, LTE ++ all use Ortogonal frequency division multiplexing (OFDM)
 
 ---
 
-
-
-![inline](https://devzone.nordicsemi.com/resized-image/__size/937x580/__key/communityserver-blogs-components-weblogfiles/00-00-00-00-28/1072.pastedimage1603981430299v1.png)
-
----
-
-![left fit](../media/nrf5340_table.png)
-
-![right fit](../media/power_analygraph.png)
-
----
-
 For further information [Building a Bluetooth application on nRF Connect SDK](https://devzone.nordicsemi.com/guides/nrf-connect-sdk-guides/b/software/posts/building-a-ble-application-on-ncs-comparing-and-contrasting-to-softdevice-based-ble-applications)
 
 ![right](../media/bluetooth_future.png)
@@ -358,7 +366,7 @@ For further information [Building a Bluetooth application on nRF Connect SDK](ht
 | Anti-alias filter| NF, linearity| TIA + AFIR| 1|
 | ADC | Sample rate, dynamic range, linearity| NS-SAR| 1 - 2| 
 | PLL | Freq accuracy, phase noise, current| AD-PLL | 2-3 |
-| Baseband | Eb/N0, gate count, current| Verilog, but first Matlab | > 10|
+| Baseband | Eb/N0, gate count, current. | SystemVerilog | > 10|
 
 ---
 
@@ -367,6 +375,14 @@ For further information [Building a Bluetooth application on nRF Connect SDK](ht
 ---
 
 ![](../media/lnta1.png)
+
+---
+
+![](../media/lnta2.png)
+
+---
+
+![](../media/lnta3.png)
 
 ---
 
@@ -386,11 +402,25 @@ For further information [Building a Bluetooth application on nRF Connect SDK](ht
 
 ---
 
+![](../media/aaf1.png)
+
+---
+
+![](../media/aaf2.png)
+
+---
+
+
+
 ![](../media/aaf4.png)
 
 ---
 
 # [fit] ADC
+
+---
+
+![fit](../media/garvik.png)
 
 ---
 
@@ -404,9 +434,6 @@ For further information [Building a Bluetooth application on nRF Connect SDK](ht
 
 ![fit](../media/fig_toplevel.pdf)
 
----
-
-![fit](../media/garvik.png)
 
 ---
 
@@ -452,25 +479,28 @@ AD-PLL with Bang-Bang phase detector for steady-state [^5]
 # What do we really want, in the end?
 
 
-$$P_{RX_{sens}} = -174\text{ dBm} + 10\log10(DR)  + NF + Eb/N0$$
+$$P_{RX_{sens}} = -174 dBm + 10 \times log10(DR)  + NF + Eb/N0$$
+
+for example, for nRF5340 
+
+
+$$ P_{RX_{sens}} + 174 - 60 =  NF + Eb/N0 = 17 dB$$
 
 
 
-![right fit](../media/nRF52832 CIAA.png)
-
----
-
-<!--pan_skip: -->
-
-#carstenw@ntnu.no
-
-#carsten.wulff@nordicsemi.no
-
-#carsten@wulff.no
+![right 100%](../media/nrf53_rx.png)
 
 ---
 
+![fit](../media/nrf53.png)
 
+---
+
+![150%](../media/nRF52832 CIAA.png)
+
+---
+
+#[fit] Thanks!
 
 [^1]: "A 0.5V BLE Transceiver with a 1.9mW RX Achieving -96.4dBm Sensitivity and 4.1dB Adjacent Channel Rejection at 1MHz Offset in 22nm FDSOI", M. Tamura, Sony Semiconductor Solutions, Atsugi, Japan, 30.5, ISSCC 2020
 
