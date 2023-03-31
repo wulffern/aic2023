@@ -4,8 +4,8 @@ title: About
 permalink: /about/
 ---
 
-My name is Carsten Wulff and I'm an analog integrated circuit designer, programmer, educator and group
-manager.
+My name is Carsten Wulff and I'm an analog integrated circuit designer,
+programmer and educator.
 
 I have three axis in relation to analog integrated circuit design:
 
