@@ -112,7 +112,7 @@ X: no further events
 
 ---
 
-## Transient analog simulation 
+# Transient analog simulation 
 
 
 Parse spice netlist, and setup partial/ordinary differential equations for node matrix
@@ -174,7 +174,7 @@ Published in 1973 by Nagel and Pederson
 
 [.column]
 
-## TFE4152 2021 - Project
+# TFE4152 2021 - Project
 
 
 Be inspired by the ISSCC paper, and design a similar system. 
