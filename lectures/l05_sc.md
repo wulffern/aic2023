@@ -524,7 +524,7 @@ Growing without bounds is the same as "being unstable".
 ---
 ##[fit] Z-domain
 
-Spectra repeat every $$2\pi$$ (every $$f_s$$).
+Spectra repeat every $$2\pi$$ 
 
 <!--pan_doc:
 As such, it does not make sense to talk about a plane with a $a$ and a $j\omega$. Rather we use the complex number $z = a + jb$.
