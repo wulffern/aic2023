@@ -4,10 +4,14 @@ layout: post
 permalink: refresh
 ---
 
+
+
+<!--pan_title: A refresher-->
+
 * TOC
 {:toc }
 
-# 0. There is a standard unit of measurement
+# There is a standard unit of measurement
 
 All known physical quantities are derived from 7 base units ([SI
 units](https://en.wikipedia.org/wiki/International_System_of_Units))
@@ -21,7 +25,7 @@ I don't go around remembering all of them, they are easily available online. Whe
 
 
 
-# 1. Electrons
+#  Electrons
 
 Electrons are fundamental, they cannot (as far as we know), be divided
 into smaller parts. Explained further in the [standard model of particle physics](https://en.wikipedia.org/wiki/Standard_Model)
@@ -34,7 +38,7 @@ An electron cannot occupy the same quantum state as another. This rule that appl
 
 The quantum state of an electron is fully described by it's spin, momentum (p) and position in space (r).
 
-# 3. Probability
+#  Probability
 
 The probability of finding an electron in a state as a function of space and time is 
 
@@ -44,11 +48,14 @@ $$ P = |\psi(r,t)|^2 $$
 
 $$ \psi(r,t) = A e^{i( kr - \omega t)}$$
 
-, where A is complex number, k is the wave number, r is the position vector from some origin, $\omega$ is the frequency and $t$ is time. 
+, where A is complex number, k is the wave number, r is the position vector from
+some origin, $\omega$ is the frequency and $t$ is time.
 
-The energy is $ E = \hbar \omega$, where $\hbar = h/2\pi$ and $h$ is [Planck Constant](https://en.wikipedia.org/wiki/Planck_constant) and the momentum is $p = \hbar k$
 
-# 4. Uncertainty principle
+The energy is $E = \hbar \omega$ , where $\hbar = h/2\pi$ and $h$ is 
+[Planck Constant](https://en.wikipedia.org/wiki/Planck_constant) and the momentum is $p = \hbar k$
+
+#  Uncertainty principle
 
 We cannot, with ultimate precision, determine both the position and the momentum of a particle, the precision is 
 
@@ -56,7 +63,7 @@ $$\sigma_x \sigma_p \ge \frac{\hbar}{2}$$
 
 From the [uncertainty principle](https://en.wikipedia.org/wiki/Uncertainty_principle) we can actually [estimate the size of the atom](https://wulffern.github.io/aic2023/atom)
 
-# 5. States as a function of time and space
+#  States as a function of time and space
 
 The time-evolution of the probability ampltiude is 
 
@@ -70,7 +77,7 @@ Computing the solution to the [Schrodinger Equation](https://en.wikipedia.org/wi
 
 Compared to the equations of electric fields, however, Schrodinger is easy, it's a set of linear differential equations.
 
-# 6. Allowed energy levels in atoms
+#  Allowed energy levels in atoms
 
 Solutions to Schrodinger result in quantized energy levels for a electron bound
 to an atom.
@@ -94,7 +101,7 @@ The probability of a state transition (change in energy) can be determined from
 the probability amplitude and Schrodinger.
 
 
-# 7. Allowed energy levels in solids
+#  Allowed energy levels in solids
 
 If I have two silicon atoms spaced far apart, then the electrons can have the
 same spin and same momentum around their respective nuclei. As I bring the atoms
@@ -128,7 +135,7 @@ The discrete energy levels of the electron transition into bands of allowed ener
 
 For a crystal, the allowed energy bands is captured in the [band structure](https://en.wikipedia.org/wiki/Electronic_band_structure)
 
-# 8. Silicon Unit Cell
+# Silicon Unit Cell
 
 A [silicon](https://en.wikipedia.org/wiki/Silicon) crystal unit cell is a diamond faced cubic with 8 atoms in the corners spaced at 0.543 nm, 6 at the center of the
 faces, and 4 atoms inside the unit cell at a nearest neighbor distance of 0.235
@@ -137,7 +144,7 @@ nm.
 ![](https://upload.wikimedia.org/wikipedia/commons/f/f1/Silicon-unit-cell-3D-balls.png)
 
 
-# 9. Valence band and Conduction band
+# Valence band and Conduction band
 
 The full band structure of a silicon unit cell is complicated. For bulk silicon
 we simplify, and we think of two bands. In the  conduction band ($E_C$) is the
@@ -149,11 +156,11 @@ The difference between  $E_C$ and $E_V$ is a property of the material we've name
 $$ E_G = E_C - E_V$$
 
 
-# 10. Metals
+# Metals
 
 In metals, the band splitting of the energy levels causes the valence band and conduction band to overlap. As such, electrons can easily transition between bound state and free state. As such, electrons in metals are shared over large distances, and there are many electrons readily available to move under an applied field, or difference in electron density. That's why metals conduct well.
 
-# 12. Isolators
+# Isolators
 
 In insulating materials the difference between the conduction band and the valence band is large. As a result, it takes a large energy to exite electrons to a state where they can freely move. 
 
@@ -163,13 +170,13 @@ That's also why glass is opaque to ultra-violet, which has enough energy to exit
 
 Based on these two pieces you could estimate the bandgap of glass.
 
-# 13. Semiconductors
+# Semiconductors
 
 In a silicon the bandgap is lower than an insulator, approximately $E_G = 1.12 eV$ for silicon.
 
 At room temperature, that allows a small number of electrons to be excited into the conduction band, leaving behind a "hole" in the valence band.
 
-# 14. Fermi level
+# Fermi level
 
 From Wikipedia's [Fermi level](https://en.wikipedia.org/wiki/Fermi_level)
 
@@ -192,7 +199,7 @@ f(E) \approx e^{(E_F - E)/kT}
 $$
 
 
-# 15. Band diagrams
+# Band diagrams
 
 A [band diagram](https://en.wikipedia.org/wiki/Band_diagram) or energy level
 diagrams shows the conduction band energy and valence band energy as a function
@@ -204,7 +211,7 @@ The horizontal axis is the distance, the vertical axis is the energy.
 
 The figure shows a PN-junction 
 
-# 16. Density of electrons/holes 
+# Density of electrons/holes 
 
 There are two components needed to determine how many electrons are in the
 conduction band. The density of available states, and the probability of an
@@ -223,7 +230,7 @@ $$ n_e = e^{E_F/kT}  \int_{E_C}^{\infty} N(E) e^{-E/kT}dE$$
 for the density of electrons in the conduction band.
 
 
-# 17. Fields 
+# Fields 
 
 There are equations that relate electric field, magnetic field, charge density
 and current density to eachother. 
@@ -268,7 +275,7 @@ $$\mu_0 = \frac{2 \alpha}{q^2}\frac{h}{c}$$
 , where $\alpha$ is the [fine structure constant](https://en.wikipedia.org/wiki/Fine-structure_constant).
 
 
-# 18. Voltage 
+# Voltage 
 
 The electric field has units voltage per meter, so the electric field is the
 derivative of the voltage as a function of space.
@@ -276,7 +283,7 @@ derivative of the voltage as a function of space.
 $$ E = \frac{dV}{dx}$$
 
 
-# 19. Current 
+# Current 
 
 Current has unit $A$ and charge $C$ has unit $As$, so the current is the number
 of charges passing through a volume per second. 
@@ -286,7 +293,7 @@ by the surface area of a conductor, if the current density is uniform.
 
 $$ I  = A \times J $$
 
-# 20. Drift current
+# Drift current
 
 Charges in an electric field will give rise to a drift current. 
 
@@ -302,13 +309,13 @@ The current density is then
 $$ \vec{J} = q\vec{E} \times n \times \mu $$
 
 where $n$ is the charge density, and $\mu$ is the mobility (how easily the
-charges move) and has units [m^2/Vs]
+charges move) and has units [$m^2/Vs$]
 
 Assuming $E = V/m$, we could write 
 
 $$ J = \frac{C}{m^3}\frac{V/m}\frac{m^2}{Vs} = \frac{C}{s}m^{-2}$$
 
-So multiplying by an area A = B m^2
+So multiplying by an area $A = B m^2$
 
 $$ I = q n \mu B V$$
 
@@ -320,7 +327,7 @@ $$ I = G V \Rightarrow V = RI$$
 Or [Ohms law](https://en.wikipedia.org/wiki/Ohm%27s_law)
 
 
-# 21. Diffusion current
+# Diffusion current
 
 A difference in charge density will give rise to a diffusion current, and the
 current density is
@@ -329,7 +336,7 @@ $$ J = -q D_n \frac{d \rho}{dx}$$
 
 ,where $D_n$ is a diffusion constant, and $\rho$ is the charge density.
 
-# 22. Currents in a semiconductor
+# Currents in a semiconductor
 
 Both electrons, and holes will contribute to current.
 
@@ -346,7 +353,7 @@ $$ I  = I_{n_{drift}} +I_{n_{diffusion}} + I_{p_{drift}}  + I_{p_{diffusion}}$$
 
 where $n$ denotes electrons, and $p$ denote holes.
 
-# 23. Resistors 
+# Resistors 
 
 We can make resistors with metal and silicon (a semiconductor)
 
@@ -362,7 +369,7 @@ electrons.
 That's why we often talk about "majority carriers" and "minority carriers", both
 are important in semiconductors.
 
-# 24. Capacitors 
+# Capacitors 
 
 A capacitor resists a change in voltage. 
 
@@ -371,7 +378,7 @@ $$ I = C \frac{dV}{dt}$$
 and store energy in an electric field between two conductors with an insulator
 between.
 
-# 25. Inductors
+# Inductors
 
 An inductor resist a change in current.
 
@@ -379,7 +386,7 @@ $$ V = L \frac{dV}{dt}$$
 
 and store energy in the magnetic fields in a loop of a conductor. 
 
-# 26. Diodes 
+# Diodes 
 
 See [Diodes](https://wulffern.github.io/aic2023/2021/07/08/Diodes.html) for a
 long explanation. 

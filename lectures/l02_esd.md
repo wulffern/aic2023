@@ -49,7 +49,8 @@ The project for 2023 is to design an integrated temperature sensor. The hope is 
 
 <!--pan_doc:
 
-## What blocks must our IC include?
+
+The project for 2023 is to design an integrated temperature sensor. The hope is that some will tapeout on the Google/Efabless Open MPW shuttle
 
 First, we need to have an idea of what comes in and out of the temperature
 sensor. Before we have made the temperature sensor, we need to think what the signal interface could be, and we need to learn.

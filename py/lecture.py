@@ -14,12 +14,21 @@ class Image():
         self.options = options
         self.directory = options["dir"]
         self.skip = False
+        self.isUrl = False
 
-        if("/ip/" in self.src):
+
+        if("/ip/" in self.src and "allowIP" not in self.options):
             self.skip = True
 
+        if(re.search("\s*https?://",self.src)):
+            self.isUrl = True
+            if("downloadImage" in self.options):
+                self.skip = False
+            else:
+                self.skip = True
 
-        if(not self.skip and ".pdf" in self.src):
+
+        if(not self.skip and ".pdf" in self.src and "latex" not in self.options):
             #- I've changed to svg, hopefully better images
             svg = self.src.replace(".pdf",".svg")
             if(not os.path.exists(os.path.join(self.directory,svg))):
@@ -27,10 +36,17 @@ class Image():
                 os.system(cmd)
             self.src = svg
 
+        if(self.isUrl and "downloadImage" in self.options):
+            url = self.src
+            self.src = "/tmp/" +  os.path.basename(self.src)
+            if(not os.path.exists(self.src)):
+                os.system(f"cd /tmp/; wget {url}")
+
+
+
+
         self.filesrc = os.path.basename(self.src)
         self.dirsrc  = os.path.dirname(self.src)
-
-
 
 
     def copy(self):
@@ -39,6 +55,9 @@ class Image():
 
         if("jekyll" in self.options):
             shutil.copyfile(os.path.join(self.options["dir"],self.src), "docs/assets/" + self.filesrc)
+        elif("latex" in self.options):
+            os.makedirs(self.options["latex"] + "media/",exist_ok=True)
+            shutil.copyfile(os.path.join(self.options["dir"],self.src),  self.options["latex"] + "media/" + self.filesrc)
         
     def __str__(self):
 
@@ -49,6 +68,9 @@ class Image():
             path = self.options["jekyll"] + "assets/" + self.filesrc
 
             return f"![]({path})" + "{: width=\"700\" }\n"
+        elif("latex" in self.options):
+            path = "tex/media/" + self.filesrc
+            return f"![]({path})\n\n"
 
         return self.src
 
@@ -66,8 +88,8 @@ class Lecture():
             "\[\.background.*\]" : "",
             "\[\.text.*\]" : "",
             "\[\.table  *\]" : "",
-            "\#\s*\[\s*fit\s*\]" : "## ",
-            #"^## \*\*Q:\*\*.*$" : "",
+            "\#\s*\[\s*fit\s*\]" : "# ",
+            "\*\*Q:\*\*" : "",
             "^[.table.*]$": "",
             "#(.*) Thanks!" : ""
         }
@@ -152,8 +174,10 @@ class Lecture():
 
         if(m):
             imgsrc = m.groups()[1]
-            if(re.search("\s*https://",imgsrc)):
-                return f"![]({imgsrc})"
+
+            if(not "downloadImage" in self.options):
+                if(re.search("\s*https://",imgsrc)):
+                    return f"![]({imgsrc})"
 
             i = Image(imgsrc,self.options)
             self.images.append(i)
@@ -281,6 +305,50 @@ output:
             ss += l
         return ss
 
+class Latex(Lecture):
+
+    def __init__(self,filename,options):
+        self.filename = filename
+        self.title = filename.replace(".md","")
+        self.options = options
+
+        self.images = list()
+
+        self.filters = {
+             "^\s*---\s*$" : "",
+            "\[.column\]" : "",
+            "\[\.background.*\]" : "",
+            "\[\.text.*\]" : "",
+            "\[\.table  *\]" : "",
+            "\#\s*\[\s*fit\s*\]" : "## ",
+            #"^## \*\*Q:\*\*.*$" : "",
+            "^[.table.*]$": "",
+            "^\* TOC":"",
+            "^{:toc }":"",
+            "\*\*Q:\*\*" : "",
+            "#(.*) Thanks!" : ""
+            #"^---":"#",
+        }
+
+        self._read()
+
+
+
+    def __str__(self):
+
+        ss = ""
+
+        ss += f"""
+
+""" + """
+
+
+
+
+"""
+        for l in self.buffer:
+            ss += l
+        return ss
 
 
     
@@ -313,21 +381,25 @@ def post(filename,root,date):
 
 @cli.command()
 @click.argument("filename")
-@click.option("--root",default="/aic2023/",help="Root of jekyll site")
-def slide(filename,root):
+@click.option("--root",default="pdf/tex/",help="output roote")
+def latex(filename,root):
     options = dict()
-    options["jekyll"] = root
+    options["latex"] = root
+    options["downloadImage"] = True
+    options["allowIP"] = True
     options["dir"] = os.path.dirname(filename)
-    p = Presentation(filename,options)
+    p = Latex(filename,options)
     p.copyAssets()
-    fname = "slides/" + os.path.basename(filename)
 
+
+    fname = root + os.path.sep + p.title.strip().replace(" ","_").lower() + ".md"
+    print(fname)
     with open(fname,"w") as fo:
+        #print(str(p))
         fo.write(str(p))
 
-    fhtml = fname.replace(".md",".html")
-    cmd = f"pandoc -t slidy --slide-level 1 -s {fname} -o docs/assets/{fhtml} "
-    print(cmd)
+    flatex = fname.replace(".md",".latex")
+    cmd = f"pandoc -o {flatex} {fname}  "
     os.system(cmd)
 
 

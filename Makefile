@@ -4,13 +4,21 @@ SITE=${shell pwd}/docs
 
 .PHONY:  slides
 
-FILES = l01_intro \
-	l01_need_to_know \
-	l02_esd \
-	l03_refbias \
-	l04_afe \
-	l05_sc \
-	l06_adc
+FILES = memos/2021-07-08_diodes/memo \
+	docs/_posts/2023-01-09-Refresher  \
+	lectures/l01_intro \
+	lectures/l01_need_to_know \
+	lectures/l02_esd \
+	lectures/l03_refbias \
+	lectures/l04_afe \
+	lectures/l05_sc \
+	lectures/l06_adc \
+	lectures/l07_vreg \
+	lectures/l08_pll \
+	lectures/l09_osc \
+	lectures/l10_lpradio \
+	lectures/l11_aver \
+	lectures/lx_energysrc
 
 pan:
 	./d2pan
@@ -33,8 +41,13 @@ posts:
 	./genposts.sh
 	cd lectures; cat ../images.txt |xargs git add -f
 
+latex:
+	${foreach f, ${FILES}, python3 py/lecture.py latex ${f}.md ; }
+	cd pdf; make
+
 slides:
 	${foreach f, ${FILES}, ${MAKE} slide FILE=$f; }
 
+
 slide:
-	python3 py/deckpdf.py lectures/${FILE}.md docs/slides/
+	python3 py/deckpdf.py ${FILE}.md docs/slides/

@@ -581,8 +581,23 @@ $$ = \frac{ -s \frac{C_1}{C_2} - \frac{G_1}{C_2} }{s + \frac{G_2}{C_2}}$$
 ---
 ## General purpose biquad 
 
+<!--pan_doc:
+
+A general bi-quadratic active-RC filter is shown below. These kind of general purpose filter sections are quite useful.
+
+Imagine you wanted to make a filter, any filter. You'd decompose into first and second order sections, and then you'd try and match 
+
+the transfer functions to the general equations. 
+
+-->
+
 
 ![left fit](../media/l4_activebiquad.pdf)
+
+<!--pan_doc:
+
+
+-->
 
 $$ H(s) = \frac{k_2 s^2 + k_1 s + k_0}{s^2 + \frac{\omega_0}{Q} s +
  \omega_o^2}$$
@@ -609,12 +624,43 @@ At frequencies above $\frac{1}{A_0RC}$ and below $w_{ta}$ the circuit above is a
 See page 511 in CJM (chapter 5.8.1)
 
 
+# Example circuit
+
+One place whwere both active-RC and Gm-C filters find a home are continuous time sigma-delta modulators. More on SD later, for now,
+just know that SD us a combination of high-gain, filtering, simple ADCs and simple DACs to make high resolution analog-to-digital converters.
+
+One such an example is 
 -->
 
 ---
 
 [A 56 mW Continuous-Time Quadrature Cascaded Sigma-Delta Modulator With 77 dB DR in a Near Zero-IF
 20 MHz Band](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4381437)
+
+<!--pan_doc:
+
+Below we see the actual circuit. It may look complex, and it is. 
+
+Not just "complex" as in complicated circuit, it's also "complex" as in "complex numbers".
+
+We can see there are two paths "i" and "q", for "in-phase" and "quadrature-phase". The fantasitc thing about complex ADCs is that we 
+can have a-symmetric frequency response around 0 Hz. 
+
+It will be tricky understanding circuits like this in the beginning, but know that it is possible, and it does get easier to understand.
+
+With a complex ADC like this, the first thing to understand is the rough structure.
+
+There are two paths, each path contains 2 ADCs connected in series (Multi-stage Noise-Shaping or MASH). Understanding everything at once does not make sence. 
+
+Start with "Vpi" and "Vmi", make it into a single path (set Rfb1 and Rfb2 to infinite), ignore what happens after R3 and DAC2i. 
+
+Now we have a continuous time sigma delta with two stages. First stage is a integrator (R1  and C1), and second stage is a filter (Cff1, R2 and C2). The amplified and filtered signal 
+is sampled by the ADC1i and fed back to the input DAC1i. 
+
+It's possible to show that if the gain from $V(Vpi,Vpm)$ to ADC1i input is large, then $Y1i = V(Vpi,Vpm)$ at low frequencies.
+
+
+-->
 
 
 ![inline](../ip/qt_sd.png)![inline](../ip/qt_sd_response.png)
