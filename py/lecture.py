@@ -5,6 +5,7 @@ import os
 import click
 from sys import platform
 import shutil
+import urllib.parse
 
 class Image():
 
@@ -38,7 +39,7 @@ class Image():
 
         if(self.isUrl and "downloadImage" in self.options):
             url = self.src
-            self.src = "/tmp/" +  os.path.basename(self.src)
+            self.src = "/tmp/" +  urllib.parse.unquote(os.path.basename(self.src))
             if(not os.path.exists(self.src)):
                 os.system(f"cd /tmp/; wget {url}")
 
@@ -196,6 +197,7 @@ class Lecture():
 
         if("jekyll" in self.options):
 
+            furl = "https://github.com/wulffern/aic2023/tree/main/" + self.filename
             slides = ""
             if("lectures" in self.filename ):
                 slides = "[Slides](" +  self.options["jekyll"] + self.filename.replace("lectures","assets/slides").replace(".md",".pdf") +")"
@@ -206,7 +208,10 @@ title: {self.title}
 math: true
 ---
 
+> If you find an error in what I've made, then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo), fix [{self.filename}]({furl}), [commit](https://git-scm.com/docs/git-commit), [push](https://git-scm.com/docs/git-push) and [create a pull request](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request). That way, we use the global brain power most efficiently, and avoid multiple humans spending time on discovering the same error.
+
 {slides}
+
 
 """ + """
 

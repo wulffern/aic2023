@@ -4,16 +4,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+#- Enable hanning window
+hann = True
 
 #- Create a time vector
 N = 2**13
 t = np.linspace(0,N,N)
 
 #- Create the "continuous time" signal
-fbin = 10
-fm1 = 1/N*213
-f1 = 1/64 - 1/N
-fd = fm1
+fdivide = 2**6
+f1 = 1/fdivide - 1/N
 x_s = np.sin(2*np.pi*f1*t) + + 1/2**15*np.random.randn(N)
 
 #----------------------------------------------
@@ -31,16 +31,19 @@ def adc(x,bits):
     return y
 
 # To discrete value
-bits = 10
+bits = 1
 y_sn = adc(x_sn,bits)
 
 #----------------------------------------------
 # Plot spectrum
 #----------------------------------------------
-def freqDomain(x):
+def freqDomain(x,hann=True):
     N = len(x)
     # Use hanning window to prevent FFT bin energy spread
-    w = np.hanning(N+1)
+    if(hann):
+        w = np.hanning(N+1)
+    else:
+        w = np.ones(N+1)
 
     # Convert to frequency domain
     X= np.fft.fftshift(np.fft.fft(np.multiply(w[0:N],x)))
@@ -48,23 +51,29 @@ def freqDomain(x):
     # Normalize to max output power
     X = X/np.max(np.abs(X))
     return X
-X_s = freqDomain(x_s)
-X_sn = freqDomain(x_sn)
-Y_sn = freqDomain(y_sn)
+
+
+X_s = freqDomain(x_s,hann)
+X_sn = freqDomain(x_sn,hann)
+Y_sn = freqDomain(y_sn,hann)
+
+M = len(Y_sn)
+f_xs = np.arange(0,N,1) - N/2
+f_xn = np.arange(0,M,1) - M/2
 
 plt.subplot(1,3,1)
-plt.plot(20*np.log10(np.abs(X_s)))
+plt.plot(f_xs,20*np.log10(np.abs(X_s)))
 plt.xlabel("Continuous time, continuous value")
 plt.ylabel("Frequency Domain")
 plt.ylim(-160,0)
 plt.subplot(1,3,2)
-plt.plot(20*np.log10(np.abs(X_sn)))
+plt.plot(f_xn,20*np.log10(np.abs(X_sn)))
 plt.xlabel("Discrete time, continuous value")
 plt.ylim(-160,0)
 plt.subplot(1,3,3)
-plt.plot(20*np.log10(np.abs(Y_sn)))
+plt.plot(f_xn,20*np.log10(np.abs(Y_sn)))
 plt.xlabel("Discrete time, Discrete value")
-plt.text(np.round((1-1/4)*N/nfs),-10,str(bits) + "-bit")
+plt.text(M*1/5,-20,str(bits) + "-bit\nf1 =" + str(int(f1*N)) + "\nf3 =" + str(int(f1*N*3)) + "\nf5 =" + str(int(f1*N*5)) )
 plt.ylim(-160,0)
 
 fig = plt.gcf()

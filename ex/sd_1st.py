@@ -10,7 +10,7 @@ t = np.linspace(0,N,N)
 #- Create the "continuous time" signal
 fbin = 10
 fm1 = 1/N*213
-f1 = 1/64 - 1/N
+f1 = 1/128 - 1/N
 fd = fm1
 x_s = np.sin(2*np.pi*f1*t) + + 1/2**15*np.random.randn(N)
 
@@ -26,12 +26,12 @@ x_sn = x_s[0::nfs]
 bits = 1
 y_sn = np.round(x_sn*2**bits)/2**bits
 
-dither = 0
+dither = 1
 M = len(x_sn)
 y_sd = np.zeros(M)
 x = np.zeros(M)
 for n in range(1,M):
-    x[n] = x_sn[n-1] + (x_sn[n]-y_sd[n-1])
+    x[n] = x[n-1] + (x_sn[n]-y_sd[n-1])
     y_sd[n] = np.round(x[n]*2**bits  + dither*np.random.randn()/4)/2**bits
 
 #- Remove the first samples to get rid of the initial
@@ -83,4 +83,4 @@ fig = plt.gcf()
 fig.set_size_inches(12, 7)
 plt.tight_layout()
 plt.savefig(f"l6_sd_d{dither}_b{bits}.pdf")
-#plt.show()
+plt.show()
