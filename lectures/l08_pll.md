@@ -49,7 +49,9 @@ The principle of a clock is simple. Make a 1-bit digital signal that toggles wit
 
 The implementation is not necessarily simple. 
 
-The key parameters of a clock is frequency of the fundamental, noise of the frequency spectrum, and stability over process and enviromental conditions.
+The key parameters of a clock are the frequency of the fundamental, noise of the frequency spectrum, and stability over 
+process and enviromental conditions.
+
 
 When I start a design process, I want to know why, how, what (and sometimes who). If I understand the problem from first principles
 it's more likely that the design will be suitable. 
@@ -65,7 +67,7 @@ Take an example.
 
 > "I have a customer that needs an accurate clock to count seconds". -- Some manager that talked to a customer, but don't understand details.
 
-As a designer, I might latch on to the word "accurate clock", and translate into "most accurate clock in the world", then I'd google up on atomic clocks, like 
+As a designer, I might latch on to the word "accurate clock", and translate into "most accurate clock in the world", then I'd google atomic clocks, like 
 [Rubidium standard](https://en.wikipedia.org/wiki/Rubidium_standard) that I know is based on the hyperfine transition of electrons between two energy levels in rubidium-87. 
 
 I know from quantum mechanics that the hyperfine transition between two energy levels will produce an precise frequency, as the frequency of the 
@@ -100,7 +102,8 @@ When someone says
 
 > " I have a customer that needs an accurate clock to count seconds"
 
-Your response should be. Why does the customer need an accurate clock? How accurate? What is the customer going to use the clock for? Unless you understand the details of the problem, then your design will be sub-optimal. It might be a great clock source, but it will be useless for 
+Your response should be "Why does the customer need an accurate clock? How accurate? What is the customer going to use the clock for?". Unless you understand the details of the problem, 
+then your design will be sub-optimal. It might be a great clock source, but it will be useless for 
 solving the problem.
 
 ## Frequency
@@ -108,7 +111,6 @@ solving the problem.
 The frequency of the clock is the frequency of the fundamental. If it's a digital clock (1-bit) with 50 % duty-cycle, then we know that a digital 
 pulse train is an infinite sum of odd-harmnoics, where the fundamental is given by the period of the train. 
 
-You must know whether you need 1 kHz, or 10 GHz frequency.
 
 ## Noise 
 
@@ -116,7 +118,7 @@ Clock noise have many names. Cycle-to-cycle jitter is how the period changes wit
 will change in the future, so a time-domain change in the amount of cycle-to-cycle jitter. Phase noise is how the period changes as a 
 function of time scales. For example, a clock might have fast period changes over short time spans, but if we average over a year, the period is stable.
 
-What type of noise you care about depends on the problem. Digital will care about the cycle-to-cycle jitter affect on setup and hold times. 
+What type of noise you care about depends on the problem. Digital will care about the cycle-to-cycle jitter affects on setup and hold times. 
 Radio's will care about the frequency content of the noise with an offset to the carrier wave. 
 
 ## Stability
@@ -181,7 +183,7 @@ Since we can see a large inductor, we can also make the assumption that the IC c
 
 <!--pan_doc: 
 
-From our assumptions we could make a guess on what must be inside the IC, something like the picture below.
+From our assumptions we could make a guess what must be inside the IC, something like the picture below.
 
 There will be a crystal oscillator connected to the crystal. We'll learn about those later.
 
@@ -210,9 +212,9 @@ In a SoC we have to check, for all paths between a Y[N] and B[M] that the path i
 strikes next time. How early the B data must arrive in relation to the clock edge is the setup time of the DFFs.
 
 We also must check for all paths that the B[M] are held for long enough after the clock strikes such that our flip-flop does not change 
-state. The hold time is the distance from the clock edge where the data is allowed to change. Negative hold times are common in DFFs, so the data can start to change before the clock edge.
+state. The hold time is the distance from the clock edge to where the data is allowed to change. Negative hold times are common in DFFs, so the data can start to change before the clock edge.
 
-In a IC with millions of flip-flops there can be billions of paths. Every single one of them must be checked. One could imagine a simulation 
+In an IC with millions of flip-flops there can be billions of paths. The setup and hold time for every single one must be checked. One could imagine a simulation 
 of all the paths on a netlist with parasitics (capacitors and resistors from layout) to check the delays, but there are so many combinations
 that the simulation time becomes unpractical. 
 
@@ -230,7 +232,7 @@ For an analog designer the constraints from digital will tell us what's the maxi
 
 <!--pan_doc:
 
-PLL, or their cousins FLL and DLL are really cool. They are based on the familiar concept of feedback, shown in the figure below. As long
+PLL, or it's cousins FLL and DLL are really cool. A PLL is based on the familiar concept of feedback, shown in the figure below. As long
 as we make $H(s)$ infinite we can force the output to be an exact copy of the input. 
 
 -->
@@ -253,7 +255,7 @@ is too low we force the oscillator to a higher frequency.
 
 If we design the $H(s)$ correctly, then we have $f_o = N \times f_{in}$
 
-Sometimes you want a lower output frequency than your $f_{in}$, in that case you'd add a divider on the reference. 
+Sometimes you want a finer freuqnecy resolution, in that case you'd add a divider on the reference and get $f_o = N \times \frac{f_{in}}{M}$.. 
 
 -->
 
@@ -389,7 +391,7 @@ end
 
 I use `tran.py` to extract the time-domain signal from ngspice into a CSV file.
 
-Then I use a python script to extract the $K_{osc**}$
+Then I use a python script to extract the $K_{osc}$
 
 **kvco.py**
 ```python
@@ -516,26 +518,47 @@ I power up the PLL and wait for the output clock to settle. I use [freq.py](http
 
 -->
 
-![fit](../media/tran_SchGtKttTtVt.pdf)
+![fit](../media/sun_pll_lay_typ.pdf)
 
 <!--pan_doc:
 
-You can find the schematics, testbenches, python script etc at [SUN\_PLL\_SKY130NM](https://github.com/wulffern/sun_pll_sky130nm)
+You can find the schematics, layout, testbenches, python script etc at [SUN\_PLL\_SKY130NM](https://github.com/wulffern/sun_pll_sky130nm)
 
-Back in 2020 there was a Master student on PLL. I would recommend looking at that 
-thesis to learn more, and to get inspired [Ultra Low Power Frequency Synthesizer](https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2778127).
+Below are a couple layout images of the finished PLL
+
 -->
 
 ---
 
+
+
+
+
+---
+
+![left fit](../media/sun_pll_layout0.png)
+![right fit](../media/sun_pll_layout1.png)
+
+
+
 <!--pan_doc:
 
-At the time of writing the layout of the PLL is not complete, but the sublocks have layout. The 
-Layout Parasitic Extracted simulation below takes a few hours on my 2019 Macbook Pro.
+## Want to learn more?
+
+Back in 2020 there was a Master student at NTNU on PLL. I would recommend looking at that 
+thesis to learn more, and to get inspired [Ultra Low Power Frequency Synthesizer](https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2778127).
+
+
+[A Low Noise Sub-Sampling PLL in Which Divider Noise is Eliminated and PD/CP Noise is Not Multiplied by N2](https://ieeexplore.ieee.org/document/5342373)
+
+
+[All-digital PLL and transmitter for mobile phones](https://ieeexplore.ieee.org/document/1546223)
+
+
+[A 2.9–4.0-GHz Fractional-N Digital PLL With Bang-Bang Phase Detector and 560-fsrms Integrated Jitter at 4.5-mW Power](https://ieeexplore.ieee.org/document/6006551)
 
 -->
 
-![fit](../media/tran_LayGtKttTtVt.pdf)
 
 ---
 
