@@ -45,11 +45,11 @@ we even correct for [Special and General
 Relativity](https://en.wikipedia.org/wiki/Error_analysis_for_the_Global_Positioning_System)
 to the tune of about $+38.6 \mu\text{s/day }$.
 
-The most accurate clocks, like [Rubidium standard](https://en.wikipedia.org/wiki/Rubidium_standard), use the hyperfine splitting of energy levels in atoms,
+The most accurate clocks, like [Rubidium standard](https://en.wikipedia.org/wiki/Rubidium_standard), use the hyper-fine splitting of energy levels in atoms,
 however, most clocks don't need to be accurate to parts per billion. 
 
-For accuracies of parts per million, which is sufficient for your wrist watch, or
-most communcation, it's possible to use crystals.
+For accuracy's of parts per million, which is sufficient for your wrist watch, or
+most communication, it's possible to use crystals.
 
 A quartz crystal can resonate at specific frequencies. If we apply a electric
 field across a crystal, we will induce a vibration in the crystal, which can
@@ -82,7 +82,7 @@ a correct enough frequency.
 
 ## Impedance
 
-The impedance of a crystal is usually modelled as below. A RLC circuit with a paralell capacitor. 
+The impedance of a crystal is usually modeled as below. A RLC circuit with a parallel capacitor. 
 
 Our job is to make a circuit that we can connect to the two pins and provide the energy we will loose due to $R_s$. 
 
@@ -111,7 +111,7 @@ See [Crystal oscillator impedance](https://github.com/wulffern/aic2023/blob/main
 
 <!--pan_doc:
 
-In the impedance plot below we can clearly see that there are two "resonance" points. Usually noted by series and parallell resonance. 
+In the impedance plot below we can clearly see that there are two "resonance" points. Usually noted by series and parallel resonance. 
 
 I would encourage you to read [The Crystal Oscillator](https://ieeexplore.ieee.org/document/7954123) for more details.
 
@@ -125,11 +125,11 @@ I would encourage you to read [The Crystal Oscillator](https://ieeexplore.ieee.o
 
 ## Circuit
 
-Below is a common oscillator circuit, a Pierce Oscillator. The crystal is the below the dotted line, and the two capacitances are the on-PCB capacitances.
+Below is a common oscillator circuit, a Pierce Oscillator. The crystal is the below the dotted line, and the two capacitance's are the on-PCB capacitance's.
 
 Above the dotted line is what we have inside the IC. Call the left side of the inverter XC1 and right side XC2. 
-The inverter is biased by a resistor, $R_1$, to keep the XC1 at a resonable voltage.
-The XC1 and XC2 will oscillate in opposite directions. As XC1 increases, XC2 will decrese. The $R_2$ is to model the internal resistance (on-chip wires, bond-wire).
+The inverter is biased by a resistor, $R_1$, to keep the XC1 at a reasonable voltage.
+The XC1 and XC2 will oscillate in opposite directions. As XC1 increases, XC2 will decrease. The $R_2$ is to model the internal resistance (on-chip wires, bond-wire).
 
 
 
@@ -167,7 +167,7 @@ As such, a negative transconductance is just that as we increase the input volta
 The [Q factor](https://en.wikipedia.org/wiki/Q_factor) has a few definitions, so it's easy to get confused. Think of Q like this, if 
 a resonator has high Q, then the oscillations die out slowly. 
 
-Imagine a perfect world without resistance, and an inductor and capacitor in paralell. Imagine we initially store some voltage across the capacitor, and 
+Imagine a perfect world without resistance, and an inductor and capacitor in parallel. Imagine we initially store some voltage across the capacitor, and 
 we let the circuit go. The inductor shorts the plates of the capacitor, and the current in the inductor will build up until the voltage across
 the capacitor is zero. The inductor still has stored current, and that current does not stop, so the voltage across the capacitor will
 become negative, and continue decreasing until the inductor current is zero. At that point the negative voltage will flip the current in the inductor, 
@@ -176,7 +176,7 @@ and we go back again.
 The LC circuit will resonate back and forth. If there was no resistance in the circuit, then the oscillation would never die out.
 The system would be infinite Q. 
 
-The Q of the crystal oscillator can be described as $Q = 1/(\omega R_s C_f)$, assuming some comon values 
+The Q of the crystal oscillator can be described as $Q = 1/(\omega R_s C_f)$, assuming some common values 
 of $R_s = 50$, $C_f = 5e^{-15}$ and $\omega = 2 \pi \times 32$ MHz then $Q \approx 20$ k. 
 
 That number may not tell you much, but think of it like this, it will take 20 000 clock cycles before the amplitude falls by 1/e. For example, if the amplitude
@@ -194,7 +194,7 @@ IoT, the startup time of crystal oscillators, or indeed keeping the oscillator r
 
 <!--pan_doc:
 The resonance frequency of the crystal oscillator can be modified by the parasitic capacitance from XC1 and XC2 to ground. The tunability of crystals is usually in ppm/pF.
-Sometimes micro-controller vendors will include internal [load capacitances](https://infocenter.nordicsemi.com/topic/ps_nrf5340/chapters/oscillators/doc/oscillators.html?cp=4_0_0_3_11_0_0#concept_internal_caps)
+Sometimes micro-controller vendors will include internal [load capacitance's](https://infocenter.nordicsemi.com/topic/ps_nrf5340/chapters/oscillators/doc/oscillators.html?cp=4_0_0_3_11_0_0#concept_internal_caps)
 to support multiple crystal vendors without changing the PCB. 
 
 
@@ -203,7 +203,7 @@ to support multiple crystal vendors without changing the PCB.
 One of the key reasons for using crystals is their stability over temperature. Below is a plot of a typical temperature behavior. The cutting angle of the crystal affect the 
 temperature behavior, as such, the closer crystals are to "no change in frequency over temperature", the more expensive they become. 
 
-In communication standards, like Bluetooth Low Energy, it's common to specify timing accuracies of +- 50 ppm. Have a look in the [Bluetooth Core Specification 5.4](https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=556599)
+In communication standards, like Bluetooth Low Energy, it's common to specify timing accuracy's of +- 50 ppm. Have a look in the [Bluetooth Core Specification 5.4](https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=556599)
 Volume 6, Part A, Chapter 3.1 (page 2653) for details.
 
 -->
@@ -249,7 +249,7 @@ $$ C \approx \frac{2}{3} C_{ox} W L$$
 
 <!--pan_doc:
 
-One way to change the oscilaltion frequency is to change the VDD of the ring oscillator. 
+One way to change the oscillation frequency is to change the VDD of the ring oscillator. 
 Based on the delay of a single inverter we can make an estimate of the oscillator gain. How large change in frequency do we get for a change in VDD. 
 
 
@@ -264,7 +264,7 @@ $$ K_{vco} = 2 \pi \frac{\partial f}{\partial VDD} = \frac{2 \pi \mu_n}{\frac{4}
 
 <!--pan_doc:
 
-The $K_{vco}$ is proportional to mobility, and inversily proportional to the number of stages and the length of the transistor squared. 
+The $K_{vco}$ is proportional to mobility, and inversely proportional to the number of stages and the length of the transistor squared. 
 In most PLLs we don't want the $K_{vco}$ to be too large. Ideally we want the ring oscillator to oscillate close to the frequency we want, i.e 512 MHz, and a small
 $K_{vco}$ to account for variation over temperature (mobility of transistors decreases with increased temperature, the threshold voltage of transistors decrease with
 temperature), and changes in VDD. 
@@ -316,14 +316,14 @@ the power consumption.
 <!--pan_doc:
 
 Assume you wanted to design a phase-locked loop, what type of oscillator should you try first? If the noise of the clock is not too important, so you don't need an 
-LC-oscillator, then I'd try the oscillator below, although I'd expand the number of stanges to fit the frequency.
+LC-oscillator, then I'd try the oscillator below, although I'd expand the number of stages to fit the frequency.
 
 The circuit has a capacitance loaded ring oscillator fed by a current. The $I_{control}$ will give a coarse control of the frequency, while the $V_{control}$ can give a
 more precise control of the frequency.
 
 Since the $V_{control}$ can only increase the frequency it's important that the $I_{control}$ is set such that the frequency is below the target. 
 
-Most PLLs will include some form of self calibration at startup. At startup the PLL will do a coarse calibration to find a sweetspot for $I_{control}$, and then use $V_{control}$
+Most PLLs will include some form of self calibration at startup. At startup the PLL will do a coarse calibration to find a sweet-spot for $I_{control}$, and then use $V_{control}$
 to do fine tuning. 
 
 Since PLLs always have a reference frequency, and a phase and frequency detector, it's possible to sweep the calibration word for $I_{control}$ and then check whether the output
@@ -340,7 +340,7 @@ this "injection locking", and it's common to do in ultra high frequency oscillat
 to the injected frequency. Assume that the injected frequency changes, for example frequency shift keying (two frequencies that mean 1 or 0), as in Bluetooth Low Energy.
 The PLL will vary the $V_{control}$ of the PLL to match the frequency change of the injected signal, as such, the $V_{control}$ is now the demodulated frequency change. 
 
-Still today, there are radio recievers that use a PLLs to directly demondulate the incoming frequency shift keyed modulated carrier. 
+Still today, there are radio recievers that use a PLLs to directly demodulate the incoming frequency shift keyed modulated carrier. 
 
 
 -->
@@ -351,7 +351,7 @@ Still today, there are radio recievers that use a PLLs to directly demondulate t
 <!--pan_doc:
 
 We can calculate the $K_{vco}$ of the oscillator as shown below. The inverters mostly act as switches, and when the PMOS is on, then the rise time is controlled 
-by the PMOS current mirror, the additional $V_{control}$ and the capacitor. For the calculation below we assume that the pulldown of the capacitor by the NMOS 
+by the PMOS current mirror, the additional $V_{control}$ and the capacitor. For the calculation below we assume that the pull-down of the capacitor by the NMOS 
 does not affect the frequency much.
 
 The advantage with the above ring-oscillator is that we can control the frequency of oscillation with $I_{control}$
@@ -404,7 +404,7 @@ potentially less sensitive to supply noise
 Imagine a single ended ring oscillator. If I inject a voltage onto the input of one of the inverters that was just about to flip, I can either delay the flip, or 
 speed up the flip, depending on whether the voltage pulse increases or decreases the input voltage for a while. Such voltage pulses will lead to jitter. 
 
-Imagine the same scneario on a differential oscillator (think diff pair). As long as the voltage pulse is the same for both inputs, then no change will incur. I may change
+Imagine the same scenario on a differential oscillator (think diff pair). As long as the voltage pulse is the same for both inputs, then no change will incur. I may change
 the current slightly, but that depends on the tail current source. 
 
 Another cool thing about differential circuits is that it's easy to multiply by -1, just flip the wires, as a result, I can use a 2 stage ring differential ring oscillator.
@@ -418,18 +418,18 @@ Another cool thing about differential circuits is that it's easy to multiply by 
 
 <!--pan_doc:
 
-Most radio's are based on modulating information on-to a carrier frequency, for example 2.402 GHz for a Bluetooth Low Energy Advertizer. One of the key properties
+Most radio's are based on modulating information on-to a carrier frequency, for example 2.402 GHz for a Bluetooth Low Energy Advertiser. One of the key properties
 of the carrier waves is that it must be "clean". We're adding a modulated signal on top of the carrier, so if there is noise inherent on the carrier, then 
 we add noise to our modulation signal, which is bad.
 
 Most ring oscillators are too high noise for radio's, we must use a inductor and capacitor to create the resonator. 
 
 Inductors are huge components on a IC. Take a look at the nRF51822 below, the two round inductors are easily identifiable. Actually, based on the die image we can
-guess that there are two oscilaltors in the nRF51822. Maybe it's a [multiple conversion superheterodyne reciever](https://en.wikipedia.org/wiki/Superheterodyne_receiver#Multiple_conversion)
+guess that there are two oscillators in the nRF51822. Maybe it's a [multiple conversion superheterodyne reciever](https://en.wikipedia.org/wiki/Superheterodyne_receiver#Multiple_conversion)
 
 ![](https://s.zeptobars.com/nRF51822.jpg) 
 
-Below is a typical LC oscillator. The main resonance is set by the L and C, while the tunabilty is provided by a varactor, a voltage variable capacitor. Or with
+Below is a typical LC oscillator. The main resonance is set by the L and C, while the tunability is provided by a varactor, a voltage variable capacitor. Or with
 less fancy words, the gate capacitance of a transistor, since the gate capacitance of a transistor depends on the effective voltage, and is thus a "varactor"
 
 The NMOS at the bottom provide the "negative transconductance" to compensate for the loss in the LC tank. 
@@ -449,7 +449,7 @@ $$ f \propto \frac{1}{\sqrt{LC}}$$
 
 <!--pan_doc:
 
-A last common oscillator is the relexation oscillator, or "RC" oscillator. By know you should be proficient enough in circuits to figure out how the below circuit works.
+A last common oscillator is the relaxation oscillator, or "RC" oscillator. By know you should be proficient enough in circuits to figure out how the below circuit works.
 
 If you can't figure it out, then ask me.
 
@@ -473,7 +473,7 @@ If you can't figure it out, then ask me.
 
 [High-performance crystal oscillator circuits: theory and application](https://ieeexplore.ieee.org/document/318)
 
-[Ultra-low Power 32kHz Crystal Oscillators: Fundamnentals and Design Techniques](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9542926)
+[Ultra-low Power 32kHz Crystal Oscillators: Fundamentals and Design Techniques](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9542926)
 
 [A Sub-nW Single-Supply 32-kHz Sub-Harmonic Pulse Injection Crystal Oscillator](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9173539)
 
