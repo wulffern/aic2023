@@ -23,6 +23,7 @@ Let's make a radio (or at least, let's **pretend**)
 
 
 ---
+
 [.background-color: #00A9CE]
 
 <!--pan_skip: -->
@@ -33,11 +34,8 @@ Let's make a radio (or at least, let's **pretend**)
 
 ---
 
-<!--pan_doc:
+<!--pan_skip: -->
 
-# Make the best radio IC for gaming mice
-
--->
 
 ## What do we need to know?
 - Data Rate
@@ -46,13 +44,40 @@ Let's make a radio (or at least, let's **pretend**)
 
 ---
 
+<!--pan_doc:
+
+Radio's are all around us. In our phone, on our wrist, in our house, there is Bluetooth, Wi-Fi, Zigbee, LTE, GPS and many more. 
+
+A radio is a device that recieves and transmits light encoded with information. The frequency of the light depends on the standard. How the information is encoded onto 
+the light depends on the standard.
+
+Assume that we did not know any standards, what would we do if we wanted to make the best radio IC for gaming mice?
+
+There are a few key concepts we would have to know before we decide on a radio type: Data Rate, Carrier Frequency and range, and the power supply.
+
+-->
+
 #[fit] Data Rate
-<!--pan_skip: -->
+
 ---
 
 [.column]
 
 ## Data 
+
+<!--pan_doc:
+
+A mouse reports on the relative displacement of the mouse as a function of time, some X and Y displacement. A mouse has buttons. There can be many mice in a room, so 
+PCs would like to tell them apart, they must have an address. 
+
+A mouse must be low-power. As such, the radio cannot be on all the time. The radio must start up and be ready to recieve quickly. We don't know how far 
+away from the PC the mice might be, as such, we don't know the dB loss in the communcation channel. As a result, the radio needs to have a high dynamic range, from weak signals
+to strong signals. In order for the radio to adjust the gain of the reciever we should inclue a pre-amble, a known sequence, for example 01010101, such that the radio can 
+adjust the gain, and also, recover the symbol timing. 
+
+All in all, the packets we send from the mouse may need to have the following bits.
+
+-->
 
 | What | Bits | Why |
 | ----  | ---- | ---- |
@@ -68,10 +93,22 @@ Let's make a radio (or at least, let's **pretend**)
 [.column]
 
 ## Rate
+
+<!--pan_doc:
+
+Gamers are crazy for speed, they care about milliseconds. So our mice needs to be able to send and receive data quite often. 
+-->
+
 Assume 1 ms update rate
 
 ---
 ## Data Rate
+
+<!--pan_doc:
+
+To compute the data rate, let's do a back of the envelope estimate of the data, and the rate. 
+
+-->
 
 Application Data Rate > 76 bits/ms = 76 kbps
 
@@ -83,13 +120,29 @@ Multiply by $$\pi$$ > 716 kbps
 
 Round to nearest nice number = 1Mbps
 
+
+<!--pan_doc:
+
+The above statements are a exact copy of what happens in industry when we start design of something. We make an educated guess. More optimistic people would multiply with $e$. 
+
+-->
+
 ---
 
 # [fit] Carrier Frequency & Range
-<!--pan_skip: -->
+
 
 ---
 ## ISM (industrial, scientific and medical) bands
+
+<!--pan_doc:
+
+There are rules and regulations that prevent us from transimitting and recieving at any frequency we want. We need to pick one of the ISM bands, or 
+we need to get a license from goverments around the world.
+
+But how should we pick? There are at least two critera that should be investigated. Antenna and Range. 
+
+-->
 
 ![inline](../media/ism.png)
 
@@ -97,8 +150,18 @@ Round to nearest nice number = 1Mbps
 
 ## Antenna
 
+<!--pan_doc:
+
+For a mouse we want to hold in our hand, there is a size limit to the antenna. There are many types of antenna, but a
+-->
 [.column]
-Assume $$\lambda/4$$ is an OK antenna size ($$\lambda = c/f$$)
+assume $$\lambda/4$$ is an OK antenna size ($$\lambda = c/f$$)
+
+<!--pan_doc:
+
+The below table shows the ISM band and the size of a quarter wavelength antenna. Any frequency above 2.4 GHz may be OK from a size perspective. 
+
+-->
 
 [.column]
 | ISM band |$$\lambda/4$$ | Unit|OK/NOK|
@@ -114,6 +177,15 @@ Assume $$\lambda/4$$ is an OK antenna size ($$\lambda = c/f$$)
 ---
 
 ## Range (Friis)
+
+<!--pan_doc:
+
+One of the worst questions a radio designer can get is "What is the range of your radio?", especially if the people asking are those that don't understand
+physics, or the real world. The answer to the question is incredibly complicated, as it depends on exactly what is between two devices talking. 
+
+If we assume, however, that there is only free space, and no real reflections from anywhere, then we can make an estimate of the range. 
+
+-->
 
 [.column]
 
@@ -139,6 +211,11 @@ $$ D = 10^\frac{P_{TX} - P_{RX} + 20 log_{10}\left(\frac{c}{4 \pi f}\right)}{20}
 
 ## Range (Free space)
 
+<!--pan_doc:
+
+If we take the ideal equation above, and use some realistic numbers for TX and RX power, we can estimate a range. 
+-->
+
 Assume TX = 0 dBm, assume RX sensitivity is -80 dBm
 
 | Freq | **$$20 log_{10}\left(c/4 \pi f\right)$$** [dB]| D [m]| OK/NOK|
@@ -152,9 +229,20 @@ Assume TX = 0 dBm, assume RX sensitivity is -80 dBm
 
 ---
 
+## Range (Real world)
 
-Path loss factor, $$ n \in [1.6,6]$$, $$ D = 10^\frac{P_{TX} - P_{RX} + 20 log_{10}\left(\frac{c}{4 \pi f}\right)}{n
+<!--pan_doc:
+
+In the real world, however, the 
+-->
+
+path loss factor, $$ n \in [1.6,6]$$, $$ D = 10^\frac{P_{TX} - P_{RX} + 20 log_{10}\left(\frac{c}{4 \pi f}\right)}{n
 \times 10} $$
+
+<!--pan_doc:
+
+So the real world range of a radio can vary more than an order of magnitude. Still, 2.4 GHz seems like a good choice for a mouse. 
+-->
 
 | Freq | **$$20 log_{10}\left(c/4 \pi f\right)$$** [dB]| D@n=2 [m]|D@n=6 [m] | OK/NOK|
 | ----|:----:| ---: | ---:| ---:|
@@ -167,6 +255,15 @@ Path loss factor, $$ n \in [1.6,6]$$, $$ D = 10^\frac{P_{TX} - P_{RX} + 20 log_{
 
 # [fit] Power supply
 
+<!--pan_doc:
+
+We could have a wired mouse for power, but that's boring. Why would we want a wired mouse to have wireless communication? It must be powered by a batttery, but 
+what type of battery?
+
+There exists a bible of batteries, see picture below. It's worth a read if you want to dive deeper into chemistry and properties of primary (non-chargable) and secondary (chargable) cells.
+
+-->
+
 ---
 
 ## Battery
@@ -178,9 +275,11 @@ Mouse is maybe AA,  3000 mAh
 |Cell |Chemistry|  Voltage (V) | Capacity (Ah) |
 |----|:----|----:| ---:|
 | AA |LiFeS2  | 1.0 - 1.8 | 3 |
-| 2xAA |LiFeS2  | 2.0 - 3.6 | 3 |
+ | 2xAA |LiFeS2  | 2.0 - 3.6 | 3 |
 | AA |Zn/Alk/MnO2 | 0.8 - 1.6 | 3 |
 | 2xAA |Zn/Alk/MnO2 | 1.6 - 3.2 | 3 |
+
+
 
 
 ---
@@ -188,9 +287,23 @@ Mouse is maybe AA,  3000 mAh
 
 # Decisions we must make
 
+<!--pan_doc:
+
+Now we know that we need a 1 Mbps radio at 2.4 GHz that runs of a 1.0 V - 1.8 V or 2.0 V - 3.6 V supply. 
+
+Next we need to decide what modulation scheme we want for our light. How should we encode the bits onto the 2.4 GHz carrier wave?
+
+-->
+
 ---
 
 ## Modulation scheme
+
+<!--pan_doc:
+
+People have been creative over the last 50 years in terms of encoding bits onto carriers. Below is a small excerpt of some common schemes. 
+
+-->
 
 | Scheme | Acronym|Pro | Con |
 | ----| ----|----| ----|
@@ -202,17 +315,86 @@ Mouse is maybe AA,  3000 mAh
 
 ---
 
+<!--pan_doc:
+
+## BPSK
+
+In binary phase shift keying the 1 and 0 is encoded in the phase change. Change the phase 180 degrees and we've transitioned from a 0 to a 1. Do another 180 degrees and
+we're back to where we were. 
+
+It's common to show modulation schemes in a constellation diagram with the real axis and the complex axis. 
+For the real light we send the phase and amplitude is usually real. 
+
+I say usually, because in quantum mechanics, and the time evolution of a particle, the amplitude of the wave function is actually a complex variable. As such, nature 
+is actually complex at the most fundamental level. 
+
+But for now, let's keep it real in the real world.
+
+Still, the maths is much more elegant in the complex plane. 
+
+The equation for the unit circle is $ y = e^{i( \omega t + \phi)}$ where $\phi$ is the phase, and $\omega$ is the angular frequency. 
+
+Imagine we spin a bike wheel around at a constant frequency (constant $\omega$), on the bike wheel there is a red dot. If you keep your eyes open all 
+the time, then the red dot would go round and round. But imagine that you only opened your eyes every second for a brief moement to see where the dot was. 
+Sometimes it could be on the right side, sometimes on the left side. If our "eye opening rate", or your sample rate, matched how fast the "wheel rotator" changed 
+the location of the dot, then you could recieve information. 
+
+Now imagine you have a strobe light matched to the "normal" carrier frequency. If one rotation of the weel matched the frequency of the strobe light, then the red dot would
+stay in exactly the same place. If the wheel rotation was slightly faster, then the red dot would move one way around the circle at every strobe. If the wheel rotation was
+slightly slower, the red dot would move the other way around the circle. 
+
+That's exactly how we can change the position in the constellation. We increase the carrier frequency for a bit to rotate 180 degrees, and we can decrease the frequency to 
+go back 180 degrees. In this example the dot would move around the unit circle, and the amplitude of the carrier can stay constant. 
+
+
+-->
+
 ![left fit](../media/l7_bpsk_real.pdf)
+
+<!--pan_doc:
+
+There is another way to change phase 180 degrees, and that's simply to swap the phase in the transmitter circuit. Imagine as below we have a local oscillator driving 
+pseudo differential common source stages with switches on top. If we flip the switches we can change the phase 180 degrees pretty fast. 
+
+A challenge is, however, that the amplitude will change. In general, constant envelope (don't change amplitude) modulation is less bandwidth efficient (slower) than schemes
+that change both phase and amplitude. 
+
+-->
 
 ![right fit](../media/l7_bpsk_circuit.pdf)
 
 ---
 
+<!--pan_doc:
+
+Standards like Zigbee used offset quadrature phase shift keying, with a constellation as sown below. With 4 points we can send 2 bits per symbol. 
+
+-->
 
 ![left fit](../media/l7_qpsk.pdf)
 
+<!--pan_doc:
+
+In ZigBee, or 802.15.4 as the standard is called, the phase changes
+is actually done with a constant envelope. 
+
+The nice thing about constant envelope is that the radio transmitter can be simple. We don't need to change the amplitude. 
+If we have a PLL as a local oscillator, where we can change the phase (or frequency), then we only need a power amplifier before the antenna.
+-->
 ![inline fit](../media/l7_const_env.pdf)
+<!--pan_doc:
+
+For phase and amplitude modulation, or complex transmitters, we need a way to change the amplitude and phase. What a shocker. There are two ways to do that. A polar architecture 
+where phase change is done in the PLL, and amplitude in the power amplifier. 
+
+-->
 ![inline fit](../media/l7_polar.pdf)
+<!--pan_doc:
+
+Or a Cartesian architecture where we make the in-phase component, and quadrature-phase 
+components in digital, then use two digital to analog converters, and a set of complex mixers to encode onto the carrier. The power amplifier would not need to change
+the amplitude. 
+-->
 ![inline fit](../media/l8_cartesian.pdf)
 
 ---
