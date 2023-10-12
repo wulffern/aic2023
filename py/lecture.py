@@ -58,8 +58,10 @@ class Image():
             shutil.copyfile(os.path.join(self.options["dir"],self.src), "docs/assets/" + self.filesrc)
         elif("latex" in self.options):
             os.makedirs(self.options["latex"] + "media/",exist_ok=True)
-            shutil.copyfile(os.path.join(self.options["dir"],self.src),  self.options["latex"] + "media/" + self.filesrc)
-        
+            try:
+                shutil.copyfile(os.path.join(self.options["dir"],self.src),  self.options["latex"] + "media/" + self.filesrc)
+            except Exception as e:
+                print(e)
     def __str__(self):
 
         if(self.skip):
@@ -325,7 +327,8 @@ class Latex(Lecture):
             "\[\.background.*\]" : "",
             "\[\.text.*\]" : "",
             "\[\.table  *\]" : "",
-            "\#\s*\[\s*fit\s*\]" : "## ",
+            "\#\s*\[\s*fit\s*\]" : "# ",
+            "\#\#\s*\[\s*fit\s*\]" : "## ",
             #"^## \*\*Q:\*\*.*$" : "",
             "^[.table.*]$": "",
             "^\* TOC":"",

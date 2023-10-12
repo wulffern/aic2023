@@ -43,7 +43,7 @@ posts:
 
 latex:
 	${foreach f, ${FILES}, python3 py/lecture.py latex ${f}.md ; }
-	cd pdf; make
+	cd pdf; make one
 
 slides:
 	${foreach f, ${FILES}, ${MAKE} slide FILE=$f; }
