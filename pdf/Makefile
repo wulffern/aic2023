@@ -11,11 +11,11 @@ one: fix
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
 	-bibtex aic.latex
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
+	-dNOPAUSE -dQUIET -dBATCH -sOutputFile=aic_book.pdf aic.pdf
 
 ebook:
-	pandoc -o aic.epub tex/lecture_1_-__introduction.md \
-		tex/a_refresher.md \
-		tex/diodes.md
+	pandoc --gladtex -o aic.epub aic.latex
 
 clean:
 	-rm *.bbl
