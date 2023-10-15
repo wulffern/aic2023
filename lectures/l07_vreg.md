@@ -330,7 +330,9 @@ Imagine a LDO driving an 80 W CPU at 1 V from a 5 V power supply. The power draw
 
 For increased power efficiency, we must use switched regulators.
 
-Imagine a switch regulator with 93 % power efficiency. The power from the 5 V supply would be $80\text{ W}/ 0.93 = 86\text{ W}$, as such, only 6 W is wasted as heat. A temperature increase of $ 6\text{ W} \times 20\text{ } ^{\circ}\text{C/W}  = 120 ^{\circ}$C is still high, but not impossible with a small heat-sink.
+Imagine a switch regulator with 93 % power efficiency. 
+The power from the 5 V supply would be $80\text{ W}/ 0.93 = 86\text{ W}$, as such, 
+only 6 W is wasted as heat. A temperature increase of $6\text{ W} \times 20\text{ } ^{\circ}\text{C/W}  = 120 ^{\circ}$C is still high, but not impossible with a small heat-sink.
 
 All switched regulators are based on devices that store electric field (capacitors), or magnetic field (inductors). 
 

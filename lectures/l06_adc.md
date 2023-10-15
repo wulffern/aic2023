@@ -624,7 +624,9 @@ But how can we now calculate the transfer function $\frac{D_o}{V_i}$? Both $adc$
 
 The DAC must be linear, otherwise our noise-shaping ADC will not work. 
 
-One way to force linearity is to use a 1-bit DAC, which has only two points, so should be linear. For example $$ V_o = A \times D_o$$, where $D_o \in (0,1)$. Even a 1-bit DAC could be non-linear if $A$ is time-variant, so $ V_o[n] = A(t)\times D_o[n]$, this could happen if the reference voltage for the DAC changed with time. 
+One way to force linearity is to use a 1-bit DAC, which has only two points, so should be linear. For example $$ V_o = A \times D_o$$, where $D_o \in (0,1)$. 
+Even a 1-bit DAC could be non-linear if $A$ is time-variant, so $V_o[n] = A(t)\times D_o[n]$,
+this could happen if the reference voltage for the DAC changed with time. 
 
 I've made a couple noise shaping ADCs, and in the first one I made I screwed up the DAC. It turned out that the DAC current had a signal dependent component which lead to a non-linear behavior. 
 

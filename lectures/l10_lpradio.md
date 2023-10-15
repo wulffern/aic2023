@@ -332,7 +332,7 @@ But for now, let's keep it real in the real world.
 
 Still, the maths is much more elegant in the complex plane. 
 
-The equation for the unit circle is $ y = e^{i( \omega t + \phi)}$ where $\phi$ is the phase, and $\omega$ is the angular frequency. 
+The equation for the unit circle is $y = e^{i( \omega t + \phi)}$ where $\phi$ is the phase, and $\omega$ is the angular frequency. 
 
 Imagine we spin a bike wheel around at a constant frequency (constant $\omega$), on the bike wheel there is a red dot. If you keep your eyes open all 
 the time, then the red dot would go round and round. But imagine that you only opened your eyes every second for a brief moment to see where the dot was. 
@@ -1033,7 +1033,7 @@ I hope you understand now that it's actually complicated.
 
 "A 0.5V BLE Transceiver with a 1.9mW RX Achieving -96.4dBm Sensitivity and 4.1dB Adjacent Channel Rejection at 1MHz Offset in 22nm FDSOI", M. Tamura, Sony Semiconductor Solutions, Atsugi, Japan, 30.5, ISSCC 2020
 
-"A 370μW 5.5dB-NF BLE/BT5.0/IEEE 802.15.4-Compliant Receiver with >63dB Adjacent Channel Rejection at >2 Channels Offset in 22nm FDSOI", B. J. Thijssen, University of Twente, Enschede, The Netherlands
+"A 370uW 5.5dB-NF BLE/BT5.0/IEEE 802.15.4-Compliant Receiver with >63dB Adjacent Channel Rejection at >2 Channels Offset in 22nm FDSOI", B. J. Thijssen, University of Twente, Enschede, The Netherlands
 
 "A 68 dB SNDR Compiled Noise-Shaping SAR ADC With On-Chip CDAC Calibration", H. Garvik, C. Wulff, T. Ytterdal
 

@@ -120,7 +120,7 @@ it's likely that you'll find analog flow interesting.
 
 ---
 
-![inline](../media/dig_des.png)
+![inline](../media/dig_des.svg)
 
 ---
 

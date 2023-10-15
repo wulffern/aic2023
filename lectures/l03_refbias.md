@@ -47,7 +47,7 @@ So how do we create something that is a _good enough_ voltage and current source
 
 <!--pan_doc: 
 
-## Routing
+# Routing
 
 Before we take a take a look at the voltage and current source, I want you to think about how you would route a current, or a voltage on an IC.
 

@@ -275,7 +275,7 @@ I think it's a good idea to always have a prime number of stages in the ring osc
 in measurement. Since $21 = 7 \times 3$ it's possible to have three "waves" of traveling through the ring oscillator at all times, forever. If you use a prime number of stages,
 then sustained oscillation at other frequencies cannot happen. 
 
-As such, then number of inverter stages should be $ \in [3, 5, 7, 11, 13, 17, 19, 23, 29, 31]$
+As such, then number of inverter stages should be $\in [3, 5, 7, 11, 13, 17, 19, 23, 29, 31]$
 
 --->
 
@@ -303,7 +303,7 @@ $$ K_{vco} = \frac{2 \pi \mu_n C_{ox} \frac{W}{L}}{2N C }$$
 
 And maybe we could make the $K_{vco}$ relatively small. 
 
-The power consumption of an oscillator, however, will be similar to a digital circuit of $ P = C \times f \times VDD^2$, so increasing capacitance will also increase
+The power consumption of an oscillator, however, will be similar to a digital circuit of $P = C \times f \times VDD^2$, so increasing capacitance will also increase
 the power consumption. 
 
 -->

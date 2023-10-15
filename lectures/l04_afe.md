@@ -130,7 +130,7 @@ All digital processing can be made with the NOT(A AND B) function!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7l0_6xK1EMg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Introduction
+# Introduction
 
 The world is analog, and these days, we do most signal processing in the digital domain. 
 With digital signal processing we can reuse the work of others, buy finished IPs, 

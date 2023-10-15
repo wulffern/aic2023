@@ -78,7 +78,7 @@ $$\omega_{p|z} \propto \frac{G}{C} = \frac{1}{RC}$$
 As a result, the total variation of the pole or zero frequency is can have a 
 3-sigma value of 
 
-$$ \sigma_{RC} = \sqrt{ \sigma_R^2 + \sigma_C^2 } = \sqrt{0.02^2 + 0.02^2} = 0.028 = 28 \text{ %}$$
+$$ \sigma_{RC} = \sqrt{ \sigma_R^2 + \sigma_C^2 } = \sqrt{0.02^2 + 0.02^2} = 0.028 = 28 \text{ \%}$$
 
 On an IC we sometimes need to calibrate the R or C in production 
 to get an accurate RC time constant.

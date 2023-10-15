@@ -160,7 +160,9 @@ I'm not sure it's possible yet to make an IC that does not have some form of fre
 so far that have "crystal less radio" usually have a resonator (crystal or bulk-accustic-wave or MEMS resonator) on die. 
 
 The power consumption of a high frequency crystal will be proportional to frequency. Assuming we have a digital output, then the power of that
-digital output will be $P = C V^2 f$, for example $ P = 100\text{ fF} \times 1\text{ V}^2 \times 32\text{ MHz} = 3.2\text{ } \mu\text{W} $ is probably close to a minimum power consumption of a 32 MHz clock.
+digital output will be $P = C V^2 f$, for example 
+$P = 100\text{ fF} \times 1\text{ V}^2 \times 32\text{ MHz} = 3.2\text{ } \mu\text{W}$
+is probably close to a minimum power consumption of a 32 MHz clock.
 
 ## 32 KiHz crystal 
 
