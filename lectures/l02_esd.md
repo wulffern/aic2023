@@ -56,7 +56,7 @@ First, we need to have an idea of what comes in and out of the temperature
 sensor. Before we have made the temperature sensor, we need to think what the signal interface could be, and we need to learn.
 
 Maybe we read [Kofi Makinwa's overview of temperature sensors](http://ei.ewi.tudelft.nl/docs/TSensor_survey.xls)
-and find one of the latest papers, [A BJT-based CMOS Temperature Sensor with Duty-cycle-modulated Output and ±0.54 °C (3σ) Inaccuracy from -40 °C to 125 °C](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9383810).
+and find one of the latest papers, [A BJT-based CMOS Temperature Sensor with Duty-cycle-modulated Output and ±0.54 °C (3-sigma) Inaccuracy from -40 °C to 125 °C](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9383810).
 
 At this point, you may struggle to understand the details of the paper, but at least it should be possible to see what comes in and out of the module. 
 What I could find is in the table below, maybe you can find more?

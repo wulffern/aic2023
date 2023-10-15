@@ -7,7 +7,6 @@ SITE=${shell pwd}/docs
 FILES = memos/2021-07-08_diodes/memo \
 	docs/_posts/2023-01-09-Refresher  \
 	lectures/l01_intro \
-	lectures/l01_need_to_know \
 	lectures/l02_esd \
 	lectures/l03_refbias \
 	lectures/l04_afe \

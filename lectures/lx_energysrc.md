@@ -89,7 +89,7 @@ cannot reduce power consumption any more.
 [Towards a Green and Self-Powered Internet of Things Using Piezoelectric Energy Harvesting](https://ieeexplore.ieee.org/document/8762143)
 has a nice overview of power consumption of technologies, seen below.
 
-As devices approach average power consumption of $ \mu$W it becomes possible to harvest the energy from the environment.
+As devices approach average power consumption of $ \muW$ it becomes possible to harvest the energy from the environment.
 
 I'd like to give you an introduction to harvesting sources, and my opinion on the circuits needed. There are at least 
 5 sources, thermoelectric, photovoltaic, piezoelectric, ambient RF and triboelectric.

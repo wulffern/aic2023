@@ -313,7 +313,7 @@ charges move) and has units [$m^2/Vs$]
 
 Assuming $E = V/m$, we could write 
 
-$$ J = \frac{C}{m^3}\frac{V/m}\frac{m^2}{Vs} = \frac{C}{s}m^{-2}$$
+$$ J = \frac{C}{m^3}\frac{V}{m}\frac{m^2}{Vs} = \frac{C}{s}m^{-2}$$
 
 So multiplying by an area $A = B m^2$
 
