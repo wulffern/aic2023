@@ -650,6 +650,10 @@ what energy source is available.
 
 Below is a table that show's a comparison in the power that can be extracted. 
 
+The power levels below
+are too low for the peak power consumption of integrated circuits, so most applications must include 
+a charge storage device, either a battery, or a capacitor.
+
 -->
 
 ![fit](https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/4/9546917/9441315/yoo4-3080383-large.gif)
