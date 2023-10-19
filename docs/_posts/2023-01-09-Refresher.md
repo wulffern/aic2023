@@ -69,7 +69,7 @@ The time-evolution of the probability ampltiude is
 
 $$ i\hbar \frac{d}{dt} \psi(r,t) = H \psi(r,t)$$
 
-, where H is named the Hamiltonian matrix, or the energy matrix or (if understand correctly) the ampltiude matrix of the probability amplitude to change from one state to another. 
+, where H is named the Hamiltonian matrix, or the energy matrix or (if I understand correctly) the ampltiude matrix of the probability amplitude to change from one state to another. 
 
 For example, if we have a system with two states, a simplfied version of two electrons shared between two atoms, as in $H_2$, or hydrogen gas, or co-valent bonds, then the Hamiltonian is a 2 x 2 matrix. And the $\psi$ is a vector of $[\psi_1,\psi_2]$
 
@@ -79,7 +79,7 @@ Compared to the equations of electric fields, however, Schrodinger is easy, it's
 
 #  Allowed energy levels in atoms
 
-Solutions to Schrodinger result in quantized energy levels for a electron bound
+Solutions to Schrodinger result in quantized energy levels for an electron bound
 to an atom.
 
 Take hydrogen, the electron bound to the proton can only exists in quantized

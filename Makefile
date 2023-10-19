@@ -4,8 +4,9 @@ SITE=${shell pwd}/docs
 
 .PHONY:  slides
 
-FILES = lectures/tex_intro memos/2021-07-08_diodes/memo \
+FILES = memos/2021-07-08_diodes/memo \
 	docs/_posts/2023-01-09-Refresher  \
+	lectures/tex_intro \
 	lectures/l01_intro \
 	lectures/l02_esd \
 	lectures/l03_refbias \
@@ -41,6 +42,7 @@ posts:
 	cd lectures; cat ../images.txt |xargs git add -f
 
 latex:
+	-mkdir pdf/tex
 	${foreach f, ${FILES}, python3 py/lecture.py latex ${f}.md ; }
 	cd pdf; make one
 
