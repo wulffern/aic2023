@@ -35,8 +35,8 @@ jobs:
       - name: Build posts
         run: |
           apt-get update
-          apt-get -y install ghostscript pip poppler-utils pandoc wget convert imagemagick
-          python3 -m pip install --break-system-packages click
+          apt-get -y install ghostscript pip poppler-utils pandoc wget imagemagick
+          python3 -m pip install --break-system-packages click svglib
           apt -y install python3-svglib
           ./genposts.sh
       - name: Setup Pages
