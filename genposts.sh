@@ -21,3 +21,9 @@ python3 py/lecture.py post --date 2023-03-23 lectures/l09_osc.md
 python3 py/lecture.py post --date 2023-03-30 lectures/l10_lpradio.md
 python3 py/lecture.py post --date 2023-04-20 lectures/lx_energysrc.md
 python3 py/lecture.py post --date 2023-04-20 lectures/l11_aver.md
+
+#- Build book
+make latex
+cd pdf && make ebook
+cp pdf/aic.epub docs/assets/
+cp pdf/aic.pdf docs/assets/
