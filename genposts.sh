@@ -24,6 +24,6 @@ python3 py/lecture.py post --date 2023-04-20 lectures/l11_aver.md
 
 #- Build book
 ls -l lectures
-make latex ebook
+make latex book
 cp pdf/aic.epub docs/assets/
 cp pdf/aic.pdf docs/assets/

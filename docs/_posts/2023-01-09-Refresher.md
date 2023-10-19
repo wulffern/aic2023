@@ -65,13 +65,13 @@ From the [uncertainty principle](https://en.wikipedia.org/wiki/Uncertainty_princ
 
 #  States as a function of time and space
 
-The time-evolution of the probability ampltiude is 
+The time-evolution of the probability amplitude is 
 
 $$ i\hbar \frac{d}{dt} \psi(r,t) = H \psi(r,t)$$
 
-, where H is named the Hamiltonian matrix, or the energy matrix or (if I understand correctly) the ampltiude matrix of the probability amplitude to change from one state to another. 
+, where H is named the Hamiltonian matrix, or the energy matrix or (if I understand correctly) the amplitude matrix of the probability amplitude to change from one state to another. 
 
-For example, if we have a system with two states, a simplfied version of two electrons shared between two atoms, as in $H_2$, or hydrogen gas, or co-valent bonds, then the Hamiltonian is a 2 x 2 matrix. And the $\psi$ is a vector of $[\psi_1,\psi_2]$
+For example, if we have a system with two states, a simplified version of two electrons shared between two atoms, as in $H_2$, or hydrogen gas, or co-valent bonds, then the Hamiltonian is a 2 x 2 matrix. And the $\psi$ is a vector of $[\psi_1,\psi_2]$
 
 Computing the solution to the [Schrodinger Equation](https://en.wikipedia.org/wiki/Schrödinger_equation) can be tricky, because you must know the number of relevant states to know the vector size of $\psi$ and the matrix size of $H$. In addition, the $H$ can be a function of time and space (I think).
 
@@ -88,7 +88,7 @@ and one with spin down.
 
 
 From Schrodinger you can compute the energy levels, which most of us did at
-somepoint, although now, I can't remember how it was done. That's not important.
+some-point, although now, I can't remember how it was done. That's not important.
 The important is to internalize that the energy levels in bound electrons are
 discrete.
 
@@ -127,11 +127,12 @@ and
 
 $$ E_2 = E_0 - A$$
 
-In a silicon crystal we can have trilions of atoms, and those that are close, have states that interact. **That's why crystals stay solids**. All chemical bonds are states of electrons interacting! Some are strong (co-valent bonds), some are weaker (ionic bonds), but it's all quantum states interacting.
+In a silicon crystal we can have trillions of atoms, and those that are close, have states that interact. **That's why crystals stay solids**. All chemical bonds are states of electrons interacting! Some are strong (co-valent bonds), some are weaker (ionic bonds), but it's all quantum states interacting.
 
 The discrete energy levels of the electron transition into bands of allowed energy states. 
 
-![](https://upload.wikimedia.org/wikipedia/commons/e/ef/Solid_state_electronic_band_structure.svg)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Solid_state_electronic_band_structure.svg/640px-Solid_state_electronic_band_structure.svg.png)
+
 
 For a crystal, the allowed energy bands is captured in the [band structure](https://en.wikipedia.org/wiki/Electronic_band_structure)
 
@@ -160,19 +161,19 @@ $$ E_G = E_C - E_V$$
 
 In metals, the band splitting of the energy levels causes the valence band and conduction band to overlap. As such, electrons can easily transition between bound state and free state. As such, electrons in metals are shared over large distances, and there are many electrons readily available to move under an applied field, or difference in electron density. That's why metals conduct well.
 
-# Isolators
+# Insulators
 
-In insulating materials the difference between the conduction band and the valence band is large. As a result, it takes a large energy to exite electrons to a state where they can freely move. 
+In insulating materials the difference between the conduction band and the valence band is large. As a result, it takes a large energy to excite electrons to a state where they can freely move. 
 
-That's why glass is transparent to optical frequencies. Visible light does not have sufficient energy to exite electrons from a bound state.
+That's why glass is transparent to optical frequencies. Visible light does not have sufficient energy to excite electrons from a bound state.
 
-That's also why glass is opaque to ultra-violet, which has enough energy to exite electrons out of a bound state.
+That's also why glass is opaque to ultra-violet, which has enough energy to excite electrons out of a bound state.
 
-Based on these two pieces you could estimate the bandgap of glass.
+Based on these two pieces of information you could estimate the bandgap of glass.
 
 # Semiconductors
 
-In a silicon the bandgap is lower than an insulator, approximately $E_G = 1.12 eV$ for silicon.
+In a silicon the bandgap is lower than an insulator, approximately $E_G = 1.12\text{ } eV$ for silicon.
 
 At room temperature, that allows a small number of electrons to be excited into the conduction band, leaving behind a "hole" in the valence band.
 
@@ -185,14 +186,14 @@ From Wikipedia's [Fermi level](https://en.wikipedia.org/wiki/Fermi_level)
 > energy level of an electron, such that at thermodynamic equilibrium this
 > energy level would have a 50% probability of being occupied at any given time
 
-The fermi level is closely linked to the [Fermi-Dirac
+The Fermi level is closely linked to the [Fermi-Dirac
 distribution](https://en.wikipedia.org/wiki/Fermi%E2%80%93Dirac_statistics)
 
 $$
 f(E) = \frac{1}{e^{(E - E_F)/kT} + 1}
 $$
 
-If the energy of the state is more than a few kT away from the fermi-level, then
+If the energy of the state is more than a few kT away from the Fermi-level, then
 
 $$
 f(E) \approx e^{(E_F - E)/kT}
@@ -233,7 +234,7 @@ for the density of electrons in the conduction band.
 # Fields 
 
 There are equations that relate electric field, magnetic field, charge density
-and current density to eachother. 
+and current density to each-other. 
 
 The equations
 
@@ -336,6 +337,15 @@ $$ J = -q D_n \frac{d \rho}{dx}$$
 
 ,where $D_n$ is a diffusion constant, and $\rho$ is the charge density.
 
+I struggled with the concepts diffusion current and drift current for a long time.  Why are there two types of current? It was when I read [The Schrödinger Equation in a Classical Context: A Seminar on Superconductivity](https://www.feynmanlectures.caltech.edu/III_21.html) I realised that 
+the two types of current come directly from the Schrodinger equation, there is one component related to the electric field (potential energy) and a component related to the momentum (kinetic energy). 
+
+In the absence of an electric field electrons will still jump from state to state set 
+by the probabilities of the Hamiltonian. If there are more electrons in an area, then it will seem
+like there is an average movement of charges away from that area. That's how I think about the 
+equation above. 
+
+
 # Currents in a semiconductor
 
 Both electrons, and holes will contribute to current.
@@ -357,7 +367,7 @@ where $n$ denotes electrons, and $p$ denote holes.
 
 We can make resistors with metal and silicon (a semiconductor)
 
-In metal the dominate carrier depends on the metal, but it's usually electrons.
+In metal the dominant carrier depends on the metal, but it's usually electrons.
 As such, one can often ignore the hole current.
 
 In a semiconductor the dominant carrier depends on the Fermi level in relation
@@ -408,7 +418,7 @@ n-type it will be electrons.
 
 The interesting thing happens when p-type and n-type are in contact. Since we've
 shifted the Fermi level of the two silicon types in opposite direction there
-will be an energy difference. That energy difference must be equialized, as
+will be an energy difference. That energy difference must be equalized, as
 such, over time, the Fermi level of the two types will align, and a junction
 will form, with few free charges, a depletion region. 
 

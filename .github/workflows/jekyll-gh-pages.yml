@@ -38,6 +38,7 @@ jobs:
           apt-get -y install ghostscript pip poppler-utils pandoc wget imagemagick
           python3 -m pip install --break-system-packages click svglib
           apt -y install python3-svglib
+          git config --global --add safe.directory /__w/aic2023/aic2023
           ./genposts.sh
       - name: Setup Pages
         uses: actions/configure-pages@v2
