@@ -50,6 +50,8 @@
 
 		\vspace{0.5\textheight} % Whitespace between the title block and the publisher
 
+    \input{tex/version.tex}
+
 		{\noindent \copyright Carsten Wulff 2023}\\[\baselineskip] % Publisher and logo
 	}
 

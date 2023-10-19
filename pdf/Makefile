@@ -1,5 +1,6 @@
 
-
+VERSION_DATE=Built on $(shell date)
+VERSION_HASH=${shell git log -1 --pretty=format:"%H"}
 FILE= aic
 
 TEXS = ${shell ls -1 tex/*.latex}
@@ -7,12 +8,18 @@ TEXS = ${shell ls -1 tex/*.latex}
 fix:
 	${foreach f, ${TEXS}, python3 fix_svg.py ${f};}
 
-one: fix
+hash:
+	echo '{\\noindent ${VERSION_DATE}} \\\\ \n {\\noindent from ${VERSION_HASH}}'  > tex/version.tex
+
+one: fix hash
+
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
 	-bibtex aic.latex
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
+
+compress:
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
-	-dNOPAUSE -dQUIET -dBATCH -sOutputFile=aic_book.pdf aic.pdf
+	-dNOPAUSE -dQUIET -dBATCH -sOutputFile=aic_compress.pdf aic.pdf
 
 ebook:
 	pandoc --gladtex -o aic.epub aic.latex
