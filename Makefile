@@ -4,7 +4,7 @@ SITE=${shell pwd}/docs
 
 .PHONY:  slides
 
-FILES = memos/2021-07-08_diodes/memo \
+FILES = lectures/tex_intro memos/2021-07-08_diodes/memo \
 	docs/_posts/2023-01-09-Refresher  \
 	lectures/l01_intro \
 	lectures/l02_esd \

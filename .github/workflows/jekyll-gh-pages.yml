@@ -24,6 +24,9 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    container:
+      image: texlive/texlive:latest
+      options: --user root
     steps:
       - name: Checkout
         uses: actions/checkout@v3

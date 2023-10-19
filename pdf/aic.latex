@@ -67,8 +67,8 @@
 
 \mainmatter
 
-%\chapter{Introduction}
-%\input{tex/lecture_1_-__introduction_fiximg.tex}
+\chapter{Introduction}
+\input{tex/tex_intro_fiximg.tex}
 
 \chapter{Refresher}
 \input{tex/a_refresher_fiximg.tex}
@@ -103,8 +103,8 @@
 \chapter{Low Power Radio}
 \input{tex/lecture_10_-_low_power_radio_fiximg.tex}
 
-%\chapter{Analog SystemVerilog}
-%\input{tex/lecture_11_-_analog_systemverilog_fiximg.tex}
+\chapter{Analog SystemVerilog}
+\input{tex/lecture_11_-_analog_systemverilog_fiximg.tex}
 
 \chapter{Energy Sources}
 \input{tex/lecture_x_-_energy_sources_fiximg.tex}
