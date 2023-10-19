@@ -663,7 +663,7 @@ It's possible to show that if the gain from $V(Vpi,Vpm)$ to ADC1i input is large
 -->
 
 
-![inline](../ip/qt_sd.png)![inline](../ip/qt_sd_response.png)
+![inline](../media/qt_sd.png)![inline](../ip/qt_sd_response.png)
 
 ---
 
