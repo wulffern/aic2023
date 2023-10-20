@@ -23,7 +23,7 @@ images.txt
 ip/
 
 # Distribution / packaging
-media/
+#media/
 .Python
 build/
 develop-eggs/
