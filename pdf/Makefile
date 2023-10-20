@@ -25,6 +25,10 @@ ebook:
 	pandoc --gladtex -o aic.epub aic.latex
 
 clean:
+	-rm *.latex
+	-rm *_fiximg.tex
+	-rm *.md
+	-rm -rf media
 	-rm *.bbl
 	-rm *.aux
 	-rm *.toc

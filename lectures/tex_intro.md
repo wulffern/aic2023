@@ -27,7 +27,7 @@ felt crap.
 I also learnt that even though I felt crap, there could be students that found
 my crap lecture interesting (thanks JS).
 
-It's hard to gauge whether 2022 was better than 2023, but I think so. At least I
+It's hard to gauge whether 2023 was better than 2022, but I think so. At least I
 got one student comment that the free-form white-board lectures were better than
 slides (thanks J).
 
@@ -39,10 +39,10 @@ The lecture notes were partly for the students, but mostly as a love letter to m
 future self.
 
 I realized during the first years of teaching that each
-`lecture` was a `race`, and each `topic` is a different `distance`. Unless the
-form was exactly matched to the distance, then the lecture would be crap.
+`lecture` was a `race`, and each `topic` is a different `distance`. Unless I got
+into perfect shape that exactly matched to the distance, then the lecture would be crap.
 
-Next year, I hope that by reading the notes, and watching the videos,  I can shorten the training time for
+Next year, I hope that by reading the notes, and watching the videos,  I can shorten my training time for
 each lecture to a few hours, and at the same time make the lectures better than
 ever.
 
@@ -53,4 +53,4 @@ into the [book](https://analogicus.com/aic2023/assets/aic.pdf) your looking at r
 
 Thanks to Fredrik and Jonathan that helped me with the course during the 2023 semester. 
 
-> If you find an error in what I've made, then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) [aic2023](https://github.com/wulffern/aic2023), fix , [commit](https://git-scm.com/docs/git-commit), [push](https://git-scm.com/docs/git-push) and [create a pull request](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request). That way, we use the global brain power most efficiently, and avoid multiple humans spending time on discovering the same error.
+If you find an error in what I've made, then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) [aic2023](https://github.com/wulffern/aic2023), fix , [commit](https://git-scm.com/docs/git-commit), [push](https://git-scm.com/docs/git-push) and [create a pull request](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request). That way, we use the global brain power most efficiently, and avoid multiple humans spending time on discovering the same error.
