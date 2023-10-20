@@ -27,4 +27,4 @@ ls -l lectures
 make latex book
 cp pdf/aic.epub docs/assets/
 cp pdf/aic.pdf docs/assets/
-cp -r pdf/tex/media docs/assets/tex
+#cp -r pdf/media docs/assets/tex
