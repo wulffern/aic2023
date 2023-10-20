@@ -21,6 +21,7 @@ tmplt = r"""
 }
 """
 
+
 with open(foname,"w") as fo:
     with open(fname) as fi:
         for line in fi:
@@ -31,18 +32,16 @@ with open(foname,"w") as fo:
                 #if(re.search("http",path)):
                 #    os.system(f"cd media && wget {path}")
                 fopath = "media/"+ os.path.basename(path).replace(".svg",".pdf")
-                ffpath = "tex/" + fopath
-                if(not os.path.exists(ffpath)):
-                    os.system(f"svg2pdf -o {ffpath} {path}")
+                if(not os.path.exists(fopath)):
+                    os.system(f"svg2pdf -o {fopath} {path}")
                 line = line.replace(path,fopath)
                 #line = re.sub("includegraphics","includesvg",line)
             elif(re.search("includegraphics.*\.gif",line)):
                 m = re.findall("{([^}]+)}",line)
                 path = m[0]
                 fopath = "media/"+ os.path.basename(path).replace(".gif",".png")
-                ffpath = "tex/" + fopath
-                if(not os.path.exists(ffpath)):
-                    os.system(f"convert {path} {ffpath}")
+                if(not os.path.exists(fopath)):
+                    os.system(f"convert {path} {fopath}")
                 line = line.replace(path,fopath)
 
             if(re.search("includegraphics{",line)):

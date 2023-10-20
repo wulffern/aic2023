@@ -50,7 +50,7 @@
 
 		\vspace{0.5\textheight} % Whitespace between the title block and the publisher
 
-    \input{tex/version.tex}
+    \input{version.tex}
 
 		{\noindent \copyright Carsten Wulff 2023}\\[\baselineskip] % Publisher and logo
 	}
@@ -70,49 +70,49 @@
 \mainmatter
 
 \chapter{Introduction}
-\input{tex/tex_intro_fiximg.tex}
+\input{tex_intro_fiximg.tex}
 
 \chapter{Refresher}
-\input{tex/a_refresher_fiximg.tex}
+\input{a_refresher_fiximg.tex}
 
 \chapter{Diodes}
-\input{tex/diodes_fiximg.tex}
+\input{diodes_fiximg.tex}
 
 \chapter{ESD and IC}
-\input{tex/lecture_2_-_ic_and_esd_fiximg.tex}
+\input{lecture_2_-_ic_and_esd_fiximg.tex}
 
 \chapter{References and bias}
-\input{tex/lecture_3_-_references_and_bias_fiximg.tex}
+\input{lecture_3_-_references_and_bias_fiximg.tex}
 
 \chapter{Analog frontend and filter}
-\input{tex/lecture_4_-_analog_frontend_and_filters_fiximg.tex}
+\input{lecture_4_-_analog_frontend_and_filters_fiximg.tex}
 
 \chapter{Switched capacitor circuits}
-\input{tex/lecture_5_-_switched-capacitor_circuits_fiximg.tex}
+\input{lecture_5_-_switched-capacitor_circuits_fiximg.tex}
 
 \chapter{Oversampling and Sigma-Delta ADCs}
-\input{tex/lecture_6_-_oversampling_and_sigma-delta_adcs_fiximg.tex}
+\input{lecture_6_-_oversampling_and_sigma-delta_adcs_fiximg.tex}
 
 \chapter{Voltage Regulation}
-\input{tex/lecture_7_-_voltage_regulation_fiximg.tex}
+\input{lecture_7_-_voltage_regulation_fiximg.tex}
 
 \chapter{Clocks and PLLs}
-\input{tex/lecture_8_-_clocks_and_plls_fiximg.tex}
+\input{lecture_8_-_clocks_and_plls_fiximg.tex}
 
 \chapter{Oscillators}
-\input{tex/lecture_9_-_oscillators_fiximg.tex}
+\input{lecture_9_-_oscillators_fiximg.tex}
 
 \chapter{Low Power Radio}
-\input{tex/lecture_10_-_low_power_radio_fiximg.tex}
+\input{lecture_10_-_low_power_radio_fiximg.tex}
 
 \chapter{Analog SystemVerilog}
-\input{tex/lecture_11_-_analog_systemverilog_fiximg.tex}
+\input{lecture_11_-_analog_systemverilog_fiximg.tex}
 
 \chapter{Energy Sources}
-\input{tex/lecture_x_-_energy_sources_fiximg.tex}
+\input{lecture_x_-_energy_sources_fiximg.tex}
 
 %\chapter{What I expect you to know}
-%\input{tex/what_i_expect_you_to_already_know.latex}
+%\input{what_i_expect_you_to_already_know.latex}
 
 
 

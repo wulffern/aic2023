@@ -42,7 +42,7 @@ posts:
 	cd lectures; cat ../images.txt |xargs git add -f
 
 latex:
-	-mkdir pdf/tex
+	-mkdir pdf/media
 	${foreach f, ${FILES}, python3 py/lecture.py latex ${f}.md ; }
 	cd pdf; make one
 

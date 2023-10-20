@@ -72,7 +72,7 @@ class Image():
 
             return f"![]({path})" + "{: width=\"700\" }\n"
         elif("latex" in self.options):
-            path = "tex/media/" + self.filesrc
+            path = "media/" + self.filesrc
             return f"![]({path})\n\n"
 
         return self.src
@@ -389,7 +389,7 @@ def post(filename,root,date):
 
 @cli.command()
 @click.argument("filename")
-@click.option("--root",default="pdf/tex/",help="output roote")
+@click.option("--root",default="pdf/",help="output roote")
 def latex(filename,root):
     options = dict()
     options["latex"] = root
@@ -401,9 +401,7 @@ def latex(filename,root):
 
 
     fname = root + os.path.sep + p.title.strip().replace(" ","_").lower() + ".md"
-    print(fname)
     with open(fname,"w") as fo:
-        #print(str(p))
         fo.write(str(p))
 
     flatex = fname.replace(".md",".latex")

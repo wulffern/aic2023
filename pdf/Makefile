@@ -3,17 +3,16 @@ VERSION_DATE=Built on $(shell date)
 VERSION_HASH=${shell git log -1 --pretty=format:"%H"}
 FILE= aic
 
-TEXS = ${shell ls -1 tex/*.latex}
+TEXS = ${shell ls -1 *.latex}
 
 fix:
 	${foreach f, ${TEXS}, python3 fix_svg.py ${f};}
 
 hash:
-	echo '{\\noindent ${VERSION_DATE}} \\\\ \n {\\noindent from ${VERSION_HASH}}'  > tex/version.tex
+	echo '{\\noindent ${VERSION_DATE}} \\\\ \n {\\noindent from ${VERSION_HASH}}'  > version.tex
 
 one: fix hash
-	ls -l tex/
-	ls -l tex/media
+	chmod -R 755  media
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
 	-bibtex aic.latex
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
