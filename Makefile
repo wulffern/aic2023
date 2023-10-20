@@ -47,7 +47,7 @@ latex:
 	cd pdf; make one
 
 book:
-	cd pdf; make book
+	cd pdf; make ebook
 
 slides:
 	${foreach f, ${FILES}, ${MAKE} slide FILE=$f; }
