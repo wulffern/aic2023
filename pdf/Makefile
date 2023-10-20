@@ -12,7 +12,8 @@ hash:
 	echo '{\\noindent ${VERSION_DATE}} \\\\ \n {\\noindent from ${VERSION_HASH}}'  > tex/version.tex
 
 one: fix hash
-	ls tex/
+	ls -l tex/
+	ls -l tex/media
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
 	-bibtex aic.latex
 	-pdflatex -interaction nonstopmode --shell-escape aic.latex
