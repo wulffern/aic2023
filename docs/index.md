@@ -19,4 +19,8 @@ A tutorial on the tools can be found at [https://wulffern.github.io/rply_ex0_sky
 
 IPs, like digital cells for analog design, transistors, and a 9-bit ADC can be found at [https://wulffern.github.io/aicex/](https://wulffern.github.io/aicex/)
 
-I've compiled all the lectures into a [book](https://analogicus.com/aic2023/assets/aic.pdf)
+I've compiled all the lectures into a
+[book](https://analogicus.com/aic2023/assets/aic.pdf)
+
+There exists a newer version of this repo at
+[aic2024](https://github.com/wulffern/aic2024), but I could still be writing on it.
