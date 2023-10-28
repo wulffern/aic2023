@@ -392,7 +392,7 @@ between.
 
 An inductor resist a change in current.
 
-$$ V = L \frac{dV}{dt}$$
+$$ V = L \frac{dI}{dt}$$
 
 and store energy in the magnetic fields in a loop of a conductor. 
 
