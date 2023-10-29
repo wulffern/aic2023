@@ -15,7 +15,7 @@ one: fix hash
 	chmod -R 755  media
 	pdflatex aic.latex
 	#-pdflatex -interaction nonstopmode --shell-escape aic.latex
-	bibtex aic.latex
+	-bibtex aic.latex
 	pdflatex aic.latex
 	#-pdflatex -interaction nonstopmode --shell-escape aic.latex
 
