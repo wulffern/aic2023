@@ -30,7 +30,7 @@ I don't go around remembering all of them, they are easily available online. Whe
 Electrons are fundamental, they cannot (as far as we know), be divided
 into smaller parts. Explained further in the [standard model of particle physics](https://en.wikipedia.org/wiki/Standard_Model)
 
-Electrons have a negative charge of $q \approx 1.602 \times 10^{-19}$. The proton a positive charge. The two charges balance exactly! If you have a trillion electrons and a trillion protons inside a volume, the net external charge will be $0$ (assuming we measure from some distance away). I find this fact absolutely incredible. There must be a fundamental connection between the charge of the proton and electron. It's inside that the charges balance out so exactly.
+Electrons have a negative charge of $q \approx 1.602 \times 10^{-19}$. The proton a positive charge. The two charges balance exactly! If you have a trillion electrons and a trillion protons inside a volume, the net external charge will be $0$ (assuming we measure from some distance away). I find this fact absolutely incredible. There must be a fundamental connection between the charge of the proton and electron. It's insane that the charges balance out so exactly.
 
 All electrons are the same, although the quantum state can be different.
 
