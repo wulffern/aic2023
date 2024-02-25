@@ -21,6 +21,7 @@ class Image():
         if("/ip/" in self.src and "allowIP" not in self.options):
             self.skip = True
 
+
         if(re.search("\s*https?://",self.src)):
             self.isUrl = True
             if("downloadImage" in self.options):
@@ -102,7 +103,7 @@ class Lecture():
     def copyAssets(self):
         with open("images.txt","a") as fo:
             for image in self.images:
-                if(not image.skip):
+                if(not image.skip and not image.isUrl and ("/ip/" not in image.src)):
                     fo.write(image.orgsrc + "\n")
                     fo.write(image.src +"\n")
                 image.copy()
