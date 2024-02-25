@@ -13,9 +13,9 @@ hash:
 
 one: fix hash
 	chmod -R 755  media
-	pdflatex aic.latex
+	pdflatex -interaction nonstopmode --shell-escape aic.latex
 	-bibtex aic.latex
-	pdflatex aic.latex
+	pdflatex -interaction nonstopmode --shell-escape aic.latex
 
 compress:
 	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
